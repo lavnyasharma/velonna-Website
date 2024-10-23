@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "seller": "architprasar",
+      "category": "ring",
+      "collection": "Ring",
+      "images": [
+        {
+          "image": "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1//object/public/velonnabucket/uploads/products/1234/0M1A4601.jpg"
+        },
+        {
+          "image": "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1//object/public/velonnabucket/uploads/products/1234/0M1A5377.jpg"
+        }
+      ],
+      "uuid": "135b291b-e2aa-4b32-b4a7-9894e1903ee3",
+      "created": "2024-10-10T10:59:59.982577Z",
+      "modified": "2024-10-10T11:00:49.638825Z",
+      "hsn": 1234,
+      "title": "Ring1",
+      "price": "400.00",
+      "material": "silver",
+      "gender": "male",
+      "age": null,
+      "is_live": true,
+      "quantity": 1,
+      "size": "10",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "gross_weight": 90,
+      "net_weight": 90,
+      "diamond_weight": null,
+      "stock_photo": "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1//object/public/velonnabucket/stockphoto/.jpg",
+      "kt": "",
+      "diamond_clearity": "",
+      "is_gold": false,
+      "is_diamond": false,
+      "views": 0,
+      "is_deleted": false
+    }
+  ]
