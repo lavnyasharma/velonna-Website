@@ -26,31 +26,22 @@ export interface ProductVariant {
 }
 
 export interface Product {
-  id: number;                   // Unique identifier for the product
-  seller: string;               // Seller of the product
-  title: string;                // Title of the product
-  price: number;                // Price of the product
-  images: { image: string }[];  // Array of image objects
-  collection: string;           // Collection the product belongs to
-  description: string;          // Description of the product
-  category: string;             // Category of the product
-  hsn: number;                  // HSN code of the product
-  material?: string;            // Material of the product
-  gender?: string;              // Gender the product is targeted for
-  age?: number | null;          // Age the product is targeted for, nullable
-  is_live?: boolean;            // Indicates if the product is live
-  quantity?: number;            // Available quantity of the product
-  size?: string;                // Size of the product
-  gross_weight?: number;        // Gross weight of the product
-  net_weight?: number;          // Net weight of the product
-  diamond_weight?: number | null; // Diamond weight, nullable
-  stock_photo?: string;         // Stock photo URL
-  kt?: string;                  // Placeholder for additional property
-  diamond_clearity?: string;    // Diamond clarity, if applicable
-  is_gold?: boolean;            // Indicates if the product is gold
-  is_diamond?: boolean;         // Indicates if the product is diamond
-  views?: number;               // Number of views
-  is_deleted?: boolean;         // Indicates if the product is deleted
+  id: number;
+  name: string;
+  price: number;
+  image: StaticImageData | string;
+  description: string;
+  category: string;
+  tags: string[];
+  link: "/product-detail/";
+  variants?: ProductVariant[];
+  variantType?: "color" | "image";
+  sizes?: string[];
+  allOfSizes?: string[];
+  status?: "New in" | "limited edition" | "Sold Out" | "50% Discount";
+  rating?: string;
+  numberOfReviews?: number;
+
 }
 
 const DEMO_VARIANTS: ProductVariant[] = [
