@@ -40,7 +40,7 @@ const ProductQuickView2: FC<ProductQuickView2Props> = ({ className = "" }) => {
           productImage={LIST_IMAGES_DEMO[0]}
           qualitySelected={qualitySelected}
           show={t.visible}
-          sizeSelected={sizeSelected}
+          
           variantActive={variantActive}
         />
       ),

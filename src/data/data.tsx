@@ -25,23 +25,58 @@ export interface ProductVariant {
   featuredImage: StaticImageData | string;
 }
 
+
+export interface ProductImage {
+  image: string; // URL of the image
+  alt?: string; // Alternative text for accessibility
+}
+
+export interface Category {
+  id: number,
+  name: string,
+  icon: string,
+  lft: number,
+  rght: number,
+  tree_id: number,
+  level: number,
+  parent: number
+}
+
 export interface Product {
   id: number;
-  name: string;
+  title: string;
+  hsn:number;
+  collection: string | number,
   price: number;
-  image: StaticImageData | string;
+  images: ProductImage[]; // Set to null if there's no image
   description: string;
-  category: string;
-  tags: string[];
+  category: string|number;
+  tags: string[]; // You may want to add tags based on product attributes
   link: "/product-detail/";
   variants?: ProductVariant[];
   variantType?: "color" | "image";
-  sizes?: string[];
-  allOfSizes?: string[];
+  sizes?: string[]; // e.g., if there are additional sizes
+  allOfSizes?: string[]; // e.g., all available sizes
   status?: "New in" | "limited edition" | "Sold Out" | "50% Discount";
   rating?: string;
   numberOfReviews?: number;
-
+  material?: string;
+  gender?: string;
+  age?: string;
+  isLive: boolean;
+  quantity: number;
+  size: string;
+  grossWeight: number;
+  netWeight: number;
+  diamondWeight?: number | null;
+  stockPhoto?: string | null;
+  kt?: number | null;
+  diamondClarity?: string;
+  isGold: boolean;
+  isDiamond: boolean;
+  views: number;
+  isDeleted: boolean;
+  forCounter: boolean;
 }
 
 const DEMO_VARIANTS: ProductVariant[] = [

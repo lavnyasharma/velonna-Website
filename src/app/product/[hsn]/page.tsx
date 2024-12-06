@@ -45,6 +45,56 @@ const LIST_IMAGES_GALLERY_DEMO: (string | StaticImageData)[] = [
 ];
 const PRICE = 108;
 
+
+const ProductScreenSkeleton = () => (
+  <div className="animate-pulse">
+    {/* Header Image Skeleton */}
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6 mb-8">
+      <div className="col-span-2 md:col-span-1 row-span-2 bg-gray-300 rounded-md h-96"></div>
+      <div className="col-span-1 row-span-2 bg-gray-300 rounded-md h-96"></div>
+      <div className="bg-gray-300 rounded-md h-48"></div>
+      <div className="bg-gray-300 rounded-md h-48"></div>
+    </div>
+
+    {/* Product Information Skeleton */}
+    <div className="space-y-6 lg:space-y-8 px-4">
+      {/* Title */}
+      <div className="h-6 bg-gray-300 rounded w-3/4"></div>
+      {/* Reviews */}
+      <div className="flex items-center space-x-2">
+        <div className="h-5 w-20 bg-gray-300 rounded"></div>
+        <div className="h-5 w-12 bg-gray-300 rounded"></div>
+      </div>
+      {/* Price */}
+      <div className="h-8 w-1/2 bg-gray-300 rounded"></div>
+      {/* Add to Cart */}
+      <div className="h-12 w-full bg-gray-300 rounded mt-4"></div>
+    </div>
+
+    {/* Description Skeleton */}
+    <div className="space-y-4 px-4 mt-8">
+      <div className="h-6 bg-gray-300 rounded w-1/4"></div>
+      <div className="h-4 bg-gray-300 rounded w-full"></div>
+      <div className="h-4 bg-gray-300 rounded w-5/6"></div>
+      <div className="h-4 bg-gray-300 rounded w-4/6"></div>
+    </div>
+
+    {/* Additional Sections */}
+    <div className="space-y-6 px-4 mt-8">
+      {/* Similar Products */}
+      <div className="h-6 bg-gray-300 rounded w-1/3"></div>
+      <div className="flex space-x-4">
+        <div className="h-48 w-32 bg-gray-300 rounded"></div>
+        <div className="h-48 w-32 bg-gray-300 rounded"></div>
+        <div className="h-48 w-32 bg-gray-300 rounded"></div>
+      </div>
+    </div>
+  </div>
+);
+
+
+
+
 function ProductScreen() {
   const [recProducts, setRecProducts] = useState([]);
   const [hsnProduct, setHsnProduct] = useState<Product | null>(null);
@@ -604,7 +654,7 @@ function ProductScreen() {
           />
         </div>
       ) : (
-        <div>Loading</div>
+        <ProductScreenSkeleton/>
       )}
     </>
   );

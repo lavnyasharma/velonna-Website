@@ -26,15 +26,15 @@ const CheckoutPage = () => {
   };
 
   const renderProduct = (item: Product, index: number) => {
-    const { image, price, name } = item;
+    const { images, price, title } = item;
 
     return (
       <div key={index} className="relative flex py-7 first:pt-0 last:pb-0">
         <div className="relative h-36 w-24 sm:w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
           <Image
-            src={image}
+            src={images[0]?.image}
             fill
-            alt={name}
+            alt={title}
             className="h-full w-full object-contain object-center"
             sizes="150px"
           />
@@ -46,7 +46,7 @@ const CheckoutPage = () => {
             <div className="flex justify-between ">
               <div className="flex-[1.5] ">
                 <h3 className="text-base font-semibold">
-                  <Link href="/product-detail">{name}</Link>
+                  <Link href="/product-detail">{title}</Link>
                 </h3>
                 <div className="mt-1.5 sm:mt-2.5 flex text-sm text-slate-600 dark:text-slate-300">
                   <div className="flex items-center space-x-1.5">
@@ -246,7 +246,7 @@ const CheckoutPage = () => {
           <div className="w-full lg:w-[36%] ">
             <h3 className="text-lg font-semibold">Order summary</h3>
             <div className="mt-8 divide-y divide-slate-200/70 dark:divide-slate-700 ">
-              {[PRODUCTS[0], PRODUCTS[2], PRODUCTS[3]].map(renderProduct)}
+              {/* {[PRODUCTS[0], PRODUCTS[2], PRODUCTS[3]].map(renderProduct)} */}
             </div>
 
             <div className="mt-10 pt-6 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200/70 dark:border-slate-700 ">

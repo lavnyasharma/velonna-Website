@@ -11,14 +11,14 @@ import Link from "next/link";
 
 export default function CartDropdown() {
   const renderProduct = (item: Product, index: number, close: () => void) => {
-    const { name, price, image } = item;
+    const { title, price, images } = item;
     return (
       <div key={index} className="flex py-5 last:pb-0">
         <div className="relative h-24 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
           <Image
             fill
-            src={image}
-            alt={name}
+            src={images[0]?.image}
+            alt={title}
             className="h-full w-full object-contain object-center"
           />
           <Link
@@ -34,7 +34,7 @@ export default function CartDropdown() {
               <div>
                 <h3 className="text-base font-medium ">
                   <Link onClick={close} href={"/product-detail"}>
-                    {name}
+                    {title}
                   </Link>
                 </h3>
                 <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
@@ -132,9 +132,9 @@ export default function CartDropdown() {
                   <div className="max-h-[60vh] p-5 overflow-y-auto hiddenScrollbar">
                     <h3 className="text-xl font-semibold">Shopping cart</h3>
                     <div className="divide-y divide-slate-100 dark:divide-slate-700">
-                      {[PRODUCTS[0], PRODUCTS[1], PRODUCTS[2]].map(
+                      {/* {[PRODUCTS[0], PRODUCTS[1], PRODUCTS[2]].map(
                         (item, index) => renderProduct(item, index, close)
-                      )}
+                      )} */}
                     </div>
                   </div>
                   <div className="bg-neutral-50 dark:bg-slate-900 p-5">

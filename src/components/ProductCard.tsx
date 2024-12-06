@@ -26,18 +26,21 @@ export interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({
   className = "",
-  data = PRODUCTS[0],
+    data = {} as Product, 
   isLiked,
 }) => {
   const {
-    name,
+    hsn,
+    title,
     price,
+    collection,
+    category,
     description,
     sizes,
     variants,
     variantType,
     status,
-    image,
+    images,
     rating,
     id,
     numberOfReviews,
@@ -83,8 +86,8 @@ const ProductCard: FC<ProductCardProps> = ({
           <Image
             width={80}
             height={96}
-            src={image}
-            alt={name}
+            src={images[0]?.image}
+            alt={title}
             className="absolute object-cover object-center"
           />
         </div>
@@ -93,7 +96,7 @@ const ProductCard: FC<ProductCardProps> = ({
           <div>
             <div className="flex justify-between ">
               <div>
-                <h3 className="text-base font-medium ">{name}</h3>
+                <h3 className="text-base font-medium ">{title}</h3>
                 <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
                   <span>
                     {variants ? variants[variantActive].name : `Natural`}
@@ -264,13 +267,13 @@ const ProductCard: FC<ProductCardProps> = ({
       <div
         className={`nc-ProductCard relative flex flex-col bg-transparent ${className}`}
       >
-        <Link href={"/product-detail"} className="absolute inset-0"></Link>
+        <Link href={`/product/${hsn}`} className="absolute inset-0"></Link>
 
         <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 group">
-          <Link href={"/product-detail"} className="block">
+          <Link href={`/product/${hsn}`} className="block">
             <NcImage
               containerClassName="flex aspect-w-11 aspect-h-12 w-full h-0"
-              src={image}
+              src={images[0]?.image}
               className="object-cover w-full h-full drop-shadow-xl"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 40vw"
@@ -286,10 +289,10 @@ const ProductCard: FC<ProductCardProps> = ({
           {renderVariants()}
           <div>
             <h2 className="nc-ProductCard__title text-base font-semibold transition-colors">
-              {name}
+              {title.charAt(0).toUpperCase() + title.slice(1)}
             </h2>
             <p className={`text-sm text-slate-500 dark:text-slate-400 mt-1 `}>
-              {description}
+              {collection.toString().charAt(0).toUpperCase() + collection.toString().slice(1)}
             </p>
           </div>
 

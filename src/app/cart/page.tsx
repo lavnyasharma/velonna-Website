@@ -26,7 +26,7 @@ const CartPage = () => {
   };
 
   const renderProduct = (item: Product, index: number) => {
-    const { image, price, name } = item;
+    const { images, price, title } = item;
 
     return (
       <div
@@ -36,8 +36,8 @@ const CartPage = () => {
         <div className="relative h-36 w-24 sm:w-32 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
           <Image
             fill
-            src={image}
-            alt={name}
+            src={images[0]?.image}
+            alt={title}
             sizes="300px"
             className="h-full w-full object-contain object-center"
           />
@@ -49,7 +49,7 @@ const CartPage = () => {
             <div className="flex justify-between ">
               <div className="flex-[1.5] ">
                 <h3 className="text-base font-semibold">
-                  <Link href="/product-detail">{name}</Link>
+                  <Link href="/product-detail">{title}</Link>
                 </h3>
                 <div className="mt-1.5 sm:mt-2.5 flex text-sm text-slate-600 dark:text-slate-300">
                   <div className="flex items-center space-x-1.5">
@@ -206,13 +206,13 @@ const CartPage = () => {
 
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-[60%] xl:w-[55%] divide-y divide-slate-200 dark:divide-slate-700 ">
-            {[
+            {/* {[
               PRODUCTS[0],
               PRODUCTS[1],
               PRODUCTS[2],
               PRODUCTS[3],
               PRODUCTS[4],
-            ].map(renderProduct)}
+            ].map(renderProduct)} */}
           </div>
           <div className="border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-slate-700 my-10 lg:my-0 lg:mx-10 xl:mx-16 2xl:mx-20 flex-shrink-0"></div>
           <div className="flex-1">

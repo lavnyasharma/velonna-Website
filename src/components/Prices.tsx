@@ -9,12 +9,12 @@ export interface PricesProps {
 const Prices: FC<PricesProps> = ({
   className = "",
   price = 33,
-  contentClass = "py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium",
+  contentClass = "py-1 px-2  text-sm font-medium",
 }) => {
   return (
     <div className={`${className}`}>
       <div
-        className={`flex items-center border-2 rounded-lg ${contentClass}`}
+        className={`flex items-center ${contentClass}`}
       >
         <span className="text-black-500 !leading-none"> &#8377;{String(price)}</span>
       </div>
