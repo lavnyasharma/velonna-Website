@@ -118,14 +118,14 @@ const SectionHero: FC<SectionHero2Props> = ({ className = "" }) => {
           <Loading />
         ) : (
           <div
-  className="relative nc-SectionHero2Item nc-SectionHero2Item--animation inset-0 object-contain sm:mt-10 md:mt-5 sm:mx-6 md:mx-6 xl:mx-16"
-  style={{ borderRadius: "1.5rem", display: "flex", justifyContent: "center" }}
->
+            className="relative nc-SectionHero2Item nc-SectionHero2Item--animation inset-0 object-contain "
+            style={{}}
+          >
 
-            <div className="mx-5">
+            <div className="">
               <div className="absolute bottom-0 left-5 sm:bottom-5 sm:left-10 container pt-14 sm:pt-20 lg:pt-44 pb-5">
                 <div
-                  className={`relative z-[1] w-full max-w-3xl space-y-8 sm:space-y-14 nc-SectionHero2Item__left`}
+                  className={`relative z-[1] w-full  space-y-8 sm:space-y-14 nc-SectionHero2Item__left`}
                 >
                   <div className="space-y-5 sm:space-y-6">
                     <span className="nc-SectionHero2Item__subheading block text-base md:text-xl text-white font-medium">
@@ -136,21 +136,26 @@ const SectionHero: FC<SectionHero2Props> = ({ className = "" }) => {
                     </h2>
                   </div>
 
-                  <ButtonPrimary
+                  {/* <ButtonPrimary
                     className="nc-SectionHero2Item__button dark:bg-slate-900 "
                     sizeClass="py-2 px-6 sm:py-3 sm:px-5"
                     href={item?.btnLink}
                   >
                     <span>{item?.btnText}</span>
-                  </ButtonPrimary>
+                  </ButtonPrimary> */}
                 </div>
               </div>
               <Image
-                // fill
-                // sizes="(max-width: 900px) 100vw, 100vw"
                 src={item?.image}
-                style={{ borderRadius: "1.5rem", marginTop: "5px" }}
                 alt="hero"
+                layout="responsive" // Automatically scales width and height based on parent
+               
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  aspectRatio:"21/8",   // Maintain aspect ratio
+                  objectFit: "cover", // Optional: Ensures the image fills the container without distortion
+                }}
               />
             </div>
           </div>

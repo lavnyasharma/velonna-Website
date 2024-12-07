@@ -651,7 +651,7 @@ const TabFilters = () => {
                 />
               </svg>
 
-              <span className="ml-2 min-w-[90px]">{`${rangePrices[0]}$ - ${rangePrices[1]}$`}</span>
+              <span className="ml-2 min-w-[90px]">{`₹${rangePrices[0]} - ₹${rangePrices[1]}`}</span>
               {rangePrices[0] === PRICE_RANGE[0] &&
               rangePrices[1] === PRICE_RANGE[1] ? null : (
                 <span onClick={() => setRangePrices(PRICE_RANGE)}>
@@ -696,7 +696,7 @@ const TabFilters = () => {
                         </label>
                         <div className="mt-1 relative rounded-md">
                           <span className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-neutral-500 sm:text-sm">
-                            $
+                          ₹
                           </span>
                           <input
                             type="text"
@@ -717,7 +717,7 @@ const TabFilters = () => {
                         </label>
                         <div className="mt-1 relative rounded-md">
                           <span className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-neutral-500 sm:text-sm">
-                            $
+                          ₹
                           </span>
                           <input
                             type="text"
@@ -940,7 +940,7 @@ const TabFilters = () => {
                 className="inline-block h-screen align-middle"
                 aria-hidden="true"
               >
-                &#8203;
+                ₹
               </span>
               <Transition.Child
                 className="inline-block h-screen w-full max-w-4xl"
@@ -1022,7 +1022,7 @@ const TabFilters = () => {
                                 <div className="mt-1 relative rounded-md">
                                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span className="text-neutral-500 sm:text-sm">
-                                      $
+                                    ₹
                                     </span>
                                   </div>
                                   <input
@@ -1045,7 +1045,7 @@ const TabFilters = () => {
                                 <div className="mt-1 relative rounded-md">
                                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span className="text-neutral-500 sm:text-sm">
-                                      $
+                                    ₹
                                     </span>
                                   </div>
                                   <input

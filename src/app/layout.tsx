@@ -14,8 +14,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'flaakko',
-  description:'e-commers web app'
+  title: 'Velonna',
+  description:'velonna'
 }
 
 export default function RootLayout({

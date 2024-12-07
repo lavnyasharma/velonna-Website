@@ -15,7 +15,7 @@ const PageSearch = ({}) => {
 
   const [productData,setProductData] = useState([])
   function getProduct(){
-    const res = axios.get("https://api.velonna.co/list/product/").then((res)=>{
+    const res = axios.get("https://api.velonna.co/list/product/?limit=12").then((res)=>{
       setProductData(res.data["results"])
     })
 
@@ -90,7 +90,7 @@ const PageSearch = ({}) => {
           <HeaderFilterSearchPage />
 
           {/* LOOP ITEMS */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-10 mt-8 lg:mt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-10 mt-8 lg:mt-10">
             {(productData).length!==0?productData.map((item, index) => (
               <ProductCard data={item} key={index} />
             )):"Loading"}

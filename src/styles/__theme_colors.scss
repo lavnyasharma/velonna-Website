@@ -1,38 +1,37 @@
-// Change your color you want --- please input rgb color (ex: 22,33,44)
-
-// THEME PALETTE 9 ==========================================
 :root {
-  --c-primary-50: 240, 249, 255;
-  --c-primary-100: 224, 242, 254;
-  --c-primary-200: 186, 230, 253;
-  --c-primary-300: 125, 211, 252;
-  --c-primary-400: 56, 189, 248;
-  --c-primary-500: 14, 165, 233;
-  --c-primary-600: 2, 132, 199;
-  --c-primary-700: 3, 105, 161;
-  --c-primary-800: 7, 89, 133;
-  --c-primary-900: 12, 74, 110;
-  // SECONDARY COLOR
-  --c-secondary-50: 240, 253, 244;
-  --c-secondary-100: 220, 252, 231;
-  --c-secondary-200: 187, 247, 208;
-  --c-secondary-300: 134, 239, 172;
-  --c-secondary-400: 74, 222, 128;
-  --c-secondary-500: 34, 197, 94;
-  --c-secondary-600: 22, 163, 74;
-  --c-secondary-700: 21, 128, 61;
-  --c-secondary-800: 22, 101, 52;
-  --c-secondary-900: 20, 83, 45;
+  // PRIMARY COLOR (Charcoal shades)
+  --c-primary-50: 245, 245, 245;
+  --c-primary-100: 225, 225, 225;
+  --c-primary-200: 190, 190, 190;
+  --c-primary-300: 130, 130, 130;
+  --c-primary-400: 90, 90, 90;
+  --c-primary-500: 60, 60, 60;
+  --c-primary-600: 45, 45, 45;
+  --c-primary-700: 35, 35, 35;
+  --c-primary-800: 25, 25, 25;
+  --c-primary-900: 15, 15, 15;
 
-  // NEUTRAL COLOR
-  --c-neutral-50: 249, 250, 251;
-  --c-neutral-100: 243, 244, 246;
-  --c-neutral-200: 229, 231, 235;
-  --c-neutral-300: 209, 213, 219;
-  --c-neutral-400: 156, 163, 175;
-  --c-neutral-500: 107, 114, 128;
-  --c-neutral-600: 75, 85, 99;
-  --c-neutral-700: 55, 65, 81;
-  --c-neutral-800: 31, 41, 55;
-  --c-neutral-900: 17, 24, 39;
+  // SECONDARY COLOR (Light greys and accents)
+  --c-secondary-50: 255, 255, 255;
+  --c-secondary-100: 240, 240, 240;
+  --c-secondary-200: 220, 220, 220;
+  --c-secondary-300: 190, 190, 190;
+  --c-secondary-400: 150, 150, 150;
+  --c-secondary-500: 110, 110, 110;
+  --c-secondary-600: 85, 85, 85;
+  --c-secondary-700: 65, 65, 65;
+  --c-secondary-800: 45, 45, 45;
+  --c-secondary-900: 30, 30, 30;
+
+  // NEUTRAL COLOR (Charcoal to white)
+  --c-neutral-50: 255, 255, 255;
+  --c-neutral-100: 240, 240, 240;
+  --c-neutral-200: 220, 220, 220;
+  --c-neutral-300: 180, 180, 180;
+  --c-neutral-400: 140, 140, 140;
+  --c-neutral-500: 100, 100, 100;
+  --c-neutral-600: 70, 70, 70;
+  --c-neutral-700: 50, 50, 50;
+  --c-neutral-800: 30, 30, 30;
+  --c-neutral-900: 20, 20, 20;
 }

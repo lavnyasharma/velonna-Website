@@ -64,7 +64,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
   const renderSearchForm = () => {
     return (
       <form
-        className="flex-1 py-2 text-slate-900 dark:text-slate-100"
+        className="flex-1 py-4 h-20 text-slate-900 dark:text-slate-100"
         onSubmit={(e) => {
           e.preventDefault();
           router.push("/search");

@@ -28,12 +28,7 @@ async function PageHome() {
   return (
     <div className="nc-PageHome relative overflow-hidden">
       <SectionHero />
-
-      <div className="mt-24 lg:mt-32">
-        <DiscoverMoreSlider />
-      </div>
-
-      <div className="container relative space-y-24 my-24 lg:space-y-32 lg:my-32">
+      <div className="container relative space-y-24 my-16 lg:space-y-32 lg:my-16">
         <SectionSliderProductCard
           data={pdata?pdata:"Loading"}
         />
@@ -41,7 +36,7 @@ async function PageHome() {
         {/* <div className="py-24 lg:py-32 border-t border-b border-slate-200 dark:border-slate-700">
           <SectionHowItWork />
         </div> */}
-        {/* <SectionPromo1 /> */}
+      {/* <SectionPromo1 />  */}
 
         <div className="relative py-24 lg:py-32">
           <BackgroundSection />
@@ -64,7 +59,7 @@ async function PageHome() {
 
         <SectionGridFeatureItems data={pdata?pdata:"Loading"} />
 
-        <div className="relative py-24 lg:py-32">
+        {/* <div className="relative py-24 lg:py-32">
           <BackgroundSection />
           <div>
             <Heading rightDescText="From the Ciseco blog">
@@ -75,9 +70,10 @@ async function PageHome() {
               <ButtonSecondary>Show all blog articles</ButtonSecondary>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* <SectionClientSay /> */}
       </div>
+      
     </div>
   );
 }

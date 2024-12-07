@@ -49,7 +49,7 @@ const MainNav2: FC<MainNav2Props> = ({ className = "" }) => {
   const renderSearchForm = () => {
     return (
       <form
-        className="flex-1 py-2 text-slate-900 dark:text-slate-100"
+        className="flex-1 py-2 text-slate-900 h-20 dark:text-slate-100"
         onSubmit={(e) => {
           e.preventDefault();
           router.push("/search");
