@@ -1,4 +1,4 @@
-// File: /Users/shuvamkhajuria/Desktop/velonnawebsite/src/app/refundpolicy/page.tsx
+// File: /Users/lavanyasharma/Documents/GitHub/velonna-Website/src/app/refundpolicy/page.tsx
 import * as entry from '../../../../src/app/refundpolicy/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

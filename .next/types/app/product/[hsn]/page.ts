@@ -1,4 +1,4 @@
-// File: /Users/shuvamkhajuria/Desktop/velonnawebsite/src/app/product/[hsn]/page.tsx
+// File: /Users/lavanyasharma/Documents/GitHub/velonna-Website/src/app/product/[hsn]/page.tsx
 import * as entry from '../../../../../src/app/product/[hsn]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

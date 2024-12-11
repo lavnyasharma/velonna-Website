@@ -53,7 +53,7 @@ async function PageHome() {
 
         {/* <SectionSliderLargeProduct cardStyle="style2" /> */}
 
-        <SectionSliderCategories />
+        {/* <SectionSliderCategories /> */}
 
         {/* <SectionPromo3 /> */}
 

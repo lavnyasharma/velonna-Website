@@ -3,16 +3,16 @@
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /* latin-ext */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(/_next/static/media/8d346445d24062b5-s.woff2) format('woff2');
+  src: url(/_next/static/media/6c9a125e97d835e1-s.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -21,16 +21,16 @@
 }
 /* latin-ext */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/_next/static/media/46c21389e888bf13-s.woff2) format('woff2');
+  src: url(/_next/static/media/fe0777f1195381cb-s.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -39,16 +39,16 @@
 }
 /* latin-ext */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(/_next/static/media/f5767adec246cdc1-s.woff2) format('woff2');
+  src: url(/_next/static/media/f10b8e9d91f3edcb-s.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -57,16 +57,16 @@
 }
 /* latin-ext */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(/_next/static/media/0a03a6d30c07af2e-s.woff2) format('woff2');
+  src: url(/_next/static/media/c3bc380753a8436c-s.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -75,23 +75,23 @@
 }
 /* latin-ext */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/_next/static/media/30cd8f99d32fa6e8-s.woff2) format('woff2');
+  src: url(/_next/static/media/a1386beebedccca4-s.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
-  font-family: '__Poppins_2bdbd2';
+  font-family: '__Poppins_559008';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: url(/_next/static/media/b957ea75a84b6ea7-s.p.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {font-family: '__Poppins_Fallback_2bdbd2';src: local("Arial");ascent-override: 92.33%;descent-override: 30.78%;line-gap-override: 8.79%;size-adjust: 113.73%
-}.__className_2bdbd2 {font-family: '__Poppins_2bdbd2', '__Poppins_Fallback_2bdbd2';font-style: normal
+}@font-face {font-family: '__Poppins_Fallback_559008';src: local("Arial");ascent-override: 92.33%;descent-override: 30.78%;line-gap-override: 8.79%;size-adjust: 113.73%
+}.__className_559008 {font-family: '__Poppins_559008', '__Poppins_Fallback_559008';font-style: normal
 }
 
 /*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -2255,6 +2255,10 @@ select {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -2282,10 +2286,6 @@ select {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-.my-16 {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
 }
 .\!ml-auto {
   margin-left: auto !important;
@@ -6216,11 +6216,6 @@ select {
     margin-right: 5rem;
   }
 
-  .sm\:mx-6 {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-
   .sm\:my-12 {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -6839,11 +6834,6 @@ select {
     margin-right: 5rem;
   }
 
-  .md\:mx-6 {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-
   .md\:my-0 {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -7235,14 +7225,14 @@ select {
     margin-bottom: 0px;
   }
 
-  .lg\:my-32 {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-  }
-
   .lg\:my-16 {
     margin-top: 4rem;
     margin-bottom: 4rem;
+  }
+
+  .lg\:my-32 {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
   }
 
   .lg\:-mt-7 {
@@ -7299,10 +7289,6 @@ select {
 
   .lg\:mt-24 {
     margin-top: 6rem;
-  }
-
-  .lg\:mt-32 {
-    margin-top: 8rem;
   }
 
   .lg\:block {

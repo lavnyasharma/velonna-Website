@@ -53,7 +53,7 @@ export interface SectionSliderCategoriesProps {
 }
 
 const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
-  heading = "Shop by department",
+  heading = "Shop by departments",
   subHeading = "",
   className = "",
   itemClassName = "",

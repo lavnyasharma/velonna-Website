@@ -16,27 +16,40 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/privacypolicy/page": [
+    "/collection/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/privacypolicy/page.css",
-      "static/chunks/app/privacypolicy/page.js"
+      "static/chunks/app/collection/page.js"
     ],
-    "/product/[hsn]/page": [
+    "/cart/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/product/[hsn]/page.css",
-      "static/chunks/app/product/[hsn]/page.js"
+      "static/chunks/app/cart/page.js"
     ],
     "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/login/page.js"
     ],
-    "/collection/page": [
+    "/(accounts)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/collection/page.js"
+      "static/chunks/app/(accounts)/layout.js"
+    ],
+    "/(accounts)/account/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(accounts)/account/page.js"
+    ],
+    "/(accounts)/account-savelists/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(accounts)/account-savelists/page.js"
+    ],
+    "/(accounts)/account-order/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(accounts)/account-order/page.js"
     ],
     "/termsandconidtions/page": [
       "static/chunks/webpack.js",
@@ -50,15 +63,21 @@
       "static/css/app/refundpolicy/page.css",
       "static/chunks/app/refundpolicy/page.js"
     ],
-    "/cart/page": [
+    "/forgot-pass/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/cart/page.js"
+      "static/chunks/app/forgot-pass/page.js"
     ],
-    "/search/page": [
+    "/checkout/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/search/page.js"
+      "static/chunks/app/checkout/page.js"
+    ],
+    "/product/[hsn]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/product/[hsn]/page.css",
+      "static/chunks/app/product/[hsn]/page.js"
     ]
   }
 }
