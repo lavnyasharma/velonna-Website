@@ -13,7 +13,7 @@ const AccountPage = () => {
       <div className="space-y-10 sm:space-y-12">
         {/* HEADING */}
         <h2 className="text-2xl sm:text-3xl font-semibold">
-          Account infomation
+          Account information
         </h2>
         <div className="flex flex-col md:flex-row">
           <div className="flex-shrink-0 flex items-start">
