@@ -1,4 +1,4 @@
-// File: /Users/lavanyasharma/Documents/GitHub/velonna-Website/src/app/checkout/page.tsx
+// File: /Users/lavanyasharma/Documents/GitHub/velonna-Website/src/app/checkout/page.js
 import * as entry from '../../../../src/app/checkout/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

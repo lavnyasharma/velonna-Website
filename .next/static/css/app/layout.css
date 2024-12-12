@@ -1,6 +1,6 @@
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[12].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Poppins","arguments":[{"subsets":["latin"],"display":"swap","weight":["300","400","500","600","700"]}],"variableName":"poppins"} ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[12].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src/app/layout.js","import":"Poppins","arguments":[{"subsets":["latin"],"display":"swap","weight":["300","400","500","600","700"]}],"variableName":"poppins"} ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /* latin-ext */
 @font-face {
   font-family: '__Poppins_559008';
@@ -2545,9 +2545,6 @@ select {
 .h-0 {
   height: 0px;
 }
-.h-1\/2 {
-  height: 50%;
-}
 .h-10 {
   height: 2.5rem;
 }
@@ -2592,6 +2589,9 @@ select {
 }
 .h-5 {
   height: 1.25rem;
+}
+.h-56 {
+  height: 14rem;
 }
 .h-6 {
   height: 1.5rem;
@@ -3791,14 +3791,6 @@ select {
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
-.bg-gradient-to-t {
-  background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-.from-black {
-  --tw-gradient-from: #000 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
 .from-black\/0 {
   --tw-gradient-from: rgb(0 0 0 / 0) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
@@ -4277,10 +4269,6 @@ select {
 .text-neutral-100 {
   --tw-text-opacity: 1;
   color: rgba(var(--c-neutral-100), var(--tw-text-opacity));
-}
-.text-neutral-200 {
-  --tw-text-opacity: 1;
-  color: rgba(var(--c-neutral-200), var(--tw-text-opacity));
 }
 .text-neutral-300 {
   --tw-text-opacity: 1;
@@ -6216,11 +6204,6 @@ select {
     margin-right: 5rem;
   }
 
-  .sm\:my-12 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
-
   .sm\:my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -7098,10 +7081,6 @@ select {
     padding-bottom: 2rem;
   }
 
-  .md\:pl-11 {
-    padding-left: 2.75rem;
-  }
-
   .md\:pl-16 {
     padding-left: 4rem;
   }
@@ -7285,10 +7264,6 @@ select {
 
   .lg\:mt-16 {
     margin-top: 4rem;
-  }
-
-  .lg\:mt-24 {
-    margin-top: 6rem;
   }
 
   .lg\:block {
@@ -7590,10 +7565,6 @@ select {
 
   .lg\:pt-14 {
     padding-top: 3.5rem;
-  }
-
-  .lg\:pt-16 {
-    padding-top: 4rem;
   }
 
   .lg\:pt-20 {

@@ -1,8 +1,5 @@
 {
   "/page": "app/page.js",
-  "/collection/page": "app/collection/page.js",
-  "/product/[hsn]/page": "app/product/[hsn]/page.js",
-  "/termsandconidtions/page": "app/termsandconidtions/page.js",
-  "/(accounts)/account-order/page": "app/(accounts)/account-order/page.js",
-  "/(accounts)/account/page": "app/(accounts)/account/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/collection/page": "app/collection/page.js"
 }
