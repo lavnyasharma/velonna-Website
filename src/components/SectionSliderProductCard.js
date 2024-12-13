@@ -2,10 +2,8 @@
 
 import React, { FC, useEffect, useId, useRef, useState } from "react";
 import Heading from "@/components/Heading/Heading";
-// @ts-ignore
 import Glide from "@glidejs/glide/dist/glide.esm";
 import ProductCard from "./ProductCard";
-import { Product, PRODUCTS } from "@/data/data";
 
 
 
@@ -51,11 +49,11 @@ const SectionSliderProductCard = ({
         },
         640: {
           gap: 20,
-          perView: 1.5,
+          perView: 2.3,
         },
         500: {
           gap: 20,
-          perView: 1.3,
+          perView: 2.3,
         },
       },
     };

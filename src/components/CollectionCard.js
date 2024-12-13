@@ -53,7 +53,7 @@ const CollectionCard2= ({
       <div className="relative mt-5 flex justify-between">
         {/* TITLE */}
         <div className="flex-1">
-          <h2 className="font-semibold text-lg sm:text-xl ">{name}</h2>
+          <h2 className="font-semibold text-lg sm:text-sm ">{name}</h2>
           {/* AUTHOR */}
           <div className="mt-3 flex items-center text-slate-500 dark:text-slate-400">
             <span className="text-sm ">

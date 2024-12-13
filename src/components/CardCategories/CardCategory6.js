@@ -17,14 +17,12 @@ const CardCategory6 = ({
 }) => {
   return (
     <div
-      className={`nc-CardCategory6 relative w-full aspect-w-1 aspect-h-1 h-0 rounded-3xl overflow-hidden bg-white dark:bg-neutral-900 group hover:nc-shadow-lg transition-shadow ${className}`}
+      className={` relative aspect-w-1 aspect-h-1 h-1 rounded-3xl overflow-hidden bg-white dark:bg-neutral-900 group hover:nc-shadow-lg transition-shadow ${className}`}
     >
       <div>
-        <div className="absolute bottom-0 right-0 top-0 opacity-10">
-          <Image src={bgSVG} alt="" />
-        </div>
+        
 
-        <div className="absolute inset-5 flex flex-col justify-between items-center">
+        <div className="absolute inset-5 flex items-center">
           <div className="flex justify-center items-center">
             <NcImage
               alt=""

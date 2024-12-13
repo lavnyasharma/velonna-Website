@@ -220,7 +220,7 @@ const ProductCard = ({
           onClick={() => notifyAddTocart({ size: "XL" })}
         >
           <BagIcon className="w-3.5 h-3.5 mb-0.5" />
-          <span className="ms-1">Add to bag</span>
+          <span className="hidden md:flex ms-1">Add to bag</span>
         </ButtonPrimary>
         <ButtonSecondary
           className="ms-1.5 bg-white hover:!bg-gray-100 hover:text-slate-900 transition-colors shadow-lg"
@@ -229,7 +229,7 @@ const ProductCard = ({
           onClick={() => setShowModalQuickView(true)}
         >
           <ArrowsPointingOutIcon className="w-3.5 h-3.5" />
-          <span className="ms-1">Quick view</span>
+          <span className="hidden md:flex ms-1">Quick view</span>
         </ButtonSecondary>
       </div>
     );

@@ -39,7 +39,7 @@ const CATS = [
 ];
 
 const SectionSliderCategories = ({
-  heading = "Shop by departments",
+  heading = "Shop by collection",
   subHeading = "",
   className = "",
   itemClassName = "",
@@ -47,6 +47,13 @@ const SectionSliderCategories = ({
 }) => {
   const sliderRef = useRef(null);
   const [isShow, setIsShow] = useState(false);
+  const [categoriesData,setCategoriesData] = useState([])
+  useEffect(()=>{
+    function getCategories(){
+      const res = axiosInstance
+    }
+  })
+
 
   useEffect(() => {
     const OPTIONS = {
@@ -67,11 +74,11 @@ const SectionSliderCategories = ({
         },
         640: {
           gap: 20,
-          perView: 2.3,
+          perView: 3,
         },
         500: {
           gap: 20,
-          perView: 1.4,
+          perView: 3,
         },
       },
     };

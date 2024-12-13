@@ -11,8 +11,9 @@ import Link from "next/link";
 
 
 const SectionSliderLargeProduct = ({
+  data={},
   className = "",
-  cardStyle = "style2",
+  cardStyle = "style1",
 }) => {
   const sliderRef = useRef(null);
 
@@ -39,7 +40,7 @@ const SectionSliderLargeProduct = ({
 
         500: {
           gap: 20,
-          perView: 1,
+          perView: 1.3,
         },
       },
     };
@@ -64,10 +65,10 @@ const SectionSliderLargeProduct = ({
         </Heading>
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
-            {DEMO_LARGE_PRODUCTS.map((product, index) => (
+            {data.map((product, index) => (
               <li className={`glide__slide`} key={index}>
                 <MyCollectionCard
-                  name={product.name}
+                  name={product.title}
                   price={product.price}
                   imgs={product.images}
                   description={product.desc}
