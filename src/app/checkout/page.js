@@ -176,7 +176,7 @@ const CheckoutPage = () => {
   const renderLeft = () => {
     return (
       <div className="space-y-8">
-        <div id="ContactInfo" className="scroll-mt-24">
+        {/* <div id="ContactInfo" className="scroll-mt-24">
           <ContactInfo
             isActive={tabActive === "ContactInfo"}
             onOpenActive={() => {
@@ -188,7 +188,7 @@ const CheckoutPage = () => {
               handleScrollToEl("ShippingAddress");
             }}
           />
-        </div>
+        </div> */}
 
         <div id="ShippingAddress" className="scroll-mt-24">
           <ShippingAddress

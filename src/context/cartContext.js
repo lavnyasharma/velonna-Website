@@ -15,7 +15,6 @@ export const CartProvider = ({ children }) => {
 
   const fetchCart = async () => {
     try {
-      console.log("heheh")
       const cartData = await getCart();
       console.log(cartData)
       setCart(cartData);

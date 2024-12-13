@@ -2,13 +2,12 @@ import axios from 'axios';
 
 // Configurations
 const BASE_URL = "https://api.velonna.co/";
-const TIMEOUT = 90000;
+
 let shouldRefreshToken = false; // Flag to enable/disable token refreshing
 
 // Create an Axios instance
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  timeout: TIMEOUT,
 });
 
 // Helper function to get token from localStorage
@@ -100,7 +99,15 @@ export const getUserInfo = async (username) => {
     throw error;
   }
 };
-
+export const getaddress = async () => {
+  try {
+    const response = await axiosInstance.get(`/addresses/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching user info:', error);
+    throw error;
+  }
+};
 export const fetchProductList = async (page = 1, limit = 10) => {
   try {
     const response = await axiosInstance.get(`/product-lists/`, {

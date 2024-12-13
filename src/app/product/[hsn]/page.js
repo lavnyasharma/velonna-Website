@@ -36,6 +36,7 @@ import axios from "axios";
 import { getProductByHsn, getProducts } from "@/utils/products";
 import { addToCart } from "../../../axios";
 import Prices from "@/components/Prices";
+import { useCart } from "@/context/cartContext";
 
 const LIST_IMAGES_GALLERY_DEMO = [
   "https://images.pexels.com/photos/3812433/pexels-photo-3812433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -200,14 +201,15 @@ function ProductScreen() {
       </div>
     );
   };
+  const {fetchCart} = useCart()
   const handleAddToCart = () => {
-    alert(1);
+    
     addToCart(hsnProduct.hsn, qualitySelected)
       .then((res) => {
         console.log(res.data);
-        alert(res.status);
         const data = res.data;
         notifyAddTocart(data);
+        fetchCart()
         // Update cart count or other relevant UI elements
       })
       .catch((error) => {
@@ -328,7 +330,7 @@ function ProductScreen() {
   };
 
   const notifyAddTocart = ( data ) => {
-    alert(data)
+
   
     toast.custom(
       (t) => (
@@ -460,7 +462,7 @@ function ProductScreen() {
               onClick={handleAddToCart}
             >
               <BagIcon className="hidden sm:inline-block w-5 h-5 mb-0.5" />
-              <span  className="ml-3">Add to carts</span>
+              <span  className="ml-3">Add to cart</span>
             </ButtonPrimary>
           </div>
 

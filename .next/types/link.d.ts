@@ -33,8 +33,8 @@ declare namespace __next_route_internal_types__ {
     | `/account`
     | `/account-billing`
     | `/account-order`
-    | `/account-password`
     | `/account-savelists`
+    | `/account-password`
     | `/about`
     | `/admin`
     | `/admin/dashboard`
@@ -42,13 +42,13 @@ declare namespace __next_route_internal_types__ {
     | `/api/register`
     | `/api/users`
     | `/blog`
+    | `/blog-single`
     | `/cart`
     | `/checkout`
-    | `/contact`
     | `/collection`
-    | `/dashboard`
-    | `/blog-single`
+    | `/contact`
     | `/forgot-pass`
+    | `/dashboard`
     | `/login`
     | `/privacypolicy`
     | `/product-detail`
