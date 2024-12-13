@@ -11,6 +11,7 @@ import { axiosInstance, getaddress } from "@/axios";
 
 const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
   const [addresses, setAddresses] = useState([]);
+  const [address, setAddress] = useState({});
 
   useEffect(() => {
     const fetchAddresses = async () => {
@@ -35,12 +36,12 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
   }, [addresses]);
 
   // Default state to hold the current address data
-  const [address, setAddress] = useState({});
 
   const handleAddressSelect = (value) => {
     console.log(value);
-    const selectedAddress = addresses.find((address) => address.id === value);
+    const selectedAddress = addresses.find((addr) => addr.id === value);
     setAddress({
+      id:selectedAddress.id,
       firstName: selectedAddress.first_name,
       lastName: selectedAddress.last_name,
       addressLine: selectedAddress.street_address,
