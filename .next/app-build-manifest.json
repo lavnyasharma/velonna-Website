@@ -36,6 +36,11 @@
       "static/chunks/main-app.js",
       "static/css/app/product/[hsn]/page.css",
       "static/chunks/app/product/[hsn]/page.js"
+    ],
+    "/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/login/page.js"
     ]
   }
 }

@@ -29,10 +29,13 @@ import Policy from "../../product-detail/Policy";
 import ModalViewAllReviews from "../../product-detail/ModalViewAllReviews";
 import ListingImageGallery from "@/components/listing-image-gallery/ListingImageGallery";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { Transition } from "@/app/headlessui";
 
-import { Route } from "next";
+
 import axios from "axios";
 import { getProductByHsn, getProducts } from "@/utils/products";
+import { addToCart } from "../../../axios";
+import Prices from "@/components/Prices";
 
 const LIST_IMAGES_GALLERY_DEMO = [
   "https://images.pexels.com/photos/3812433/pexels-photo-3812433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -144,6 +147,7 @@ function ProductScreen() {
       if (hsnProduct === null) {
         const result = await getProductByHsn(hsn); // Call the async function
         setHsnProduct(result);
+        console.log(result)
       }
     };
     getData();
@@ -196,21 +200,37 @@ function ProductScreen() {
       </div>
     );
   };
+  const handleAddToCart = () => {
+    alert(1);
+    addToCart(hsnProduct.hsn, qualitySelected)
+      .then((res) => {
+        console.log(res.data);
+        alert(res.status);
+        const data = res.data;
+        notifyAddTocart(data);
+        // Update cart count or other relevant UI elements
+      })
+      .catch((error) => {
+        console.error("Error adding to cart:", error);
+        toast.error("Error adding to cart. Please try again.");
+      });
+  };
+  
+  
 
-  const notifyAddTocart = () => {
-    toast.custom(
-      (t) => (
-        <NotifyAddTocart
-          productImage={image}
-          qualitySelected={qualitySelected}
-          show={t.visible}
-          variantActive={variantActive}
-        />
-      ),
-      { position: "top-right", id: "nc-product-notify", duration: 3000 }
+
+  const NotifyAddTocart = ({ productImage, qualitySelected, show, variantActive }) => {
+    if (!show) return null;
+    return (
+      <div className="notification">
+        <img src={productImage} alt="Product" />
+        <p>{qualitySelected}</p>
+        <p>{variantActive}</p>
+        {/* Any additional content for the notification */}
+      </div>
     );
   };
-
+  
   const renderSizeList = () => {
     if (!allOfSizes || !sizes || !sizes.length) {
       return null;
@@ -307,6 +327,91 @@ function ProductScreen() {
     return null;
   };
 
+  const notifyAddTocart = ( data ) => {
+    alert(data)
+  
+    toast.custom(
+      (t) => (
+        <Transition
+          appear
+          show={t.visible}
+          className="p-4 max-w-md w-full bg-white dark:bg-slate-800 shadow-lg rounded-2xl pointer-events-auto ring-1 ring-black/5 dark:ring-white/10 text-slate-900 dark:text-slate-200"
+          enter="transition-all duration-150"
+          enterFrom="opacity-0 translate-x-20"
+          enterTo="opacity-100 translate-x-0"
+          leave="transition-all duration-150"
+          leaveFrom="opacity-100 translate-x-0"
+          leaveTo="opacity-0 translate-x-20"
+        >
+          <p className="block text-base font-semibold leading-none">
+            Added to cart!
+          </p>
+          <div className="border-t border-slate-200 dark:border-slate-700 my-4" />
+          {renderProductCartOnNotify( data )} 
+        </Transition>
+      ),
+      {
+        position: "top-right",
+        duration: 3000,
+      }
+    );
+  };
+  
+
+  const renderProductCartOnNotify = (data ) => {
+    console.log(data)
+    return (
+      <div className="flex ">
+        <div className="h-24 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
+          <Image
+            width={80}
+            height={96}
+            src=""
+            alt=""
+            className="absolute object-cover object-center"
+          />
+        </div>
+
+        <div className="ms-4 flex flex-1 flex-col">
+          <div>
+            <div className="flex justify-between ">
+              <div>
+                <h3 className="text-base font-medium ">{data.product.title}</h3>
+                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                  <span>
+                    {variants ? variants[variantActive].name : `Natural`}
+                  </span>
+                  <span className="mx-2 border-s border-slate-200 dark:border-slate-700 h-4"></span>
+                  <span>{data.product.size || "XL"}</span>
+                </p>
+              </div>
+              <Prices price={data.product.price} className="mt-0.5" />
+            </div>
+          </div>
+          <div className="flex flex-1 items-end justify-between text-sm">
+            <p className="text-gray-500 dark:text-slate-400">Qty 1</p>
+
+            <div className="flex">
+              <button
+                type="button"
+                className="font-medium text-primary-6000 dark:text-primary-500 "
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/cart");
+                }}
+              >
+                View cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  
+  
+
   const renderSectionSidebar = () => {
     return (
       <div className="listingSectionSidebar__wrap lg:shadow-lg">
@@ -352,10 +457,10 @@ function ProductScreen() {
             </div> */}
             <ButtonPrimary
               className="flex-1 flex-shrink-0"
-              onClick={notifyAddTocart}
+              onClick={handleAddToCart}
             >
               <BagIcon className="hidden sm:inline-block w-5 h-5 mb-0.5" />
-              <span className="ml-3">Add to cart</span>
+              <span  className="ml-3">Add to carts</span>
             </ButtonPrimary>
           </div>
 
