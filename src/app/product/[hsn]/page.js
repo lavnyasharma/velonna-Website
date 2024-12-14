@@ -775,10 +775,10 @@ function ProductScreen() {
           <ListingImageGallery
             isShowModal={modal === "PHOTO_TOUR_SCROLLABLE"}
             onClose={handleCloseModalImageGallery}
-            images={LIST_IMAGES_GALLERY_DEMO.map((item, index) => {
+            images={hsnProduct.images.map((item, index) => {
               return {
                 id: index,
-                url: item,
+                url: item.image,
               };
             })}
           />

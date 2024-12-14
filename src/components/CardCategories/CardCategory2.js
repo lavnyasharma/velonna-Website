@@ -7,11 +7,12 @@ const CardCategory2 = ({
   className = "",
   ratioClass = "aspect-w-1 aspect-h-1",
   featuredImage = ".",
+  id,
   name,
 }) => {
   return (
     <Link
-      href={"/collection"}
+      href={`/collection/${id}`}
       className={`nc-CardCategory2 ${className}`}
       data-nc-id="CardCategory2"
     >

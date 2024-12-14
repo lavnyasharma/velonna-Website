@@ -169,18 +169,18 @@ export const NAVIGATION_DEMO_2 = [
   },
   {
     id: ncNanoId(),
-    href: "/collection",
-    name: "Shop All",
+    href: "/collection/7",
+    name: "Blush",
   },
   {
     id: ncNanoId(),
-    href: "/collection",
-    name: "Men",
+    href: "/collection/38",
+    name: "Willow",
   },
   {
     id: ncNanoId(),
-    href: "/",
-    name: "Women",
+    href: "/collection/48",
+    name: "Simplistic Armlet",
   },
   // {
   //   id: ncNanoId(),

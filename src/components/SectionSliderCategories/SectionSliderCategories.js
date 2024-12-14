@@ -96,8 +96,7 @@ const SectionSliderCategories = ({
                 <CardCategory2
                   featuredImage={item.icon}
                   name={item.name}
-                  desc={item.desc}
-                  bgClass={item.color}
+                  id={item.id}
                 />
               </li>
             ))}
