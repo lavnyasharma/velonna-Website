@@ -45,7 +45,6 @@ declare namespace __next_route_internal_types__ {
     | `/blog-single`
     | `/cart`
     | `/checkout`
-    | `/collection`
     | `/contact`
     | `/dashboard`
     | `/forgot-pass`

@@ -37,7 +37,7 @@ const HeaderFilterSection = ({
             )
           )}
         </Nav>
-        <span className="block flex-shrink-0">
+        {/* <span className="block flex-shrink-0">
           <ButtonPrimary
             className="w-full !pr-16"
             sizeClass="pl-4 py-2.5 sm:pl-6"
@@ -78,7 +78,7 @@ const HeaderFilterSection = ({
               />
             </span>
           </ButtonPrimary>
-        </span>
+        </span> */}
       </div>
 
       <Transition
@@ -91,7 +91,7 @@ const HeaderFilterSection = ({
         leaveTo="opacity-0"
       >
         <div className="w-full border-b border-neutral-200 dark:border-neutral-700 my-8"></div>
-        <TabFilters />
+        {/* <TabFilters /> */}
       </Transition>
     </div>
   );

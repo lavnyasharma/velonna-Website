@@ -29,7 +29,7 @@ const PageHome = async () => {
             subHeading="Best selling of the month"
             data={pdata}
           />
-           <SectionSliderLargeProduct data={pdata} cardStyle="style1" />
+           {/* <SectionSliderLargeProduct data={pdata} cardStyle="style1" /> */}
           
 
            {/* <SectionPromo3 /> */}
