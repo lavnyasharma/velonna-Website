@@ -1,8 +1,7 @@
 {
-  "/cart/page": "app/cart/page.js",
-  "/privacypolicy/page": "app/privacypolicy/page.js",
-  "/product/[hsn]/page": "app/product/[hsn]/page.js",
   "/page": "app/page.js",
-  "/collection/page": "app/collection/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/cart/page": "app/cart/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(accounts)/account-billing/page": "app/(accounts)/account-billing/page.js",
+  "/(accounts)/account/page": "app/(accounts)/account/page.js"
 }

@@ -35,6 +35,7 @@ const Login = () => {
         // Store the access and refresh tokens in localStorage
         localStorage.setItem('accessToken', access);
         localStorage.setItem('refreshToken', refresh);
+        localStorage.setItem('username', values.username);
 
         toast.success("Login successful!");
 

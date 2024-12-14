@@ -2,13 +2,26 @@
 
 import { Popover, Transition } from "@/app/headlessui";
 import { avatarImgs } from "@/contains/fakeData";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import Avatar from "@/shared/Avatar/Avatar";
 import SwitchDarkMode2 from "@/shared/SwitchDarkMode/SwitchDarkMode2";
 import Link from "next/link";
+import { useAuth } from "@/context/authContext";
+import { getUserInfo } from "@/axios";
 
 export default function AvatarDropdown() {
-  const login = false;
+  const {is_auth ,user} = useAuth();
+const login = is_auth;
+
+
+
+useEffect(() => {
+  if(user){
+    console.log(user)
+  }
+}, [user]); 
+
+
 
   return (
     <div className="AvatarDropdown ">
@@ -41,15 +54,6 @@ export default function AvatarDropdown() {
               </svg>
             </Popover.Button>
 
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-200"
-              enterFrom="opacity-0 translate-y-1"
-              enterTo="opacity-100 translate-y-0"
-              leave="transition ease-in duration-150"
-              leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 translate-y-1"
-            >
               {login ? (
                 <>
                   <Popover.Panel className="absolute z-10 w-screen max-w-[260px] px-4 mt-3.5 -right-10 sm:right-0 sm:px-0">
@@ -62,7 +66,7 @@ export default function AvatarDropdown() {
                           />
 
                           <div className="flex-grow">
-                            <h4 className="font-semibold">Eden Smith</h4>
+                            <h4 className="font-semibold">{user?user.first_name:""}</h4>
                             <p className="text-xs mt-0.5">Los Angeles, CA</p>
                           </div>
                         </div>
@@ -108,7 +112,7 @@ export default function AvatarDropdown() {
 
                         {/* ------------------ 2 --------------------- */}
                         <Link
-                          href={"/checkout"}
+                          href={"/cart"}
                           className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                           onClick={() => close()}
                         >
@@ -297,7 +301,7 @@ export default function AvatarDropdown() {
                         <Link
                           href={"/#"}
                           className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                          onClick={() => close()}
+                          onClick={() => logout()}
                         >
                           <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
                             <svg
@@ -379,7 +383,7 @@ export default function AvatarDropdown() {
                   </div>
                 </Popover.Panel>
               )}
-            </Transition>
+           
           </>
         )}
       </Popover>

@@ -9,6 +9,7 @@ import CartDropdown from "./CartDropdown";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "react-responsive";
+import { useAuth } from "@/context/authContext";
 
 
 
@@ -17,6 +18,10 @@ const MainNav2Logged = () => {
   const [showSearchForm, setShowSearchForm] = useState(false);
   const [showContent, setShowContent] = useState(true);
   const router = useRouter();
+   const {user} = useAuth()
+   useEffect(()=>{
+
+   },[user])
 
     const isBigScreen = useMediaQuery({
       query: "(min-width: 900px)",
@@ -109,7 +114,7 @@ const MainNav2Logged = () => {
               {renderMagnifyingGlassIcon()}
             </button>
           )}
-          <AvatarDropdown />
+           {user? <AvatarDropdown />:""}
           <CartDropdown />
         </div>
         <div className="flex items-center lg:hidden">

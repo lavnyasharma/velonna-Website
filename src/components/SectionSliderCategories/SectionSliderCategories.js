@@ -56,7 +56,7 @@ const SectionSliderCategories = ({
       })
     }
     getCategories()
-  })
+  },[])
 
 
   useEffect(() => {

@@ -43,7 +43,6 @@ const ProductCard = ({
     id,
     numberOfReviews,
   } = data;
-  console.log(thumbnail)
 
   const [variantActive, setVariantActive] = useState(0);
   const [showModalQuickView, setShowModalQuickView] = useState(false);

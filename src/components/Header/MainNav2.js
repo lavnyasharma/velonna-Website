@@ -10,12 +10,14 @@ import DropdownCategories from "./DropdownCategories";
 import CartDropdown from "./CartDropdown";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/authContext";
 
 
 
 const MainNav2 = ({ className = "" }) => {
   const [showSearchForm, setShowSearchForm] = useState(false);
   const router = useRouter();
+  const {user} = useAuth()
 
   const renderMagnifyingGlassIcon = () => {
     return (
@@ -107,7 +109,7 @@ const MainNav2 = ({ className = "" }) => {
                 {renderMagnifyingGlassIcon()}
               </button>
             )}
-            <AvatarDropdown />
+           {user? <AvatarDropdown />:""}
             <CartDropdown />
           </div>
         </div>
