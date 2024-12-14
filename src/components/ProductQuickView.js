@@ -24,7 +24,7 @@ import Link from "next/link";
 
 
 
-const ProductQuickView = ({ className = "" }) => {
+const ProductQuickView = ({ className = "" ,data}) => {
   const { sizes, variants, status, allOfSizes } = PRODUCTS[0];
   const LIST_IMAGES_DEMO = [detail1JPG, detail2JPG, detail3JPG];
 

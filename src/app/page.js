@@ -11,7 +11,7 @@ import SectionSliderCategories from "@/components/SectionSliderCategories/Sectio
 
 const PageHome = async () => {
   try {
-    const res = await axios.get("https://api.velonna.co/list/product/?limit=5");
+    const res = await axios.get("https://api.velonna.co/ecom/product/list/?limit=5");
     const pdata = res.data.results;
 
     return (

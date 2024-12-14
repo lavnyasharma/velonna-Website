@@ -499,7 +499,7 @@ function ProductScreen() {
       <div className="listingSection__wrap !space-y-6">
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold">{hsnProduct?.title}</h2>
-          <div className="flex items-center mt-4 sm:mt-5">
+          {/* <div className="flex items-center mt-4 sm:mt-5">
             <a
               href="#reviews"
               className="hidden sm:flex items-center text-sm font-medium "
@@ -516,12 +516,12 @@ function ProductScreen() {
               </span>
             </a>
             <span className="hidden sm:block mx-2.5">·</span>
-            {/* {renderStatus()} */}
+           
 
             <div className="ml-auto">
               <LikeSaveBtns />
             </div>
-          </div>
+          </div> */}
         </div>
         {/*  */}
         <div className="block lg:hidden">{renderSectionSidebar()}</div>
@@ -562,63 +562,66 @@ function ProductScreen() {
           </ul>
         </div>
         {/* ---------- 6 ----------  */}
-        <Policy />
-      </div>
-    );
-  };
+        <div className="" style={{marginBottom:"20px"}}> <Policy />
 
-  const renderReviews = () => {
-    return (
-      <div id="reviews" className="scroll-mt-[100px]">
-        {/* HEADING */}
-        <h2 className="text-2xl font-semibold flex items-center">
-          <StarIcon className="w-7 h-7 mb-0.5" />
-          <span className="ml-1.5"> 4,87 · 142 Reviews</span>
-        </h2>
-
-        {/* comment */}
-        <div className="mt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-11 gap-x-28">
-            <ReviewItem />
-            <ReviewItem
-              data={{
-                comment: `I love the charcoal heavyweight hoodie. Still looks new after plenty of washes. 
-                  If you’re unsure which hoodie to pick.`,
-                date: "December 22, 2021",
-                name: "Stiven Hokinhs",
-                starPoint: 5,
-              }}
-            />
-            <ReviewItem
-              data={{
-                comment: `The quality and sizing mentioned were accurate and really happy with the purchase. Such a cozy and comfortable hoodie. 
-                Now that it’s colder, my husband wears his all the time. I wear hoodies all the time. `,
-                date: "August 15, 2022",
-                name: "Gropishta keo",
-                starPoint: 5,
-              }}
-            />
-            <ReviewItem
-              data={{
-                comment: `Before buying this, I didn't really know how I would tell a "high quality" sweatshirt, but after opening, I was very impressed. 
-                The material is super soft and comfortable and the sweatshirt also has a good weight to it.`,
-                date: "December 12, 2022",
-                name: "Dahon Stiven",
-                starPoint: 5,
-              }}
-            />
-          </div>
-
-          <ButtonSecondary
-            onClick={() => setIsOpenModalViewAllReviews(true)}
-            className="mt-10 border border-slate-300 dark:border-slate-700 "
-          >
-            Show me all 142 reviews
-          </ButtonSecondary>
         </div>
+       
       </div>
     );
   };
+
+  // const renderReviews = () => {
+  //   return (
+  //     <div id="reviews" className="scroll-mt-[100px]">
+  //       {/* HEADING */}
+  //       <h2 className="text-2xl font-semibold flex items-center">
+  //         <StarIcon className="w-7 h-7 mb-0.5" />
+  //         <span className="ml-1.5"> 4,87 · 142 Reviews</span>
+  //       </h2>
+
+  //       {/* comment */}
+  //       <div className="mt-10">
+  //         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-11 gap-x-28">
+  //           <ReviewItem />
+  //           <ReviewItem
+  //             data={{
+  //               comment: `I love the charcoal heavyweight hoodie. Still looks new after plenty of washes. 
+  //                 If you’re unsure which hoodie to pick.`,
+  //               date: "December 22, 2021",
+  //               name: "Stiven Hokinhs",
+  //               starPoint: 5,
+  //             }}
+  //           />
+  //           <ReviewItem
+  //             data={{
+  //               comment: `The quality and sizing mentioned were accurate and really happy with the purchase. Such a cozy and comfortable hoodie. 
+  //               Now that it’s colder, my husband wears his all the time. I wear hoodies all the time. `,
+  //               date: "August 15, 2022",
+  //               name: "Gropishta keo",
+  //               starPoint: 5,
+  //             }}
+  //           />
+  //           <ReviewItem
+  //             data={{
+  //               comment: `Before buying this, I didn't really know how I would tell a "high quality" sweatshirt, but after opening, I was very impressed. 
+  //               The material is super soft and comfortable and the sweatshirt also has a good weight to it.`,
+  //               date: "December 12, 2022",
+  //               name: "Dahon Stiven",
+  //               starPoint: 5,
+  //             }}
+  //           />
+  //         </div>
+
+  //         <ButtonSecondary
+  //           onClick={() => setIsOpenModalViewAllReviews(true)}
+  //           className="mt-10 border border-slate-300 dark:border-slate-700 "
+  //         >
+  //           Show me all 142 reviews
+  //         </ButtonSecondary>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   return (
     <>
@@ -730,7 +733,7 @@ function ProductScreen() {
           </main>
 
           {/* OTHER SECTION */}
-          <div className="container pb-24 lg:pb-28 pt-14 space-y-14">
+          {/* <div className="container pb-24 lg:pb-28 pt-14 space-y-14">
             {renderReviews()}
             <SectionSliderProductCard
               heading="Customers also purchased"
@@ -739,7 +742,7 @@ function ProductScreen() {
               headingClassName="mb-10 text-neutral-900 dark:text-neutral-50"
               data={recProducts ? recProducts : []}
             />
-          </div>
+          </div> */}
 
           {/* MODAL VIEW ALL REVIEW */}
           <ModalViewAllReviews

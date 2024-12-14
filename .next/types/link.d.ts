@@ -37,26 +37,26 @@ declare namespace __next_route_internal_types__ {
     | `/account-savelists`
     | `/admin`
     | `/admin/dashboard`
+    | `/api/users`
     | `/api/login`
     | `/api/register`
-    | `/api/users`
     | `/blog`
     | `/blog-single`
     | `/about`
-    | `/checkout`
     | `/cart`
     | `/collection`
+    | `/checkout`
     | `/contact`
     | `/dashboard`
-    | `/forgot-pass`
     | `/login`
+    | `/forgot-pass`
     | `/privacypolicy`
-    | `/product-detail`
     | `/search`
-    | `/refundpolicy`
     | `/signup`
-    | `/subscription`
+    | `/refundpolicy`
     | `/termsandconidtions`
+    | `/product-detail`
+    | `/subscription`
   type DynamicRoutes<T extends string = string> = 
     | `/api/users/${SafeSlug<T>}`
     | `/product/${SafeSlug<T>}`

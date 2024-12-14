@@ -44,14 +44,14 @@ const CartPage = () => {
         className="relative flex py-8 sm:py-10 xl:py-12 first:pt-0 last:pb-0"
       >
         <div className="relative h-36 w-24 sm:w-32 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
-          {/* <Image
+          <Image
             fill
-            src={"product.thumbnail"}
+            src={product.thumbnail}
             alt={product.title}
             sizes="300px"
-            className="h-full w-full object-contain object-center"
-          /> */}
-          <Link href="/product-detail" className="absolute inset-0"></Link>
+            className="h-full w-full  object-center"
+          />
+ 
         </div>
 
         <div className="ml-3 sm:ml-6 flex flex-1 flex-col">
@@ -198,18 +198,24 @@ const CartPage = () => {
                   </span>
                 </div>
                 <div className="flex justify-between py-4">
-                  <span>Tax estimate</span>
-                  <span className="font-semibold text-slate-900 dark:text-slate-200">
-                    3% (GST)
-                  </span>
-                </div>
-                <div className="flex justify-between font-semibold text-slate-900 dark:text-slate-200 text-base pt-4">
-                  <span>Order total</span>
-                  <span>₹{cart?.total ?? '0'}</span>
-                </div>
+  <span>Tax estimate</span>
+  <span className="font-semibold text-slate-900 dark:text-slate-200">
+    3% (GST)
+  </span>
+</div>
+<div className="flex justify-between font-semibold text-slate-900 dark:text-slate-200 text-base pt-4">
+  <span>Order total</span>
+  <span>
+    ₹
+    {cart?.total
+      ? (cart.total + cart.total * 0.03).toFixed(2)
+      : '0'}
+  </span>
+</div>
+
               </div>
               <ButtonPrimary href="/checkout" className="mt-8 w-full">
-                Checkoutss
+                Checkout
               </ButtonPrimary>
               <div className="mt-5 text-sm text-slate-500 dark:text-slate-400 flex items-center justify-center">
                 <p className="block relative pl-5">

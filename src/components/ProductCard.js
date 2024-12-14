@@ -17,6 +17,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import NcImage from "@/shared/NcImage/NcImage";
+import { useCart } from "@/context/cartContext";
+import { addToCart } from "@/axios";
 
 
 const ProductCard = ({
@@ -37,15 +39,35 @@ const ProductCard = ({
     status,
     images,
     rating,
+    thumbnail,
     id,
     numberOfReviews,
   } = data;
+  console.log(thumbnail)
 
   const [variantActive, setVariantActive] = useState(0);
   const [showModalQuickView, setShowModalQuickView] = useState(false);
+  const [qualitySelected, setQualitySelected] = useState(1);
   const router = useRouter();
+  const {fetchCart} = useCart()
+  const handleAddToCart = () => {
+    
+    addToCart(hsn, qualitySelected)
+      .then((res) => {
+        console.log(res.data);
+        const data = res.data;
+        notifyAddTocart(data);
+        fetchCart()
+        // Update cart count or other relevant UI elements
+      })
+      .catch((error) => {
+        console.error("Error adding to cart:", error);
+        toast.error("Error adding to cart. Please try again.");
+      });
+  };
 
   const notifyAddTocart = ({ size }) => {
+    
     toast.custom(
       (t) => (
         <Transition
@@ -81,7 +103,7 @@ const ProductCard = ({
           <Image
             width={80}
             height={96}
-            src={images[0]?.image}
+            src={thumbnail?thumbnail:""}
             alt={title}
             className="absolute object-cover object-center"
           />
@@ -217,12 +239,12 @@ const ProductCard = ({
           className="shadow-lg"
           fontSize="text-xs"
           sizeClass="py-2 px-4"
-          onClick={() => notifyAddTocart({ size: "XL" })}
+          onClick={() => handleAddToCart()}
         >
           <BagIcon className="w-3.5 h-3.5 mb-0.5" />
           <span className="hidden md:flex ms-1">Add to bag</span>
         </ButtonPrimary>
-        <ButtonSecondary
+        {/* <ButtonSecondary
           className="ms-1.5 bg-white hover:!bg-gray-100 hover:text-slate-900 transition-colors shadow-lg"
           fontSize="text-xs"
           sizeClass="py-2 px-4"
@@ -230,7 +252,7 @@ const ProductCard = ({
         >
           <ArrowsPointingOutIcon className="w-3.5 h-3.5" />
           <span className="hidden md:flex ms-1">Quick view</span>
-        </ButtonSecondary>
+        </ButtonSecondary> */}
       </div>
     );
   };
@@ -268,7 +290,7 @@ const ProductCard = ({
           <Link href={`/product/${hsn}`} className="block">
             <NcImage
               containerClassName="flex aspect-w-11 aspect-h-12 w-full h-0"
-              src={images[0]?.image}
+              src={thumbnail?thumbnail:""}
               className="object-cover w-full h-full drop-shadow-xl"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 40vw"
@@ -296,7 +318,7 @@ const ProductCard = ({
             <div className="flex items-center mb-0.5">
               <StarIcon className="w-5 h-5 pb-[1px] text-amber-400" />
               <span className="text-sm ms-1 text-slate-500 dark:text-slate-400">
-                {rating || ""} ({numberOfReviews || 0} reviews)
+                {rating || ""} {numberOfReviews || 0} 
               </span>
             </div>
           </div>
@@ -305,6 +327,7 @@ const ProductCard = ({
 
       {/* QUICKVIEW */}
       <ModalQuickView
+        data={data}
         show={showModalQuickView}
         onCloseModalQuickView={() => setShowModalQuickView(false)}
       />
