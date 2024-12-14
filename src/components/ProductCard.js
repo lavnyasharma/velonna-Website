@@ -33,7 +33,7 @@ const ProductCard = ({
     collection,
     category,
     description,
-    sizes,
+    size,
     variants,
     variantType,
     status,
@@ -66,7 +66,10 @@ const ProductCard = ({
       });
   };
 
-  const notifyAddTocart = ({ size }) => {
+  const notifyAddTocart = () => {
+    console.log(size)
+
+    alert(size)
     
     toast.custom(
       (t) => (
@@ -85,7 +88,7 @@ const ProductCard = ({
             Added to cart!
           </p>
           <div className="border-t border-slate-200 dark:border-slate-700 my-4" />
-          {renderProductCartOnNotify({ size })}
+          {renderProductCartOnNotify()}
         </Transition>
       ),
       {
@@ -96,7 +99,7 @@ const ProductCard = ({
     );
   };
 
-  const renderProductCartOnNotify = ({ size }) => {
+  const renderProductCartOnNotify = () => {
     return (
       <div className="flex ">
         <div className="h-24 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
@@ -116,13 +119,14 @@ const ProductCard = ({
                 <h3 className="text-base font-medium ">{title}</h3>
                 <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
                   <span>
-                    {variants ? variants[variantActive].name : `Natural`}
+                    {category}
                   </span>
                   <span className="mx-2 border-s border-slate-200 dark:border-slate-700 h-4"></span>
-                  <span>{size || "XL"}</span>
+                  <span>{size}</span>
                 </p>
               </div>
-              <Prices price={price} className="mt-0.5" />
+              <Prices price={Number(price)?.toLocaleString('en-IN')} className="mt-0.5" />
+
             </div>
           </div>
           <div className="flex flex-1 items-end justify-between text-sm">
@@ -257,27 +261,7 @@ const ProductCard = ({
     );
   };
 
-  const renderSizeList = () => {
-    if (!sizes || !sizes.length) {
-      return null;
-    }
 
-    return (
-      <div className="absolute bottom-0 inset-x-1 space-x-1.5 rtl:space-x-reverse flex justify-center opacity-0 invisible group-hover:bottom-4 group-hover:opacity-100 group-hover:visible transition-all">
-        {sizes.map((size, index) => {
-          return (
-            <div
-              key={index}
-              className="nc-shadow-lg w-10 h-10 rounded-xl bg-white hover:bg-slate-900 hover:text-white transition-colors cursor-pointer flex items-center justify-center uppercase font-semibold tracking-tight text-sm text-slate-900"
-              onClick={() => notifyAddTocart({ size })}
-            >
-              {size}
-            </div>
-          );
-        })}
-      </div>
-    );
-  };
 
   return (
     <>
@@ -299,7 +283,7 @@ const ProductCard = ({
           </Link>
           {/* <ProductStatus status={status} /> */}
           <LikeButton liked={isLiked} className="absolute top-3 end-3 z-10" />
-          {sizes ? renderSizeList() : renderGroupButtons()}
+          {renderGroupButtons()}
         </div>
 
         <div className="space-y-4 px-2.5 pt-5 pb-2.5">
@@ -310,6 +294,9 @@ const ProductCard = ({
             </h2>
             <p className={`text-sm text-slate-500 dark:text-slate-400 mt-1 `}>
               {collection.toString().charAt(0).toUpperCase() + collection.toString().slice(1)}
+            </p>
+            <p className={`text-sm text-slate-500 dark:text-slate-400 mt-1 `}>
+              {category.toString().charAt(0).toUpperCase() + category.toString().slice(1)}
             </p>
           </div>
 

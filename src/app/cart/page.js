@@ -16,6 +16,17 @@ const CartPage = () => {
       console.log(cart)
     }
   }, [cart]);
+  const formatPrice = (price) => {
+    return Number(price)?.toLocaleString('en-IN');
+  };
+  function formatTitle(title) {
+    if (!title) return ""; // Handle empty or undefined input
+
+    return title
+        .split(" ") // Split the string into an array of words
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize each word
+        .join(" "); // Join the words back into a single string
+}
 
   const renderStatusSoldout = () => {
     return (
@@ -59,13 +70,13 @@ const CartPage = () => {
             <div className="flex justify-between ">
               <div className="flex-[1.5] ">
                 <h3 className="text-base font-semibold">
-                  <Link href="/product-detail">{product.title}</Link>
+                  <h2>{formatTitle(product.title)}</h2>
                 </h3>
                 <div className="mt-1.5 sm:mt-2.5 flex text-sm text-slate-600 dark:text-slate-300">
                   <div className="flex items-center space-x-1.5">
                   
 
-                    <span>{product.collection}</span>
+                    <span>{formatTitle(product.collection)}</span>
                   </div>
                   <span className="mx-4 border-l border-slate-200 dark:border-slate-700 "></span>
                   <div className="flex items-center space-x-1.5">
@@ -120,7 +131,8 @@ const CartPage = () => {
                   </select> */}
                   <Prices
                     contentClass="py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium h-full"
-                    price={product.price}
+                    price={formatPrice(product.price)}
+
                   />
                 </div>
               </div>
@@ -130,7 +142,7 @@ const CartPage = () => {
               </div> */}
 
               <div className="hidden flex-1 sm:flex justify-end">
-                <Prices price={product.price} className="mt-0.5" />
+                <Prices  price={formatPrice(product.price)}className="mt-0.5" />
               </div>
             </div>
           </div>
@@ -188,7 +200,9 @@ const CartPage = () => {
                 <div className="flex justify-between pb-4">
                   <span>Subtotal</span>
                   <span className="font-semibold text-slate-900 dark:text-slate-200">
-                  ₹{cart?.subtotal ?? '0'}
+                  ₹ {formatPrice(cart?.subtotal ?? '0')}
+
+                 
                   </span>
                 </div>
                 <div className="flex justify-between py-4">
@@ -208,8 +222,9 @@ const CartPage = () => {
   <span>
     ₹
     {cart?.total
-      ? (cart.total + cart.total * 0.03).toFixed(2)
-      : '0'}
+  ? formatPrice((cart.total + cart.total * 0.03).toFixed(2))
+  : formatPrice('0')}
+
   </span>
 </div>
 
@@ -247,26 +262,25 @@ const CartPage = () => {
                     />
                   </svg>
                   Learn more{` `}
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="##"
+                  <Link
+                    
+                    href="/refundpolicy"
                     className="text-slate-900 dark:text-slate-200 underline font-medium"
                   >
-                    Taxes
-                  </a>
+                    Refund 
+                  </Link>
                   <span>
                     {` `}and{` `}
                   </span>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="##"
+                  <Link
+                  
+                    
+                    href="/privacypolicy"
                     className="text-slate-900 dark:text-slate-200 underline font-medium"
                   >
-                    Shipping
-                  </a>
-                  {` `} infomation
+                    Privacy
+                  </Link>
+                  {` `} policies
                 </p>
               </div>
             </div>

@@ -10,21 +10,21 @@ import BackgroundSection from "@/components/BackgroundSection/BackgroundSection"
 const info = [
   {
     title: "🗺 ADDRESS",
-    desc: "Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter",
+    desc: "HN 41 A/D GANDHI NAGAR, JAMMU, JAMMMU & KASHMIR, 180004",
   },
   {
     title: "💌 EMAIL",
-    desc: "nc.example@example.com",
+    desc: "info@velonna.co",
   },
   {
     title: "☎ PHONE",
-    desc: "000-123-456-7890",
+    desc: "+91 97695-13766",
   },
 ];
 
 const PageContact = ({}) => {
   return (
-    <div className={`nc-PageContact overflow-hidden`}>
+    <div className={`nc-PageContact overflow-hidden`} style={{marginBottom:"20px"}}>
       <div className="">
         <h2 className="my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
           Contact
@@ -42,12 +42,12 @@ const PageContact = ({}) => {
                   </span>
                 </div>
               ))}
-              <div>
+              {/* <div>
                 <h3 className="uppercase font-semibold text-sm dark:text-neutral-200 tracking-wider">
                   🌏 SOCIALS
                 </h3>
                 <SocialsList className="mt-2" />
-              </div>
+              </div> */}
             </div>
             <div>
               <form className="grid grid-cols-1 gap-6" action="#" method="post">
@@ -83,13 +83,7 @@ const PageContact = ({}) => {
         </div>
       </div>
 
-      {/* OTHER SECTIONS */}
-      <div className="container">
-        <div className="relative my-24 lg:my-32 py-24 lg:py-32">
-          <BackgroundSection />
-          {/* <SectionPromo1 /> */}
-        </div>
-      </div>
+   
     </div>
   );
 };

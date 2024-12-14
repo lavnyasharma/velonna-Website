@@ -379,6 +379,7 @@ function ProductScreen() {
             <div className="flex justify-between ">
               <div>
                 <h3 className="text-base font-medium ">{data.product.title}</h3>
+                
                 <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
                   <span>
                     {variants ? variants[variantActive].name : `Natural`}
@@ -422,9 +423,11 @@ function ProductScreen() {
           <div className="">
             {/* ---------- 1 HEADING ----------  */}
             <div className="flex items-center justify-between space-x-5">
-              <div className="flex text-2xl font-semibold">
-                Rs {hsnProduct?.price}
-              </div>
+            <div className="flex text-2xl font-semibold">
+            ₹{hsnProduct?.price?.toLocaleString('en-IN')}
+</div>
+
+              
 
               <a
                 href="#reviews"
@@ -442,6 +445,18 @@ function ProductScreen() {
                 </span>
               </a>
             </div>
+            {/* <ul style={{ listStyleType: 'disc', color: '#757575', paddingLeft: '20px', fontWeight: '300', fontSize: '14px' }}>
+  <li>
+    {hsnProduct?.collection?.charAt(0).toUpperCase() + hsnProduct?.collection?.slice(1).toLowerCase()}
+  </li>
+  <li>
+    {hsnProduct?.category?.charAt(0).toUpperCase() + hsnProduct?.category?.slice(1).toLowerCase()}
+  </li>
+  <li>9 to 5 silver</li>
+</ul> */}
+
+
+
 
             {/* ---------- 3 VARIANTS AND SIZE LIST ----------  */}
             <div className="mt-6 space-y-7 lg:space-y-8">
@@ -498,7 +513,13 @@ function ProductScreen() {
     return (
       <div className="listingSection__wrap !space-y-6">
         <div>
-          <h2 className="text-2xl md:text-3xl font-semibold">{hsnProduct?.title}</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold">
+  {hsnProduct?.title?.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')}
+</h2>
+
+          <p className="">{hsnProduct?.category?.charAt(0).toUpperCase() + hsnProduct?.category?.slice(1).toLowerCase()}</p>
+
+
           {/* <div className="flex items-center mt-4 sm:mt-5">
             <a
               href="#reviews"
