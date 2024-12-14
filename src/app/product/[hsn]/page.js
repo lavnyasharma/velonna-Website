@@ -148,7 +148,6 @@ function ProductScreen() {
       if (hsnProduct === null) {
         const result = await getProductByHsn(hsn); // Call the async function
         setHsnProduct(result);
-        console.log(result)
       }
     };
     getData();

@@ -10,6 +10,7 @@ import department2Png from "@/images/collections/department2.png";
 import department3Png from "@/images/collections/department3.png";
 import department4Png from "@/images/collections/department4.png";
 import Link from "next/link";
+import { axiosInstance } from "@/axios";
 
 const CATS = [
   {
@@ -49,49 +50,38 @@ const SectionSliderCategories = ({
   const [isShow, setIsShow] = useState(false);
   const [categoriesData,setCategoriesData] = useState([])
   useEffect(()=>{
-    function getCategories(){
-      const res = axiosInstance
+    const getCategories = async () =>{
+      const res = await axiosInstance.get("live-collections/").then(res=>{
+        setCategoriesData(res.data)
+      })
     }
+    getCategories()
   })
 
 
   useEffect(() => {
+    if (!sliderRef.current || categoriesData.length === 0) return;
+  
     const OPTIONS = {
       perView: 4,
       gap: 32,
       bound: true,
       breakpoints: {
-        1280: {
-          perView: 4,
-        },
-        1024: {
-          gap: 20,
-          perView: 3.4,
-        },
-        768: {
-          gap: 20,
-          perView: 3,
-        },
-        640: {
-          gap: 20,
-          perView: 3,
-        },
-        500: {
-          gap: 20,
-          perView: 3,
-        },
+        1280: { perView: 4 },
+        1024: { gap: 20, perView: 3.4 },
+        768: { gap: 20, perView: 3 },
+        640: { gap: 20, perView: 3 },
+        500: { gap: 20, perView: 3 },
       },
     };
-
-    if (!sliderRef.current) return;
-
-    let slider = new Glide(sliderRef.current, OPTIONS);
+  
+    const slider = new Glide(sliderRef.current, OPTIONS);
     slider.mount();
     setIsShow(true);
-    return () => {
-      slider.destroy();
-    };
-  }, [sliderRef]);
+  
+    return () => slider.destroy();
+  }, [sliderRef, categoriesData]);
+  
 
   return (
     <div className={`nc-SectionSliderCategories ${className}`}>
@@ -101,10 +91,10 @@ const SectionSliderCategories = ({
         </Heading>
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
-            {data.map((item, index) => (
+            {categoriesData.map((item, index) => (
               <li key={index} className={`glide__slide ${itemClassName}`}>
                 <CardCategory2
-                  featuredImage={item.img}
+                  featuredImage={item.icon}
                   name={item.name}
                   desc={item.desc}
                   bgClass={item.color}

@@ -1,11 +1,11 @@
 import React from "react";
 import NcImage from "@/shared/NcImage/NcImage";
 import Link from "next/link";
+import Image from "next/image";
 
 const CardCategory2 = ({
   className = "",
   ratioClass = "aspect-w-1 aspect-h-1",
-  bgClass = "bg-orange-50",
   featuredImage = ".",
   name,
 }) => {
@@ -16,11 +16,12 @@ const CardCategory2 = ({
       data-nc-id="CardCategory2"
     >
       <div
-        className={`flex-1 relative w-full h-0 rounded-2xl overflow-hidden group ${ratioClass} ${bgClass}`}
+        className={`flex-1 relative w-full h-0 rounded-2xl overflow-hidden group ${ratioClass}`}
       >
         <div className="pt-14">
-          <NcImage
+           <Image
             alt=""
+            fill
             containerClassName="w-full h-full flex justify-center"
             src={featuredImage}
             className="object-cover rounded-2xl"
