@@ -60,7 +60,7 @@ const SearchDropdown = ({ className = "" }) => {
                     <Input
                       ref={inputRef}
                       type="search"
-                      placeholder="Type and press enter"
+                      placeholder="Type and ddpress enter"
                     />
                     <input type="submit" hidden value="" />
                   </form>

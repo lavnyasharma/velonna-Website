@@ -11,23 +11,30 @@ import ButtonCircle from "@/shared/Button/ButtonCircle";
 import ProductCard from "@/components/ProductCard";
 import { PRODUCTS } from "@/data/data";
 import axios from "axios";
+import { useSearchParams } from "next/navigation";
 const PageSearch = ({}) => {
+  const searchParams = useSearchParams();
+  const [searchquery, setSearchquery] = useState("");
+  const query = searchParams?.get("s");
 
-  const [productData,setProductData] = useState([])
-  function getProduct(){
-    const res = axios.get("https://api.velonna.co/list/product/?limit=12").then((res)=>{
-      setProductData(res.data["results"])
-    })
-
-   
+  const [productData, setProductData] = useState([]);
+  function getProduct() {
+    const res = axios
+      .get(
+        `https://api.velonna.co/ecom/product/list/?limit=12${
+          query && searchquery === "" ? "&search=" + query : ""
+        }${searchquery !== "" ? "&search=" + query : ""}`
+      )
+      .then((res) => {
+        setProductData(res.data["results"]);
+      });
   }
 
-  useEffect(()=>{
-    if(productData.length === 0){
-      getProduct()
+  useEffect(() => {
+    if (productData.length === 0) {
+      getProduct();
     }
-
-  },[])
+  }, [searchquery]);
   return (
     <div className={`nc-PageSearch`} data-nc-id="PageSearch">
       <div
@@ -35,7 +42,9 @@ const PageSearch = ({}) => {
       />
       <div className="container">
         <header className="max-w-2xl mx-auto -mt-10 flex flex-col lg:-mt-7">
-          <form className="relative w-full " method="post">
+          <form className="relative w-full " onSubmit={(e)=>{
+            e.preventDefault()
+          }} method="post">
             <label
               htmlFor="search-input"
               className="text-neutral-500 dark:text-neutral-300"
@@ -45,6 +54,9 @@ const PageSearch = ({}) => {
                 className="shadow-lg border-0 dark:border"
                 id="search-input"
                 type="search"
+                onChange={(e)=>{
+                  setSearchquery(e.target.value)
+                }}
                 placeholder="Type your keywords"
                 sizeClass="pl-14 py-5 pr-5 md:pl-16"
                 rounded="rounded-full"
@@ -87,19 +99,20 @@ const PageSearch = ({}) => {
       <div className="container py-16 lg:pb-28 lg:pt-20 space-y-16 lg:space-y-28">
         <main>
           {/* FILTER */}
-          <HeaderFilterSearchPage />
 
           {/* LOOP ITEMS */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-10 mt-8 lg:mt-10">
-            {(productData).length!==0?productData.map((item, index) => (
-              <ProductCard data={item} key={index} />
-            )):"Loading"}
+            {productData.length !== 0
+              ? productData.map((item, index) => (
+                  <ProductCard data={item} key={index} />
+                ))
+              : "Loading"}
           </div>
 
           {/* PAGINATION */}
           <div className="flex flex-col mt-12 lg:mt-16 space-y-5 sm:space-y-0 sm:space-x-3 sm:flex-row sm:justify-between sm:items-center">
-            <Pagination />
-            <ButtonPrimary loading>Show me more</ButtonPrimary>
+            {/* <Pagination />
+            <ButtonPrimary loading>Show me more</ButtonPrimary> */}
           </div>
         </main>
 

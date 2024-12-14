@@ -13,6 +13,10 @@ const PageHome = async () => {
   try {
     const res = await axios.get("https://api.velonna.co/ecom/product/list/?limit=5");
     const pdata = res.data.results;
+    const resr = await axios.get("https://api.velonna.co/ecom/product/list/?collection=7");
+    const rdata = resr.data.results;
+    const resrd = await axios.get("https://api.velonna.co/ecom/product/list/?category=3");
+    const sdata = resrd.data.results;
 
     return (
       <div className="nc-PageHome relative overflow-hidden">
@@ -26,14 +30,14 @@ const PageHome = async () => {
           </div> */}
           <SectionSliderProductCard
             heading="Best Sellers"
-            subHeading="Best selling of the month"
-            data={pdata}
+            subHeading="explore the blush collection"
+            data={rdata}
           />
            {/* <SectionSliderLargeProduct data={pdata} cardStyle="style1" /> */}
           
 
            {/* <SectionPromo3 /> */}
-          <SectionGridFeatureItems data={pdata} />
+          <SectionGridFeatureItems data={sdata} />
 
         </div>
       </div>

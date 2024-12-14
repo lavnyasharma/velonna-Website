@@ -10,6 +10,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "react-responsive";
 import { useAuth } from "@/context/authContext";
+import Button from "@/shared/Button/Button";
 
 
 
@@ -72,8 +73,10 @@ const MainNav2Logged = () => {
         className="flex-1 py-4 h-20 text-slate-900 dark:text-slate-100"
         onSubmit={(e) => {
           e.preventDefault();
-          router.push("/search");
-          inputRef.current?.blur();
+          if (inputRef.current) {
+            router.push(`/search?s=${inputRef.current.value}`);
+            inputRef.current.blur();
+          }
         }}
       >
         <div className="bg-slate-50 dark:bg-slate-800 flex items-center space-x-1.5 px-5 h-full rounded">
@@ -114,7 +117,13 @@ const MainNav2Logged = () => {
               {renderMagnifyingGlassIcon()}
             </button>
           )}
-           {user? <AvatarDropdown />:""}
+           {user? <AvatarDropdown />:<>
+           <span onClick={()=>{
+            router.push("/login")
+           }}>
+            Login
+           </span>
+           </>}
           <CartDropdown />
         </div>
         <div className="flex items-center lg:hidden">
