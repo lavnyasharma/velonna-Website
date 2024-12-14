@@ -1,9 +1,9 @@
 {
   "/page": "app/page.js",
-  "/collection/[id]/page": "app/collection/[id]/page.js",
   "/search/page": "app/search/page.js",
   "/checkout/page": "app/checkout/page.js",
   "/product/[hsn]/page": "app/product/[hsn]/page.js",
   "/not-found": "app/not-found.js",
+  "/login/page": "app/login/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }
