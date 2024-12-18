@@ -1,6 +1,7 @@
 import React from "react";
 import logoImg from "@/images/logo.svg";
-import logoLightImg from "@/images/logo-light.svg";
+import logoMini from "@/images/logoMini.svg";
+import logoLightImg from "@/images/logo.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -16,16 +17,28 @@ const Logo = ({
       href="/"
       className={`ttnc-logo inline-block text-slate-600 ${className}`}
     >
-      {/* THIS USE FOR MY CLIENT */}
-      {/* PLEASE UN COMMENT BELLOW CODE AND USE IT */}
+
       {img ? (
         <Image
-          className={`block h-8 sm:h-10 w-auto ${
+          className={`h-14 hidden md:block   w-auto ${
             imgLight ? "dark:hidden" : ""
           }`}
           src={img}
           alt="Logo"
-          sizes="200px"
+          style={{maxWidth:"inherit"}}
+          priority
+        />
+      ) : (
+        "Logo Here"
+      )}
+      {img ? (
+        <Image
+          className={`block h-8 md:hidden sm:h-10 w-auto ${
+            imgLight ? "dark:hidden" : ""
+          }`}
+          src={logoMini}
+          alt="Logo"
+          sizes="400px"
           priority
         />
       ) : (
@@ -33,13 +46,14 @@ const Logo = ({
       )}
       {imgLight && (
         <Image
-          className="hidden h-8 sm:h-10 w-auto dark:block"
+          className="hidden h-4 sm:h-10 w-auto dark:block"
           src={imgLight}
           alt="Logo-Light"
-          sizes="200px"
+          sizes="500px"
           priority
         />
       )}
+      
     </Link>
   );
 };

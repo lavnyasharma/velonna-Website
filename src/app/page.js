@@ -8,6 +8,7 @@ import BackgroundSection from "@/components/BackgroundSection/BackgroundSection"
 import SectionSliderLargeProduct from "@/components/SectionSliderLargeProduct";
 import SectionPromo3 from "@/components/SectionPromo3";
 import SectionSliderCategories from "@/components/SectionSliderCategories/SectionSliderCategories";
+import GenericBannerSlider from "@/components/GenericBanner";
 
 const PageHome = async () => {
   try {
@@ -20,23 +21,38 @@ const PageHome = async () => {
 
     return (
       <div className="nc-PageHome relative overflow-hidden">
-        <SectionHero />
-        <div className="container relative space-y-24 my-16 lg:space-y-32 lg:my-16">
-        <SectionSliderCategories />
-          <SectionSliderProductCard data={pdata} />
+        {/* <SectionHero /> */}
+         <GenericBannerSlider banners={[
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+        ]} aspectRatio="5/3" showDots={true} />
+        <div className="relative">
+          <SectionSliderCategories heading="Collections"/>
+          <GenericBannerSlider banners={[
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+        ]} aspectRatio="10/1.5" />
+          <SectionSliderProductCard hideDetails={true} data={pdata} />
+          <GenericBannerSlider banners={[
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+        ]} aspectRatio="10/1.5" />
+          <GenericBannerSlider banners={[
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+        ]} aspectRatio="5/3" showDots={true} />
           {/* <div className="relative py-24 lg:py-32">
             <BackgroundSection />
             <SectionGridMoreExplore />
           </div> */}
           <SectionSliderProductCard
-            heading="Best Sellers"
-            subHeading="explore the blush collection"
+          
             data={rdata}
           />
-           {/* <SectionSliderLargeProduct data={pdata} cardStyle="style1" /> */}
-          
+          {/* <SectionSliderLargeProduct data={pdata} cardStyle="style1" /> */}
 
-           {/* <SectionPromo3 /> */}
+
+          {/* <SectionPromo3 /> */}
           <SectionGridFeatureItems data={sdata} />
 
         </div>

@@ -19,24 +19,24 @@ const MainNav2Logged = () => {
   const [showSearchForm, setShowSearchForm] = useState(false);
   const [showContent, setShowContent] = useState(true);
   const router = useRouter();
-   const {user} = useAuth()
-   useEffect(()=>{
+  const { user } = useAuth()
+  useEffect(() => {
 
-   },[user])
+  }, [user])
 
-    const isBigScreen = useMediaQuery({
-      query: "(min-width: 900px)",
-    });
-  
-    useEffect(() => {
-      setShowContent(false);
+  const isBigScreen = useMediaQuery({
+    query: "(min-width: 900px)",
+  });
 
-      const timer = setTimeout(() => {
-        setShowContent(true);
-      }, 100);
+  useEffect(() => {
+    setShowContent(false);
 
-      return () => clearTimeout(timer);
-    }, [isBigScreen]);
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [isBigScreen]);
 
   // navbar main -----------------------------------------------------------------------------------------
 
@@ -99,7 +99,10 @@ const MainNav2Logged = () => {
 
   const renderContent = () => {
     return (
-      <div className="h-30 flex justify-between">
+      <div className="flex h-20 justify-around">
+         <div className="flex items-center lg:hidden">
+          <MenuBar />
+        </div>
         <div className="lg:flex-1 flex items-center">
           <Logo className="flex-shrink-0 w-32" />
         </div>
@@ -117,18 +120,16 @@ const MainNav2Logged = () => {
               {renderMagnifyingGlassIcon()}
             </button>
           )}
-           {user? <AvatarDropdown />:<>
-           <span onClick={()=>{
-            router.push("/login")
-           }}>
-            Login
-           </span>
-           </>}
+          {user ? <AvatarDropdown /> : <>
+            <span onClick={() => {
+              router.push("/login")
+            }}>
+              Login
+            </span>
+          </>}
           <CartDropdown />
         </div>
-        <div className="flex items-center lg:hidden">
-          <MenuBar />
-        </div>
+       
       </div>
     );
   };
@@ -139,7 +140,7 @@ const MainNav2Logged = () => {
       style={{
       }}
     >
-      <div className="container ">{renderContent()}</div>
+      <div className="custom-container ">{renderContent()}</div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ import Link from "next/link";
 const BlogSingle = () => {
   const renderHeader = () => {
     return (
-      <header className="container rounded-xl">
+      <header className="custom-container rounded-xl">
         <div className="max-w-screen-md mx-auto space-y-5">
           <Badge href="/" color="purple" name="Traveler" />
           <h1

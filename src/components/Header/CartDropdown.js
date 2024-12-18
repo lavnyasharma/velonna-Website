@@ -70,7 +70,7 @@ export default function CartDropdown() {
     <button
     className="relative w-10 h-10 sm:w-12 sm:h-12 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
   >
-     {itemCount?  <div className="w-3.5 h-3.5 flex items-center justify-center bg-primary-500 absolute top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
+     {itemCount?  <div className="w-3.5 h-3.5 flex items-center justify-end bg-primary-500 absolute top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
       
          <Link href="/cart" className="mt-[1px]">
         {itemCount}

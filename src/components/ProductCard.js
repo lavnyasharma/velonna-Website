@@ -23,7 +23,8 @@ import { addToCart } from "@/axios";
 
 const ProductCard = ({
   className = "",
-    data = {} , 
+  data = {},
+  hideDetails = false,
   isLiked,
 }) => {
   const {
@@ -48,9 +49,9 @@ const ProductCard = ({
   const [showModalQuickView, setShowModalQuickView] = useState(false);
   const [qualitySelected, setQualitySelected] = useState(1);
   const router = useRouter();
-  const {fetchCart} = useCart()
+  const { fetchCart } = useCart()
   const handleAddToCart = () => {
-    
+
     addToCart(hsn, qualitySelected)
       .then((res) => {
         console.log(res.data);
@@ -69,7 +70,7 @@ const ProductCard = ({
     console.log(size)
 
     alert(size)
-    
+
     toast.custom(
       (t) => (
         <Transition
@@ -105,7 +106,7 @@ const ProductCard = ({
           <Image
             width={80}
             height={96}
-            src={thumbnail?thumbnail:""}
+            src={thumbnail ? thumbnail : ""}
             alt={title}
             className="absolute object-cover object-center"
           />
@@ -186,11 +187,10 @@ const ProductCard = ({
             <div
               key={index}
               onClick={() => setVariantActive(index)}
-              className={`relative w-6 h-6 rounded-full overflow-hidden z-10 border cursor-pointer ${
-                variantActive === index
+              className={`relative w-6 h-6 rounded-full overflow-hidden z-10 border cursor-pointer ${variantActive === index
                   ? getBorderClass(variant.color)
                   : "border-transparent"
-              }`}
+                }`}
               title={variant.name}
             >
               <div
@@ -208,11 +208,10 @@ const ProductCard = ({
           <div
             key={index}
             onClick={() => setVariantActive(index)}
-            className={`relative w-11 h-6 rounded-full overflow-hidden z-10 border cursor-pointer ${
-              variantActive === index
+            className={`relative w-11 h-6 rounded-full overflow-hidden z-10 border cursor-pointer ${variantActive === index
                 ? "border-black dark:border-slate-300"
                 : "border-transparent"
-            }`}
+              }`}
             title={variant.name}
           >
             <div
@@ -222,11 +221,11 @@ const ProductCard = ({
                   // @ts-ignore
                   typeof variant.thumbnail?.src === "string"
                     ? // @ts-ignore
-                      variant.thumbnail?.src
+                    variant.thumbnail?.src
                     : typeof variant.thumbnail === "string"
-                    ? variant.thumbnail
-                    : ""
-                })`,
+                      ? variant.thumbnail
+                      : ""
+                  })`,
               }}
             ></div>
           </div>
@@ -245,7 +244,7 @@ const ProductCard = ({
           onClick={() => handleAddToCart()}
         >
           <BagIcon className="w-3.5 h-3.5 mb-0.5" />
-          <span className="hidden md:flex ms-1">Add to bag</span>
+          <span className="flex ms-1">Add to bag</span>
         </ButtonPrimary>
         {/* <ButtonSecondary
           className="ms-1.5 bg-white hover:!bg-gray-100 hover:text-slate-900 transition-colors shadow-lg"
@@ -265,15 +264,15 @@ const ProductCard = ({
   return (
     <>
       <div
-        className={`nc-ProductCard relative flex flex-col bg-transparent ${className}`}
+        className={`nc-ProductCard relative flex flex-col bg-transparent divide-x ${className}`}
       >
         <Link href={`/product/${hsn}`} className="absolute inset-0"></Link>
 
-        <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 group">
+        <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 overflow-hidden  group">
           <Link href={`/product/${hsn}`} className="block">
             <NcImage
               containerClassName="flex aspect-w-11 aspect-h-12 w-full h-0"
-              src={thumbnail?thumbnail:""}
+              src={thumbnail ? thumbnail : ""}
               className="object-cover w-full h-full drop-shadow-xl"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 40vw"
@@ -285,18 +284,18 @@ const ProductCard = ({
           {renderGroupButtons()}
         </div>
 
-        <div className="space-y-4 px-2.5 pt-5 pb-2.5">
+        {!hideDetails && <div className="space-y-0.5 px-2.5 pt-2 pb-2.5">
           {renderVariants()}
           <div>
-            <h2 className="nc-ProductCard__title text-base font-semibold transition-colors">
+            <h2 className="nc-ProductCard__title text-xs font-medium transition-colors truncate text-ellipsis">
               {title.charAt(0).toUpperCase() + title.slice(1)}
             </h2>
-            <p className={`text-sm text-slate-500 dark:text-slate-400 mt-1 `}>
+            <p className={`text-xs text-slate-500 dark:text-slate-400 mt-1 `}>
               {collection.toString().charAt(0).toUpperCase() + collection.toString().slice(1)}
             </p>
-            <p className={`text-sm text-slate-500 dark:text-slate-400 mt-1 `}>
+            <span className={`text-xs text-slate-500 dark:text-slate-400 mt-1 bg-slate-100 py-0.5 px-2 rounded-xl`}>
               {category.toString().charAt(0).toUpperCase() + category.toString().slice(1)}
-            </p>
+            </span>
           </div>
 
           <div className="flex justify-between items-end ">
@@ -304,11 +303,11 @@ const ProductCard = ({
             <div className="flex items-center mb-0.5">
               <StarIcon className="w-5 h-5 pb-[1px] text-amber-400" />
               <span className="text-sm ms-1 text-slate-500 dark:text-slate-400">
-                {rating || ""} {numberOfReviews || 0} 
+                {rating || ""} {numberOfReviews || 0}
               </span>
             </div>
           </div>
-        </div>
+        </div>}
       </div>
 
       {/* QUICKVIEW */}

@@ -11,6 +11,7 @@ const SectionSliderProductCard = ({
   className = "",
   itemClassName = "",
   headingFontClassName,
+  hideDetails=false,
   headingClassName,
   heading,
   subHeading = "Products You May Like.",
@@ -32,27 +33,29 @@ const SectionSliderProductCard = ({
   useEffect(() => {
     const OPTIONS = {
       // direction: document.querySelector("html")?.getAttribute("dir") || "ltr",
+      type:"slide",
       perView: 4,
-      gap: 32,
+      gap:0,
+      dragThreshold: 20,
       bound: true,
       breakpoints: {
         1280: {
           perView: 4 - 1,
         },
         1024: {
-          gap: 20,
+         
           perView: 4 - 1,
         },
         768: {
-          gap: 20,
+         
           perView: 4 - 2,
         },
         640: {
-          gap: 20,
+         
           perView: 2.3,
         },
         500: {
-          gap: 20,
+          
           perView: 2.3,
         },
       },
@@ -90,20 +93,19 @@ const SectionSliderProductCard = ({
   return (
     <div className={`nc-SectionSliderProductCard ${className}`}>
       <div ref={sliderRef} className={`flow-root ${isShow ? "" : "invisible"}`}>
-        <Heading
+       {heading && <Heading
           className={headingClassName}
           fontClass={headingFontClassName}
           rightDescText={subHeading}
-          hasNextPrev
         >
           {heading || `New Arrivals`}
-        </Heading>
+        </Heading>}
 
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             {data?data.map((item, index) => (
               <li key={index} className={`glide__slide ${itemClassName}`}>
-                {loading ? <Loading /> : <ProductCard data={item} />}
+                {loading ? <Loading /> : <ProductCard hideDetails={hideDetails} data={item} />}
               </li>
             )):"Loading"}
           </ul>

@@ -37,10 +37,10 @@ const PageSearch = ({}) => {
   }, [searchquery]);
   return (
     <div className={`nc-PageSearch`} data-nc-id="PageSearch">
-      <div
+      {/* <div
         className={`nc-HeadBackgroundCommon h-24 2xl:h-28 top-0 left-0 right-0 w-full bg-primary-50 dark:bg-neutral-800/20 `}
       />
-      <div className="container">
+      <div className="custom-container">
         <header className="max-w-2xl mx-auto -mt-10 flex flex-col lg:-mt-7">
           <form className="relative w-full " onSubmit={(e)=>{
             e.preventDefault()
@@ -94,14 +94,14 @@ const PageSearch = ({}) => {
             </label>
           </form>
         </header>
-      </div>
+      </div> */}
 
-      <div className="container py-16 lg:pb-28 lg:pt-20 space-y-16 lg:space-y-28">
+      <div className=" py-16 lg:pb-28 lg:pt-20 lg:space-y-28">
         <main>
           {/* FILTER */}
 
           {/* LOOP ITEMS */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-10 mt-8 lg:mt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4   lg:mt-10">
             {productData.length !== 0
               ? productData.map((item, index) => (
                   <ProductCard data={item} key={index} />

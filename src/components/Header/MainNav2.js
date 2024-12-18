@@ -11,13 +11,14 @@ import CartDropdown from "./CartDropdown";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/authContext";
+import SearchDropdown from "./SearchDropdown";
 
 
 
 const MainNav2 = ({ className = "" }) => {
   const [showSearchForm, setShowSearchForm] = useState(false);
   const router = useRouter();
-  const {user} = useAuth()
+  const { user } = useAuth()
 
   const renderMagnifyingGlassIcon = () => {
     return (
@@ -43,6 +44,31 @@ const MainNav2 = ({ className = "" }) => {
           strokeLinejoin="round"
         />
       </svg>
+    );
+  };
+
+
+  const renderSearchFormMobile = () => {
+    return (
+      <form
+        className="flex-1 py-[8px] px-4 text-slate-900  dark:text-slate-100"
+        onSubmit={(e) => {
+          e.preventDefault();
+          router.push("/search");
+        }}
+      >
+        <div className="drop-shadow-sm border border-black dark:bg-slate-800 flex items-center px-2 w-full h-full rounded-full">
+          {renderMagnifyingGlassIcon()}
+          <input
+            type="text"
+            placeholder="Type and press enter"
+            className="border-none bg-transparent focus:outline-none focus:ring-0 w-full text-xs"
+            autoFocus
+          />
+
+        </div>
+        <input type="submit" hidden value="" />
+      </form>
     );
   };
 
@@ -73,32 +99,51 @@ const MainNav2 = ({ className = "" }) => {
   };
 
   return (
-    <div className="nc-MainNav2 relative z-10 bg-white dark:bg-slate-900 ">
-      <div className="container">
-        <div className="h-20 flex justify-between">
-          <div className="flex items-center md:hidden flex-1">
+    <div className="nc-MainNav2 relative shadow-md z-10 bg-white dark:bg-slate-900 ">
+      <div className="mx-[10px]">
+        <div className="h-[3rem] flex justify-between">
+           {/* <div className="flex items-center md:hidden flex-1">
             <MenuBar />
-          </div>
+          </div>  */}
 
           <div className="flex lg:flex-1 items-center space-x-3 sm:space-x-8">
+          <div className="flex md:hidden">
+            <MenuBar />
+          </div> 
             <Logo />
-            {!showSearchForm && (
+            {/* {!showSearchForm && (
               <div className="hidden md:block h-10 border-l border-slate-200 dark:border-slate-700"></div>
-            )}
-            {!showSearchForm && (
+            )} */}
+            {/* {!showSearchForm && (
               <div className="hidden md:block">
                 <DropdownCategories />
               </div>
-            )}
+            )} */}
           </div>
 
-          {showSearchForm && (
-            <div className="flex-[2] flex !mx-auto px-10">
-              {renderSearchForm()}
-            </div>
-          )}
+
+          <div className="flex-[2]  lg:flex md:flex hidden !mx-auto">
+            {renderSearchForm()}
+          </div>
 
           <div className="flex-1 flex items-center justify-end ">
+            {/* {user ? "" : "Login"} */}
+
+            {/* {!showSearchForm && (
+              <button
+                className="hidden lg:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none items-center justify-center"
+                onClick={() => setShowSearchForm(!showSearchForm)}
+              >
+                {renderMagnifyingGlassIcon()}
+              </button>
+            )} */}
+            {user ? <AvatarDropdown /> : ""}
+            <CartDropdown />
+            
+          </div>
+          
+          {/* <div className="flex-1 flex items-center justify-end ">
+            {user ? "" : "Login"}
             {!showSearchForm && <TemplatesDropdown />}
             {!showSearchForm && <LangDropdown />}
             {!showSearchForm && (
@@ -109,8 +154,18 @@ const MainNav2 = ({ className = "" }) => {
                 {renderMagnifyingGlassIcon()}
               </button>
             )}
-           {user? <AvatarDropdown />:""}
+           
             <CartDropdown />
+          </div> */}
+        </div>
+        <div className="h-12 hidden md:flex  mx-[21rem] gap-[1rem] justify-start">
+          <TemplatesDropdown />
+
+          <LangDropdown />
+        </div>
+        <div className="h-12 flex md:hidden justify-center">
+          <div className="lg:hidden md:hidden flex w-full">
+            {renderSearchFormMobile()}
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ const CommonLayout = ({ children }) => {
   const pathname = usePathname();
 
   return (
-    <div className="nc-AccountCommonLayout container">
+    <div className="nc-AccountCommonLayout custom-container">
       <div className="mt-14 sm:mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="max-w-2xl">

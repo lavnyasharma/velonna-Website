@@ -29,7 +29,7 @@ const PageContact = ({}) => {
         <h2 className="my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
           Contact
         </h2>
-        <div className="container max-w-7xl mx-auto">
+        <div className="custom-container max-w-7xl mx-auto">
           <div className="flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-12 ">
             <div className="max-w-sm space-y-8">
               {info.map((item, index) => (

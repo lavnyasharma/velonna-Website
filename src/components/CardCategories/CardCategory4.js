@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const CardCategory4 = ({
   className = "",
-  featuredImage = ".",
+  featuredImage = "/",
   bgSVG = explore1Svg,
   name,
   desc,

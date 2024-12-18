@@ -118,10 +118,10 @@ function ProductScreen() {
   const handleCloseModalImageGallery = () => {
     let params = new URLSearchParams(document.location.search);
     params.delete("modal");
-    router.push(`${thisPathname}/?${params.toString()}` );
+    router.push(`${thisPathname}/?${params.toString()}`);
   };
   const handleOpenModalImageGallery = () => {
-    router.push(`${thisPathname}/?modal=PHOTO_TOUR_SCROLLABLE` );
+    router.push(`${thisPathname}/?modal=PHOTO_TOUR_SCROLLABLE`);
   };
 
   useEffect(() => {
@@ -164,11 +164,10 @@ function ProductScreen() {
             <div
               key={index}
               onClick={() => setVariantActive(index)}
-              className={`relative flex-1 max-w-[75px] h-10 sm:h-11 rounded-full border-2 cursor-pointer ${
-                variantActive === index
+              className={`relative flex-1 max-w-[75px] h-10 sm:h-11 rounded-full border-2 cursor-pointer ${variantActive === index
                   ? "border-primary-6000 dark:border-primary-500"
                   : "border-transparent"
-              }`}
+                }`}
             >
               <div
                 className="absolute inset-0.5 rounded-full overflow-hidden z-0 bg-cover"
@@ -177,11 +176,11 @@ function ProductScreen() {
                     // @ts-ignore
                     typeof variant.thumbnail?.src === "string"
                       ? // @ts-ignore
-                        variant.thumbnail?.src
+                      variant.thumbnail?.src
                       : typeof variant.thumbnail === "string"
-                      ? variant.thumbnail
-                      : ""
-                  })`,
+                        ? variant.thumbnail
+                        : ""
+                    })`,
                 }}
               ></div>
             </div>
@@ -190,9 +189,9 @@ function ProductScreen() {
       </div>
     );
   };
-  const {fetchCart} = useCart()
+  const { fetchCart } = useCart()
   const handleAddToCart = () => {
-    
+
     addToCart(hsnProduct.hsn, qualitySelected)
       .then((res) => {
         console.log(res.data);
@@ -206,8 +205,8 @@ function ProductScreen() {
         toast.error("Error adding to cart. Please try again.");
       });
   };
-  
-  
+
+
 
 
   const NotifyAddTocart = ({ productImage, qualitySelected, show, variantActive }) => {
@@ -221,7 +220,7 @@ function ProductScreen() {
       </div>
     );
   };
-  
+
   const renderSizeList = () => {
     if (!allOfSizes || !sizes || !sizes.length) {
       return null;
@@ -252,15 +251,13 @@ function ProductScreen() {
               <div
                 key={index}
                 className={`relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
-                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 ${
-                  sizeOutStock
+                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 ${sizeOutStock
                     ? "text-opacity-20 dark:text-opacity-20 cursor-not-allowed"
                     : "cursor-pointer"
-                } ${
-                  isActive
+                  } ${isActive
                     ? "bg-primary-6000 border-primary-6000 text-white hover:bg-primary-6000"
                     : "border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
-                }`}
+                  }`}
                 onClick={() => {
                   if (sizeOutStock) {
                     return;
@@ -318,9 +315,9 @@ function ProductScreen() {
     return null;
   };
 
-  const notifyAddTocart = ( data ) => {
+  const notifyAddTocart = (data) => {
 
-  
+
     toast.custom(
       (t) => (
         <Transition
@@ -338,7 +335,7 @@ function ProductScreen() {
             Added to cart!
           </p>
           <div className="border-t border-slate-200 dark:border-slate-700 my-4" />
-          {renderProductCartOnNotify( data )} 
+          {renderProductCartOnNotify(data)}
         </Transition>
       ),
       {
@@ -347,9 +344,9 @@ function ProductScreen() {
       }
     );
   };
-  
 
-  const renderProductCartOnNotify = (data ) => {
+
+  const renderProductCartOnNotify = (data) => {
     console.log(data)
     return (
       <div className="flex ">
@@ -368,7 +365,7 @@ function ProductScreen() {
             <div className="flex justify-between ">
               <div>
                 <h3 className="text-base font-medium ">{data.product.title}</h3>
-                
+
                 <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
                   <span>
                     {variants ? variants[variantActive].name : `Natural`}
@@ -401,8 +398,8 @@ function ProductScreen() {
     );
   };
 
-  
-  
+
+
 
   const renderSectionSidebar = () => {
     return (
@@ -412,11 +409,11 @@ function ProductScreen() {
           <div className="">
             {/* ---------- 1 HEADING ----------  */}
             <div className="flex items-center justify-between space-x-5">
-            <div className="flex text-2xl font-semibold">
-            ₹{hsnProduct?.price?.toLocaleString('en-IN')}
-</div>
+              <div className="flex text-2xl font-semibold">
+                ₹{hsnProduct?.price?.toLocaleString('en-IN')}
+              </div>
 
-              
+
 
               <a
                 href="#reviews"
@@ -466,7 +463,7 @@ function ProductScreen() {
               onClick={handleAddToCart}
             >
               <BagIcon className="hidden sm:inline-block w-5 h-5 mb-0.5" />
-              <span  className="ml-3">Add to cart</span>
+              <span className="ml-3">Add to cart</span>
             </ButtonPrimary>
           </div>
 
@@ -502,9 +499,9 @@ function ProductScreen() {
     return (
       <div className="listingSection__wrap !space-y-6">
         <div>
-        <h2 className="text-2xl md:text-3xl font-semibold">
-  {hsnProduct?.title?.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')}
-</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold">
+            {hsnProduct?.title?.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')}
+          </h2>
 
           <p className="">{hsnProduct?.category?.charAt(0).toUpperCase() + hsnProduct?.category?.slice(1).toLowerCase()}</p>
 
@@ -572,10 +569,10 @@ function ProductScreen() {
           </ul>
         </div>
         {/* ---------- 6 ----------  */}
-        <div className="" style={{marginBottom:"20px"}}> <Policy />
+        <div className="" style={{ marginBottom: "20px" }}> <Policy />
 
         </div>
-       
+
       </div>
     );
   };
@@ -638,96 +635,95 @@ function ProductScreen() {
       {hsnProduct ? (
         <div className={`ListingDetailPage nc-ProductDetailPage2`}>
           <>
-          <header className="container mt-8 sm:mt-10">
-          <div className="relative ">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
-              <div
-                className="md:h-full col-span-2 md:col-span-1 row-span-2 relative rounded-md sm:rounded-xl cursor-pointer"
-                onClick={handleOpenModalImageGallery}
-              >
-                <NcImage
-                  alt="firt"
-                  containerClassName="aspect-w-3 aspect-h-4 relative md:aspect-none md:absolute md:inset-0"
-                  className="object-cover rounded-md sm:rounded-xl"
-                  src={hsnProduct?.images[0]?.image}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity rounded-md sm:rounded-xl"></div>
-              </div>
-
-              {/*  */}
-              <div
-                className="col-span-1 row-span-2 relative rounded-md sm:rounded-xl overflow-hidden z-0 cursor-pointer"
-                onClick={handleOpenModalImageGallery}
-              >
-                <NcImage
-                  alt=""
-                  fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  containerClassName="absolute inset-0"
-                  className="object-cover w-full h-full rounded-md sm:rounded-xl"
-                  src={hsnProduct?.images[1]?.image}
-                />
-                <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity"></div>
-              </div>
-
-              {/*  */}
-              {[hsnProduct?.images[2]?.image?hsnProduct?.images[2]?.image:"", hsnProduct?.images[3]?.image?hsnProduct?.images[3]?.image:""].map(
-                (item, index) => (
+            <header className="custom-container mt-8 sm:mt-10">
+              <div className="relative ">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
                   <div
-                    key={index}
-                    className={`relative rounded-md sm:rounded-xl overflow-hidden z-0 ${
-                      index >= 2 ? "block" : ""
-                    }`}
+                    className="md:h-full col-span-2 md:col-span-1 row-span-2 relative rounded-md sm:rounded-xl cursor-pointer"
+                    onClick={handleOpenModalImageGallery}
+                  >
+                    <NcImage
+                      alt="firt"
+                      containerClassName="aspect-w-3 aspect-h-4 relative md:aspect-none md:absolute md:inset-0"
+                      className="object-cover rounded-md sm:rounded-xl"
+                      src={hsnProduct?.images[0]?.image}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity rounded-md sm:rounded-xl"></div>
+                  </div>
+
+                  {/*  */}
+                  <div
+                    className="col-span-1 row-span-2 relative rounded-md sm:rounded-xl overflow-hidden z-0 cursor-pointer"
+                    onClick={handleOpenModalImageGallery}
                   >
                     <NcImage
                       alt=""
                       fill
-                      sizes="(max-width: 640px) 100vw, 33vw"
-                      containerClassName="aspect-w-6 aspect-h-5 lg:aspect-h-4"
-                      className="object-cover w-full h-full rounded-md sm:rounded-xl "
-                      src={item || ""}
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      containerClassName="absolute inset-0"
+                      className="object-cover w-full h-full rounded-md sm:rounded-xl"
+                      src={hsnProduct?.images[1]?.image}
                     />
-
-                    {/* OVERLAY */}
-                    <div
-                      className="absolute inset-0 bg-slate-900/20 opacity-0  transition-opacity cursor-pointer"
-                      onClick={handleOpenModalImageGallery}
-                    />
+                    <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity"></div>
                   </div>
-                )
-              )}
-            </div>
-            <div
-              className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-white text-slate-500 cursor-pointer hover:bg-slate-200 z-10"
-              onClick={handleOpenModalImageGallery}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                />
-              </svg>
-              <span className="ml-2 text-neutral-800 text-sm font-medium">
-                Show all photos
-              </span>
-            </div>
-          </div>
-        </header>
+
+                  {/*  */}
+                  {[hsnProduct?.images[2]?.image ? hsnProduct?.images[2]?.image : "", hsnProduct?.images[3]?.image ? hsnProduct?.images[3]?.image : ""].map(
+                    (item, index) => (
+                      <div
+                        key={index}
+                        className={`relative rounded-md sm:rounded-xl overflow-hidden z-0 ${index >= 2 ? "block" : ""
+                          }`}
+                      >
+                        <NcImage
+                          alt=""
+                          fill
+                          sizes="(max-width: 640px) 100vw, 33vw"
+                          containerClassName="aspect-w-6 aspect-h-5 lg:aspect-h-4"
+                          className="object-cover w-full h-full rounded-md sm:rounded-xl "
+                          src={item || ""}
+                        />
+
+                        {/* OVERLAY */}
+                        <div
+                          className="absolute inset-0 bg-slate-900/20 opacity-0  transition-opacity cursor-pointer"
+                          onClick={handleOpenModalImageGallery}
+                        />
+                      </div>
+                    )
+                  )}
+                </div>
+                <div
+                  className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-white text-slate-500 cursor-pointer hover:bg-slate-200 z-10"
+                  onClick={handleOpenModalImageGallery}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                    />
+                  </svg>
+                  <span className="ml-2 text-neutral-800 text-sm font-medium">
+                    Show all photos
+                  </span>
+                </div>
+              </div>
+            </header>
           </>
 
           {/* MAIn */}
-          <main className="container relative z-10 mt-9 sm:mt-11 flex ">
+          <main className="custom-container relative z-10 mt-9 sm:mt-11 flex ">
             {/* CONTENT */}
             <div className="w-full lg:w-3/5 xl:w-2/3 space-y-10 lg:pr-14 lg:space-y-14">
               {renderSection1()}
@@ -743,7 +739,7 @@ function ProductScreen() {
           </main>
 
           {/* OTHER SECTION */}
-          {/* <div className="container pb-24 lg:pb-28 pt-14 space-y-14">
+          {/* <div className="custom-container pb-24 lg:pb-28 pt-14 space-y-14">
             {renderReviews()}
             <SectionSliderProductCard
               heading="Customers also purchased"
@@ -774,7 +770,7 @@ function ProductScreen() {
           />
         </div>
       ) : (
-        <ProductScreenSkeleton/>
+        <ProductScreenSkeleton />
       )}
     </>
   );

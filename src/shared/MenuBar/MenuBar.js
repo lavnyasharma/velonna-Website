@@ -57,11 +57,11 @@ const MenuBar = () => {
     <>
       <button
         onClick={handleOpenMenu}
-        className="p-2.5 rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-center"
+        className="rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-end"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-7 w-7"
+          className="h-7 w-7 flex items-center justify-end"
           viewBox="0 0 20 20"
           fill="currentColor"
         >

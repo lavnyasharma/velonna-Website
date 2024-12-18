@@ -365,7 +365,7 @@ const ProductDetailPage = () => {
   return (
     <div className={`nc-ProductDetailPage `}>
       {/* MAIn */}
-      <main className="container mt-5 lg:mt-11">
+      <main className="custom-container mt-5 lg:mt-11">
         <div className="lg:flex">
           {/* CONTENT */}
           <div className="w-full lg:w-[55%] ">

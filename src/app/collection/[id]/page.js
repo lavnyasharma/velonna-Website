@@ -64,7 +64,7 @@ const PageCollection = () => {
 
   return (
     <div className="nc-PageCollection">
-      <div className="container py-16 lg:pb-28 lg:pt-20 space-y-16 sm:space-y-20 lg:space-y-28">
+      <div className=" py-16 lg:pb-28 lg:pt-20 space-y-16 sm:space-y-20 lg:space-y-28">
         <div className="space-y-10 lg:space-y-14">
           {/* HEADING */}
           {/* <div className="max-w-screen-sm">
@@ -84,7 +84,7 @@ const PageCollection = () => {
             {/* <TabFilters /> */}
 
             {/* PRODUCT GRID */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-10 mt-8 lg:mt-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 mt-8 lg:mt-10">
               {loading ? (
                 <p>Loading...</p>
               ) : (

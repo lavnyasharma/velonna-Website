@@ -5,7 +5,7 @@ import NcImage from "@/shared/NcImage/NcImage";
 
 const Page404 = () => (
   <div className="nc-Page404">
-    <div className="container relative pt-5 pb-16 lg:pb-20 lg:pt-5">
+    <div className="custom-container relative pt-5 pb-16 lg:pb-20 lg:pt-5">
       {/* HEADER */}
       <header className="text-center max-w-2xl mx-auto space-y-2">
         <NcImage src={I404Png} alt="not-found" />

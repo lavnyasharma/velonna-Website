@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const CardCategory2 = ({
   className = "",
-  ratioClass = "aspect-w-1 aspect-h-1",
-  featuredImage = ".",
+  ratioClass = "aspect-w-1 aspect-h-1 ",
+  featuredImage = "/",
   id,
   name,
 }) => {
@@ -17,23 +17,23 @@ const CardCategory2 = ({
       data-nc-id="CardCategory2"
     >
       <div
-        className={`flex-1 relative w-full h-0 rounded-2xl overflow-hidden group ${ratioClass}`}
+        className={`flex-1 relative w-full h-0 overflow-hidden group ${ratioClass}`}
       >
-        <div className="pt-14">
+        <div className="">
            <Image
             alt=""
             fill
             containerClassName="w-full h-full flex justify-center"
             src={featuredImage}
-            className="object-cover rounded-2xl"
-            sizes="400px"
+            className="object-cover"
+            sizes="100px"
           />
         </div>
-        <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity rounded-2xl"></span>
+        <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity "></span>
       </div>
-      <div className="mt-5 flex-1 text-center">
-        <h2 className="text-sm sm:text-sm text-neutral-900 dark:text-neutral-100 font-semibold">
-          {name}
+      <div className="mt-2 mb-2 flex-1 text-center">
+        <h2 className="text-xs sm:text-xs text-neutral-900 dark:text-neutral-100 font-medium">
+          {name.toString().charAt(0).toUpperCase() + name.toString().slice(1)}
         </h2>
       </div>
     </Link>

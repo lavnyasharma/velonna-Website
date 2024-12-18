@@ -18,11 +18,25 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class',
   theme: {
     container: {
-      center: true,
+      center: false,
+      width: "100%",
       padding: {
-        DEFAULT: "1rem",
-        xl: "40px",
-        "2xl": "128px",
+        DEFAULT: '1rem',
+        xs:"10px",
+        sm: '15px',
+        lg: '20px',
+        xl: '25px',
+        '2xl': '30px',
+      },
+      margin: {
+        DEFAULT: '20px',
+        sm: '20px',
+        lg: '20px',
+        xl: '20px',
+        '2xl': '20px',
+      },
+      extend: {
+        
       },
     },
 
@@ -81,6 +95,9 @@ module.exports = {
         'h4': '1.5rem',     // 24px
         'h5': '1.25rem',    // 20px
         'h6': '1.125rem',   // 18px
+      },
+      maxWidth: {
+        full: '100%', // Add a `full` max-width utility
       },
     },
   },

@@ -4,11 +4,11 @@ import { Popover, Transition } from "@/app/headlessui";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { MEGAMENU_TEMPLATES } from "@/data/navigation";
-import CardCategory3 from "@/components/CardCategories/CardCategory3";
+import CardCategory1 from "@/components/CardCategories/CardCategory1";
 import { NavItemType } from "@/shared/Navigation/NavigationItem";
 import Link from "next/link";
 
-export default function TemplatesDropdown() {
+export default function TemplatesDropdown({name="templates"}) {
   const renderMegaMenuNavlink = (item) => {
     return (
       <li key={item.id} className={`${item.isNew ? "menuIsNew" : ""}`}>
@@ -34,7 +34,7 @@ export default function TemplatesDropdown() {
                 ${open ? "" : "text-opacity-80"}
                 group h-10 sm:h-12 px-3 py-1.5 inline-flex items-center text-sm text-gray-800 dark:text-slate-300 font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
             >
-              <span className="">Templates</span>
+              <span className="">{name}</span>
               <ChevronDownIcon
                 className={`${open ? "-rotate-180" : ""}
                   ml-1 h-4 w-4 transition ease-in-out duration-150 `}
@@ -52,7 +52,7 @@ export default function TemplatesDropdown() {
             >
               <Popover.Panel className="absolute z-20 w-full mt-3.5 inset-x-0">
                 <div className="bg-white dark:bg-neutral-900 shadow-lg">
-                  <div className="container">
+                  <div className="custom-container">
                     <div className="flex text-sm border-t border-slate-200 dark:border-slate-700 py-14">
                       <div className="flex-1 grid grid-cols-4 gap-6 xl:gap-8 pr-6 xl:pr-8">
                         {MEGAMENU_TEMPLATES.map((item, index) => (
@@ -67,7 +67,7 @@ export default function TemplatesDropdown() {
                         ))}
                       </div>
                       <div className="w-[40%] xl:w-[35%]">
-                        <CardCategory3 />
+                        <CardCategory1 />
                       </div>
                     </div>
                   </div>

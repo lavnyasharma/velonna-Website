@@ -19,17 +19,17 @@ const solutions = [
 const Heading = ({
   children,
   desc = "",
-  className = "mb-12 lg:mb-14 text-neutral-900 dark:text-neutral-50",
+  className = "text-neutral-900 dark:text-neutral-50",
   isCenter = false,
   hasNextPrev = false,
-  fontClass = "text-2xl md:text-4xl font-semibold",
+  fontClass = "text-m md:text-2xl font-semibold",
   rightDescText,
   rightPopoverOptions = solutions,
   ...args
 }) => {
   return (
     <div
-      className={`nc-Section-Heading relative flex flex-col sm:flex-row sm:items-end justify-between ${className}`}
+      className={`nc-Section-Heading relative mx-[20px] flex flex-col sm:flex-row sm:items-end justify-between ${className}`}
     >
       <div
         className={

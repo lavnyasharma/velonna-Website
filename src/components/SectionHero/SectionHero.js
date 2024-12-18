@@ -87,8 +87,7 @@ const SectionHero = ({ className = "" }) => {
   const Loading = () => (
     <div
       role="status"
-      className="flex items-center justify-center mt-5 mx-5 h-96 nc-SectionHero2Item bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700 nc-SectionHero2Item--animation inset-0 object-contain sm:mt-10 md:mt-5 sm:mx-20 md:mx-20 xl:mx-52"
-      style={{ borderRadius: "1.5rem" }}
+      className="flex items-center justify-center h-96 nc-SectionHero2Item bg-gray-300 animate-pulse dark:bg-gray-700 nc-SectionHero2Item--animation inset-0 object-contain"
     >
       <span className="sr-only">Loading...</span>
     </div>
@@ -107,7 +106,7 @@ const SectionHero = ({ className = "" }) => {
         ) : (
           <div className="relative nc-SectionHero2Item nc-SectionHero2Item--animation inset-0 object-contain">
             <div>
-              <div className="absolute bottom-0 left-5 sm:bottom-5 sm:left-10 container pt-14 sm:pt-20 lg:pt-44 pb-5">
+              <div className="absolute bottom-0 left-5 sm:bottom-5 sm:left-10 custom-container pt-14 sm:pt-20 lg:pt-44 pb-5">
                 <div
                   className={`relative z-[1] w-full  space-y-8 sm:space-y-14 nc-SectionHero2Item__left`}
                 >
@@ -128,7 +127,7 @@ const SectionHero = ({ className = "" }) => {
                 style={{
                   width: "100%",
                   height: "auto",
-                  aspectRatio: "21/8",
+                  aspectRatio: "0.84/1",
                   objectFit: "cover",
                 }}
               />
