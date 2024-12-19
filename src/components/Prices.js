@@ -1,3 +1,4 @@
+import { formatPrice } from "@/utils/products";
 import React, { FC } from "react";
 
 
@@ -12,7 +13,7 @@ const Prices = ({
       <div
         className={`flex items-center ${contentClass}`}
       >
-        <span className="text-black !leading-none"> &#8377;{String(price)}</span>
+        <span className="text-black !leading-none"> &#8377;{String(formatPrice(price))}</span>
       </div>
     </div>
   );

@@ -19,9 +19,6 @@ const SectionGridFeatureItems = ({
           <ProductCard data={item} key={index} />
         )):"Loading"}
       </div>
-      <div className="flex mt-16 justify-center items-center">
-        <ButtonPrimary loading>Show me more</ButtonPrimary>
-      </div>
     </div>
   );
 };

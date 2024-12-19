@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@font-face {
+    font-family: 'Brilliant Cut Pro Medium';
+    src: url('/fonts/Brilliant Cut Pro Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Fancy Cut Pro';
+    src: url('/fonts/fancycut.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Brilliant Cut Pro Medium', sans-serif; /* Apply Poppins globally */
+    -webkit-font-smoothing: antialiased; /* Safari/Chrome */
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Use custom font only in elements with 'custom-font' class */
+  .fancy-cut {
+    font-family: 'Fancy Cut Pro', sans-serif;
+  }
+  
 /* width */
 ::-webkit-scrollbar {
     width: 10px;

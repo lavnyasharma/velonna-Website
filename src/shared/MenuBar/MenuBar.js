@@ -57,19 +57,10 @@ const MenuBar = () => {
     <>
       <button
         onClick={handleOpenMenu}
-        className="rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-end"
+        className="rounded-lg h-4 text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-end"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-7 w-7 flex items-center justify-end"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-            clipRule="evenodd"
-          />
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.75 6.75H20.25M3.75 12H20.25M3.75 17.25H20.25" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
 

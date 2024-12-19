@@ -116,8 +116,8 @@ const ProductCard = ({
           <div>
             <div className="flex justify-between ">
               <div>
-                <h3 className="text-base font-medium ">{title}</h3>
-                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                <h3 className="text-base fancy-cut font-medium ">{title}</h3>
+                <p className="mt-1 text-sm text-black dark:text-slate-400">
                   <span>
                     {category}
                   </span>
@@ -287,13 +287,13 @@ const ProductCard = ({
         {!hideDetails && <div className="space-y-0.5 px-2.5 pt-2 pb-2.5">
           {renderVariants()}
           <div>
-            <h2 className="nc-ProductCard__title text-xs font-medium transition-colors truncate text-ellipsis">
+            <h2 className="nc-ProductCard__title  text-sm font-medium transition-colors truncate text-ellipsis">
               {title.charAt(0).toUpperCase() + title.slice(1)}
             </h2>
-            <p className={`text-xs text-slate-500 dark:text-slate-400 mt-1 `}>
+            <p className={`text-xs text-black font-medium fancy-cut dark:text-slate-400 mt-1 `}>
               {collection.toString().charAt(0).toUpperCase() + collection.toString().slice(1)}
             </p>
-            <span className={`text-xs text-slate-500 dark:text-slate-400 mt-1 bg-slate-100 py-0.5 px-2 rounded-xl`}>
+            <span className={`text-xs font-medium fancy-cut text-black dark:text-slate-400 mt-1 bg-slate-100 py-0.5 px-2 rounded-xl`}>
               {category.toString().charAt(0).toUpperCase() + category.toString().slice(1)}
             </span>
           </div>
@@ -302,7 +302,7 @@ const ProductCard = ({
             <Prices price={price} />
             <div className="flex items-center mb-0.5">
               <StarIcon className="w-5 h-5 pb-[1px] text-amber-400" />
-              <span className="text-sm ms-1 text-slate-500 dark:text-slate-400">
+              <span className="text-sm ms-1 text-black dark:text-slate-400">
                 {rating || ""} {numberOfReviews || 0}
               </span>
             </div>

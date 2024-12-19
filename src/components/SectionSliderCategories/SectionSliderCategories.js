@@ -69,7 +69,7 @@ const SectionSliderCategories = ({
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             {categoriesData.map((item, index) => (
-              <li key={index} className={`m-0 border rounded-2xl overflow-hidden glide__slide ${itemClassName} `}>
+              <li key={index} className={`m-0 border-2 border-black rounded-2xl overflow-hidden glide__slide ${itemClassName} `}>
                 <CardCategory2
                   featuredImage={item.icon}
                   name={item.name}

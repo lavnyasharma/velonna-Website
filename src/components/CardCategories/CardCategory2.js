@@ -17,7 +17,7 @@ const CardCategory2 = ({
       data-nc-id="CardCategory2"
     >
       <div
-        className={`flex-1 relative w-full h-0 overflow-hidden group ${ratioClass}`}
+        className={`flex- border-b-black border-b-2 1 relative w-full h-0 overflow-hidden group ${ratioClass}`}
       >
         <div className="">
            <Image
@@ -31,8 +31,8 @@ const CardCategory2 = ({
         </div>
         <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity "></span>
       </div>
-      <div className="mt-2 mb-2 flex-1 text-center">
-        <h2 className="text-xs sm:text-xs text-neutral-900 dark:text-neutral-100 font-medium">
+      <div className="mt-2 relative mb-2 flex-1 text-center">
+        <h2 className="text-sm sm:text-sm fancy-cut text-neutral-900 dark:text-neutral-100 font-medium">
           {name.toString().charAt(0).toUpperCase() + name.toString().slice(1)}
         </h2>
       </div>

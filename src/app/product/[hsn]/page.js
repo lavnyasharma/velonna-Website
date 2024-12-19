@@ -165,8 +165,8 @@ function ProductScreen() {
               key={index}
               onClick={() => setVariantActive(index)}
               className={`relative flex-1 max-w-[75px] h-10 sm:h-11 rounded-full border-2 cursor-pointer ${variantActive === index
-                  ? "border-primary-6000 dark:border-primary-500"
-                  : "border-transparent"
+                ? "border-primary-6000 dark:border-primary-500"
+                : "border-transparent"
                 }`}
             >
               <div
@@ -458,13 +458,19 @@ function ProductScreen() {
                 onChange={setQualitySelected}
               />
             </div> */}
-            <ButtonPrimary
+            {hsnProduct === 0 ? <ButtonPrimary
               className="flex-1 flex-shrink-0"
               onClick={handleAddToCart}
             >
               <BagIcon className="hidden sm:inline-block w-5 h-5 mb-0.5" />
               <span className="ml-3">Add to cart</span>
-            </ButtonPrimary>
+            </ButtonPrimary> : <ButtonPrimary disabled
+              className="flex-1 flex-shrink-0"
+              onClick={handleAddToCart}
+            >
+              
+              <span className="ml-3">Out Of Stock</span>
+            </ButtonPrimary>}
           </div>
 
           {/* SUM */}

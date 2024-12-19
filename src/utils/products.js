@@ -24,4 +24,9 @@ async function getProductByHsn(hsn){
     return data
 }
 
-export {getProducts,getProductByHsn}
+
+
+const formatPrice = (price) => {
+    return Number(price)?.toLocaleString('en-IN');
+  };
+export {getProducts,getProductByHsn,formatPrice}
