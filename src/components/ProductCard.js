@@ -20,6 +20,7 @@ import NcImage from "@/shared/NcImage/NcImage";
 import { useCart } from "@/context/cartContext";
 import { addToCart } from "@/axios";
 import {imagethumbnail } from "../images/products/thumbnail_placeholder.webp";
+import { useAuth } from "@/context/authContext";
 
 const ProductCard = ({
   className = "",
@@ -50,8 +51,12 @@ const ProductCard = ({
   const [qualitySelected, setQualitySelected] = useState(1);
   const router = useRouter();
   const { fetchCart } = useCart()
+  const {is_auth} = useAuth()
   const handleAddToCart = () => {
-
+    if (!is_auth){
+      router.push("/login")
+      return
+    }
     addToCart(hsn, qualitySelected)
       .then((res) => {
         console.log(res.data);

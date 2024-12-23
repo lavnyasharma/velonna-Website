@@ -136,7 +136,7 @@ const NavMobile = ({ onClickClose }) => {
       <div className="mt-auto p-4 bg-white dark:bg-neutral-900">
         {/* Sign In Button */}
         <div className="py-2">
-          <ButtonPrimary href="/signin" className="flex w-full items-center py-2.5 px-4 font-medium uppercase text-sm hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+          <ButtonPrimary href="/login" className="flex w-full items-center py-2.5 px-4 font-medium uppercase text-sm hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
             Login
           </ButtonPrimary>
         </div>

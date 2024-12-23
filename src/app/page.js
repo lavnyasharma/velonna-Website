@@ -23,7 +23,6 @@ const PageHome = async () => {
       <div className="nc-PageHome relative overflow-hidden">
         {/* <SectionHero /> */}
          <GenericBannerSlider banners={[
-           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/1.jpg",
            "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/1.png",
            
         ]} aspectRatio="20/9" showDots={true} />

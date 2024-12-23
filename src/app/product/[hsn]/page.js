@@ -38,6 +38,7 @@ import { addToCart } from "../../../axios";
 import Prices from "@/components/Prices";
 import { useCart } from "@/context/cartContext";
 import convertMarkdownToHtml from "@/utils/mdDecsConverter";
+import { useAuth } from "@/context/authContext";
 
 
 
@@ -93,7 +94,7 @@ const ProductScreenSkeleton = () => (
 function ProductScreen() {
   const [recProducts, setRecProducts] = useState([]);
   const [hsnProduct, setHsnProduct] = useState(null);
-
+  const {is_auth} = useAuth()
   const router = useRouter();
   // const {hsn} = router.query
   // console.log(hsn)
@@ -192,6 +193,9 @@ function ProductScreen() {
   };
   const { fetchCart } = useCart()
   const handleAddToCart = () => {
+    if (!is_auth){
+      router.push("/login")
+    }
 
     addToCart(hsnProduct.hsn, qualitySelected)
       .then((res) => {
@@ -467,7 +471,7 @@ function ProductScreen() {
               <span className="ml-3">Add to cart</span>
             </ButtonPrimary> : <ButtonPrimary disabled
               className="flex-1 flex-shrink-0"
-              onClick={handleAddToCart}
+              
             >
 
               <span className="ml-3">Out Of Stock</span>

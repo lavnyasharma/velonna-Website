@@ -10,7 +10,7 @@ import { useAuth } from "@/context/authContext";
 import { getUserInfo } from "@/axios";
 
 export default function AvatarDropdown() {
-  const {is_auth ,user} = useAuth();
+  const {is_auth ,user,logout} = useAuth();
 const login = is_auth;
 
 
@@ -65,12 +65,9 @@ useEffect(() => {
 
                           <div className="flex-grow">
                             <h4 className="font-semibold">{user?user.first_name:""}</h4>
-                            <p className="text-xs mt-0.5">Los Angeles, CA</p>
                           </div>
                         </div>
-
                         <div className="w-full border-b border-neutral-200 dark:border-neutral-700" />
-
                         {/* ------------------ 1 --------------------- */}
                         <Link
                           href={"/account"}
@@ -299,7 +296,9 @@ useEffect(() => {
                         <Link
                           href={"/#"}
                           className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                          onClick={() => close()}
+                          onClick={() => {
+                            logout()
+                          }}
                         >
                           <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
                             <svg
