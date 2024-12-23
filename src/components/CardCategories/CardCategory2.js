@@ -17,7 +17,7 @@ const CardCategory2 = ({
       data-nc-id="CardCategory2"
     >
       <div
-        className={`flex- border-b-black border-b-2 1 relative w-full h-0 overflow-hidden group ${ratioClass}`}
+        className={` 1 relative w-full h-0 overflow-hidden group ${ratioClass}`}
       >
         <div className="">
            <Image

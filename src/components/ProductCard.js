@@ -19,7 +19,7 @@ import Link from "next/link";
 import NcImage from "@/shared/NcImage/NcImage";
 import { useCart } from "@/context/cartContext";
 import { addToCart } from "@/axios";
-
+import {imagethumbnail } from "../images/products/thumbnail_placeholder.webp";
 
 const ProductCard = ({
   className = "",
@@ -106,7 +106,7 @@ const ProductCard = ({
           <Image
             width={80}
             height={96}
-            src={thumbnail ? thumbnail : ""}
+            src={thumbnail ? thumbnail : imagethumbnail}
             alt={title}
             className="absolute object-cover object-center"
           />
@@ -224,7 +224,7 @@ const ProductCard = ({
                     variant.thumbnail?.src
                     : typeof variant.thumbnail === "string"
                       ? variant.thumbnail
-                      : ""
+                      : imagethumbnail
                   })`,
               }}
             ></div>
@@ -272,7 +272,7 @@ const ProductCard = ({
           <Link href={`/product/${hsn}`} className="block">
             <NcImage
               containerClassName="flex aspect-w-11 aspect-h-12 w-full h-0"
-              src={thumbnail ? thumbnail : ""}
+              src={thumbnail ? thumbnail : imagethumbnail}
               className="object-cover w-full h-full drop-shadow-xl"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 40vw"

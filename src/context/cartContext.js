@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { getCart, deleteFromCart } from '../axios'; // Ensure these functions are correctly imported
 
@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchCart();
+    if (!setCart) { fetchCart(); }
   }, []);
 
   return (

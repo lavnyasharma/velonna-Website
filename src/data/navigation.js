@@ -182,29 +182,17 @@ export const NAVIGATION_DEMO_2 = [
     href: "/collection/48",
     name: "Simplistic Armlet",
   },
-  // {
-  //   id: ncNanoId(),
-  //   href: "/collection",
-  //   name: "Beauty",
-  // },
+  {
+    id: ncNanoId(),
+    name: "Templates",
+    type: "megaMenu",
+    children: [
+      { id: ncNanoId(), href: "/", name: "Home  1" },
+      { id: ncNanoId(), href: "/", name: "Home  2", isNew: true },
+      { id: ncNanoId(), href: "/", name: "Header  1" },
+      { id: ncNanoId(), href: "/", name: "Header  2", isNew: true },
+      { id: ncNanoId(), href: "/", name: "Coming Soon" },
+    ],
+  },
 
-  // {
-  //   id: ncNanoId(),
-  //   href: "/",
-  //   name: "Sport",
-  // },
-  // {
-  //   id: ncNanoId(),
-  //   href: "/collection",
-  //   name: "Templates",
-  //   type: "megaMenu",
-  //   children: MEGAMENU_TEMPLATES,
-  // },
-  // {
-  //   id: ncNanoId(),
-  //   href: "/search",
-  //   name: "Explore",
-  //   type: "dropdown",
-  //   children: OTHER_PAGE_CHILD,
-  // },
 ];

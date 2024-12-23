@@ -13,26 +13,27 @@ import { Transition } from "@/app/headlessui";
 
 
 const HeaderFilterSection = ({
-  className = "mb-4",
+  className = "",
 }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [tabActive, setTabActive] = useState("All items");
 
   return (
-    <div className={`flex flex-col relative ${className}`}>
-      <Heading>{`What's trending now`}</Heading>
-      <Transition
-        show={isOpen}
-        enter="transition-opacity duration-150"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-150"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        {/* <TabFilters /> */}
-      </Transition>
-    </div>
+    <div className={`flex flex-col relative py-[20px] ${className}`}>
+    <Heading>{`What's trending now`}</Heading>
+    <Transition
+      show={isOpen}
+      enter="transition-opacity duration-150"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      leave="transition-opacity duration-150"
+      leaveFrom="opacity-100"
+      leaveTo="opacity-0"
+    >
+      {/* <TabFilters /> */}
+    </Transition>
+  </div>
+  
   );
 };
 

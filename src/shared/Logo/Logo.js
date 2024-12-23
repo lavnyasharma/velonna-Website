@@ -33,7 +33,7 @@ const Logo = ({
       )}
       {img ? (
         <Image
-          className={`block h-8 md:hidden sm:h-10 w-auto ${
+          className={`block h-9 md:hidden sm:h-10 w-auto ${
             imgLight ? "dark:hidden" : ""
           }`}
           src={logoMini}

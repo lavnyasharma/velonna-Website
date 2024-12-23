@@ -42,6 +42,7 @@ module.exports = {
 
     extend: {
       colors: {
+        'custom-grey':"#F5F5F6",
         primary: {
           50: customColors("--c-primary-50"),
           100: customColors("--c-primary-100"),

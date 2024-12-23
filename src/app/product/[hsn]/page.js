@@ -37,6 +37,7 @@ import { getProductByHsn, getProducts } from "@/utils/products";
 import { addToCart } from "../../../axios";
 import Prices from "@/components/Prices";
 import { useCart } from "@/context/cartContext";
+import convertMarkdownToHtml from "@/utils/mdDecsConverter";
 
 
 
@@ -458,7 +459,7 @@ function ProductScreen() {
                 onChange={setQualitySelected}
               />
             </div> */}
-            {hsnProduct === 0 ? <ButtonPrimary
+            {hsnProduct.quantity > 0 ? <ButtonPrimary
               className="flex-1 flex-shrink-0"
               onClick={handleAddToCart}
             >
@@ -468,7 +469,7 @@ function ProductScreen() {
               className="flex-1 flex-shrink-0"
               onClick={handleAddToCart}
             >
-              
+
               <span className="ml-3">Out Of Stock</span>
             </ButtonPrimary>}
           </div>
@@ -542,7 +543,7 @@ function ProductScreen() {
         {/*  */}
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         {/*  */}
-        <AccordionInfo panelClassName="p-4 pt-3.5 text-slate-600 text-base dark:text-slate-300 leading-7" />
+     <AccordionInfo data={convertMarkdownToHtml(hsnProduct?.description)} panelClassName="p-4 pt-3.5 text-slate-600 text-base dark:text-slate-300 leading-7" />
       </div>
     );
   };
@@ -553,26 +554,34 @@ function ProductScreen() {
         <h2 className="text-2xl font-semibold">Product details</h2>
         {/* <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div> */}
         <div className="prose prose-sm sm:prose dark:prose-invert sm:max-w-4xl">
+
+          <h2>About This Product</h2>
           <p>
-            The patented eighteen-inch hardwood Arrowhead deck --- finely
-            mortised in, makes this the strongest and most rigid canoe ever
-            built. You cannot buy a canoe that will afford greater satisfaction.
+            Crafted with premium quality 925 sterling silver, this piece offers a timeless elegance that complements any style. Its sophisticated design ensures durability and versatility, making it perfect for both casual and formal occasions.
           </p>
-          <p>
-            The St. Louis Meramec Canoe Company was founded by Alfred Wickett in
-            1922. Wickett had previously worked for the Old Town Canoe Co from
-            1900 to 1914. Manufacturing of the classic wooden canoes in Valley
-            Park, Missouri ceased in 1978.
-          </p>
+          <h3>Material & Quality</h3>
           <ul>
-            <li>Regular fit, mid-weight t-shirt</li>
-            <li>Natural color, 100% premium combed organic cotton</li>
-            <li>
-              Quality cotton grown without the use of herbicides or pesticides -
-              GOTS certified
-            </li>
-            <li>Soft touch water based printed in the USA</li>
+            <li>Made from 92.5% pure silver, known for its strength and shine.</li>
+            <li>Nickel-free and hypoallergenic, ensuring it's safe for sensitive skin.</li>
+            <li>Designed to resist tarnishing and maintain its luster with proper care.</li>
           </ul>
+          <h3>Care Tips</h3>
+          <ul>
+            <li>Avoid direct exposure to chemicals like perfumes, hairsprays, and household cleaners.</li>
+            <li>Store in a cool, dry place, ideally in an airtight pouch or box.</li>
+            <li>Clean gently with a soft, lint-free cloth to restore its shine.</li>
+            <li>Avoid wearing during activities like swimming, gym, or heavy-duty tasks.</li>
+          </ul>
+          <h3>Why Choose 925 Sterling Silver?</h3>
+          <ul>
+            <li>Durable and designed to last for years with proper care.</li>
+            <li>Perfect for gifting, offering a blend of quality and elegance.</li>
+            <li>A sustainable and timeless choice for jewelry enthusiasts.</li>
+          </ul>
+          <p>
+            Add this exquisite 925 sterling silver piece to your collection and let its charm and quality elevate your style.
+          </p>
+
         </div>
         {/* ---------- 6 ----------  */}
         <div className="" style={{ marginBottom: "20px" }}> <Policy />

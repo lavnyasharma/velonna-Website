@@ -31,10 +31,10 @@ const PageSearch = ({}) => {
   }
 
   useEffect(() => {
-    if (productData.length === 0) {
+    
       getProduct();
-    }
-  }, [searchquery]);
+    
+  }, [searchquery,query]);
   return (
     <div className={`nc-PageSearch`} data-nc-id="PageSearch">
       {/* <div

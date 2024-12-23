@@ -10,9 +10,9 @@ import { useCart } from "@/context/cartContext";
 import { useEffect } from "react";
 
 const CartPage = () => {
-  const {cart,removeFromCart} = useCart()
-  useEffect(()=>{
-    if(cart){
+  const { cart, removeFromCart } = useCart()
+  useEffect(() => {
+    if (cart) {
       console.log(cart)
     }
   }, [cart]);
@@ -23,10 +23,10 @@ const CartPage = () => {
     if (!title) return ""; // Handle empty or undefined input
 
     return title
-        .split(" ") // Split the string into an array of words
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize each word
-        .join(" "); // Join the words back into a single string
-}
+      .split(" ") // Split the string into an array of words
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize each word
+      .join(" "); // Join the words back into a single string
+  }
 
   const renderStatusSoldout = () => {
     return (
@@ -47,7 +47,7 @@ const CartPage = () => {
   };
 
   const renderProduct = (cartData, index) => {
-    const { id,product} = cartData;
+    const { id, product } = cartData;
 
     return (
       <div
@@ -62,7 +62,7 @@ const CartPage = () => {
             sizes="300px"
             className="h-full w-full  object-center"
           />
- 
+
         </div>
 
         <div className="ml-3 sm:ml-6 flex flex-1 flex-col">
@@ -74,7 +74,7 @@ const CartPage = () => {
                 </h3>
                 <div className="mt-1.5 sm:mt-2.5 flex text-sm text-slate-600 dark:text-slate-300">
                   <div className="flex items-center space-x-1.5">
-                  
+
 
                     <span>{formatTitle(product.collection)}</span>
                   </div>
@@ -131,7 +131,7 @@ const CartPage = () => {
                   </select> */}
                   <Prices
                     contentClass="py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium h-full"
-                    price={formatPrice(product.price)}
+                    price={(product.price)}
 
                   />
                 </div>
@@ -142,7 +142,7 @@ const CartPage = () => {
               </div> */}
 
               <div className="hidden flex-1 sm:flex justify-end">
-                <Prices  price={formatPrice(product.price)}className="mt-0.5" />
+                <Prices price={(product.price)} className="mt-0.5" />
               </div>
             </div>
           </div>
@@ -152,8 +152,8 @@ const CartPage = () => {
               ? renderStatusSoldout()
               : renderStatusInstock()}
 
-            <button 
-              onClick={()=>{
+            <button
+              onClick={() => {
                 removeFromCart(id)
               }}
               className="z-10 flex items-center mt-3 font-medium text-primary-6000 hover:text-primary-500 text-sm "
@@ -190,7 +190,7 @@ const CartPage = () => {
 
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-[60%] xl:w-[55%] divide-y divide-slate-200 dark:divide-slate-700 ">
-             {cart?cart.cart_item.length>0?cart.cart_item.map(renderProduct):"No item in cart":"Loading Cart"} 
+            {cart ? cart.cart_item.length > 0 ? cart.cart_item.map(renderProduct) : "No item in cart" : "Loading Cart"}
           </div>
           <div className="border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-slate-700 my-10 lg:my-0 lg:mx-10 xl:mx-16 2xl:mx-20 flex-shrink-0"></div>
           <div className="flex-1">
@@ -200,9 +200,9 @@ const CartPage = () => {
                 <div className="flex justify-between pb-4">
                   <span>Subtotal</span>
                   <span className="font-semibold text-slate-900 dark:text-slate-200">
-                  ₹ {formatPrice(cart?.subtotal ?? '0')}
+                    ₹ {formatPrice(cart?.subtotal ?? '0')}
 
-                 
+
                   </span>
                 </div>
                 <div className="flex justify-between py-4">
@@ -212,21 +212,21 @@ const CartPage = () => {
                   </span>
                 </div>
                 <div className="flex justify-between py-4">
-  <span>Tax estimate</span>
-  <span className="font-semibold text-slate-900 dark:text-slate-200">
-    3% (GST)
-  </span>
-</div>
-<div className="flex justify-between font-semibold text-slate-900 dark:text-slate-200 text-base pt-4">
-  <span>Order total</span>
-  <span>
-    ₹
-    {cart?.total
-  ? formatPrice((cart.total + cart.total * 0.03).toFixed(2))
-  : formatPrice('0')}
+                  <span>Tax estimate</span>
+                  <span className="font-semibold text-slate-900 dark:text-slate-200">
+                    3% (GST)
+                  </span>
+                </div>
+                <div className="flex justify-between font-semibold text-slate-900 dark:text-slate-200 text-base pt-4">
+                  <span>Order total</span>
+                  <span>
+                    ₹
+                    {cart?.total
+                      ? formatPrice((cart.total + cart.total * 0.03).toFixed(2))
+                      : formatPrice('0')}
 
-  </span>
-</div>
+                  </span>
+                </div>
 
               </div>
               <ButtonPrimary href="/checkout" className="mt-8 w-full">
@@ -263,18 +263,18 @@ const CartPage = () => {
                   </svg>
                   Learn more{` `}
                   <Link
-                    
+
                     href="/refundpolicy"
                     className="text-slate-900 dark:text-slate-200 underline font-medium"
                   >
-                    Refund 
+                    Refund
                   </Link>
                   <span>
                     {` `}and{` `}
                   </span>
                   <Link
-                  
-                    
+
+
                     href="/privacypolicy"
                     className="text-slate-900 dark:text-slate-200 underline font-medium"
                   >

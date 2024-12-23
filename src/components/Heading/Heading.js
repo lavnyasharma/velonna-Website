@@ -19,10 +19,10 @@ const solutions = [
 const Heading = ({
   children,
   desc = "",
-  className = "text-neutral-900 dark:text-neutral-50",
+  className = "text-neutral-900 dark:text-neutral-50 mb-[10px]",
   isCenter = false,
   hasNextPrev = false,
-  fontClass = "text-m md:text-2xl font-semibold",
+  fontClass = "text-xl md:text-2xl font-semibold",
   rightDescText,
   rightPopoverOptions = solutions,
   ...args

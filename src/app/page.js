@@ -23,32 +23,32 @@ const PageHome = async () => {
       <div className="nc-PageHome relative overflow-hidden">
         {/* <SectionHero /> */}
          <GenericBannerSlider banners={[
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-        ]} aspectRatio="5/3" showDots={true} />
+           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/1.jpg",
+           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/1.png",
+           
+        ]} aspectRatio="20/9" showDots={true} />
         <div className="relative">
           <SectionSliderCategories heading="Collections"/>
           <GenericBannerSlider banners={[
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/kind%20to%20skin%20co.%20(1).png",
         ]} aspectRatio="10/1.5" />
           <SectionSliderProductCard hideDetails={true} data={pdata} />
-          <GenericBannerSlider banners={[
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-        ]} aspectRatio="10/1.5" />
-          <GenericBannerSlider banners={[
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-        ]} aspectRatio="5/3" showDots={true} />
+          
           {/* <div className="relative py-24 lg:py-32">
             <BackgroundSection />
             <SectionGridMoreExplore />
           </div> */}
+           <GenericBannerSlider banners={[
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/kind%20to%20skin%20co.%20(2).png",
+        ]} aspectRatio="10/1.5" />
           <SectionSliderProductCard
           
             data={rdata}
           />
+         
+          <GenericBannerSlider banners={[
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/3.jpg",
+        ]} aspectRatio="20/9" showDots={true} />
           {/* <SectionSliderLargeProduct data={pdata} cardStyle="style1" /> */}
 
 

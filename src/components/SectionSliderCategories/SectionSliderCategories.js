@@ -5,11 +5,6 @@ import Heading from "@/components/Heading/Heading";
 // @ts-ignore
 import Glide from "@glidejs/glide/dist/glide.esm";
 import CardCategory2 from "@/components/CardCategories/CardCategory2";
-import department1Png from "@/images/collections/department1.png";
-import department2Png from "@/images/collections/department2.png";
-import department3Png from "@/images/collections/department3.png";
-import department4Png from "@/images/collections/department4.png";
-import Link from "next/link";
 import { axiosInstance } from "@/axios";
 
 
@@ -69,7 +64,7 @@ const SectionSliderCategories = ({
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             {categoriesData.map((item, index) => (
-              <li key={index} className={`m-0 border-2 border-black rounded-2xl overflow-hidden glide__slide ${itemClassName} `}>
+              <li key={index} className={`m-0 shadow-lg hover:shadow-lg overflow-hidden glide__slide ${itemClassName} `}>
                 <CardCategory2
                   featuredImage={item.icon}
                   name={item.name}
