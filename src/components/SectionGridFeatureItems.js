@@ -13,7 +13,7 @@ const SectionGridFeatureItems = ({
     <div className="nc-SectionGridFeatureItems relative">
       <HeaderFilterSection />
       <div
-        className={`grid grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 `}
+        className={`grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 `}
       >
         {data?data.map((item, index) => (
           <ProductCard data={item} key={index} />
