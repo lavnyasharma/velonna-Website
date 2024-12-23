@@ -29,39 +29,38 @@ declare namespace __next_route_internal_types__ {
     S extends `${string}${SearchOrHash}` ? never : S
 
   type StaticRoutes = 
-    | `/`
-    | `/account`
-    | `/account-billing`
-    | `/account-order`
-    | `/account-password`
-    | `/account-savelists`
-    | `/about`
-    | `/admin`
-    | `/admin/dashboard`
-    | `/autosuggest`
     | `/api/users`
-    | `/api/login`
-    | `/api/register`
-    | `/blog`
+    | `/about`
+    | `/autosuggest`
+    | `/blog-single`
     | `/cart`
-    | `/contact`
-    | `/dashboard`
-    | `/forgot-pass`
     | `/checkout`
-    | `/login`
-    | `/product-detail`
+    | `/contact`
+    | `/blog`
     | `/privacypolicy`
+    | `/`
+    | `/refundpolicy`
+    | `/login`
+    | `/forgot-pass`
+    | `/subscription`
+    | `/termsandconidtions`
     | `/search`
     | `/signup`
-    | `/subscription`
-    | `/refundpolicy`
-    | `/termsandconidtions`
-    | `/blog-single`
+    | `/api/register`
+    | `/admin`
+    | `/api/login`
+    | `/account-billing`
+    | `/account`
+    | `/admin/dashboard`
+    | `/account-savelists`
+    | `/account-password`
+    | `/account-order`
+    | `/dashboard`
   type DynamicRoutes<T extends string = string> = 
+    | `/category/${SafeSlug<T>}`
     | `/api/users/${SafeSlug<T>}`
     | `/collection/${SafeSlug<T>}`
     | `/product/${SafeSlug<T>}`
-    | `/category/${SafeSlug<T>}`
 
   type RouteImpl<T> = 
     | StaticRoutes
