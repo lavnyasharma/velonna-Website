@@ -15,12 +15,11 @@ const Logo = ({
   return (
     <Link
       href="/"
-      className={`ttnc-logo justify-center inline-block text-slate-600 ${className}`}
+      className={`ttnc-logo items-center flex md:inline-block text-slate-600 ${className}`}
     >
-
       {img ? (
         <Image
-          className={`h-14 hidden md:block w-auto ${
+          className={`h-14 hidden md:block pb-[10px] w-auto ${
             imgLight ? "dark:hidden" : ""
           }`}
           src={img}

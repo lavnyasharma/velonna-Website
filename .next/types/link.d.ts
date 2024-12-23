@@ -30,9 +30,9 @@ declare namespace __next_route_internal_types__ {
 
   type StaticRoutes = 
     | `/`
-    | `/account-billing`
     | `/account`
     | `/account-order`
+    | `/account-billing`
     | `/account-password`
     | `/account-savelists`
     | `/about`
@@ -46,21 +46,21 @@ declare namespace __next_route_internal_types__ {
     | `/blog-single`
     | `/cart`
     | `/contact`
-    | `/checkout`
     | `/dashboard`
     | `/forgot-pass`
-    | `/login`
+    | `/checkout`
     | `/privacypolicy`
     | `/refundpolicy`
-    | `/signup`
-    | `/termsandconidtions`
-    | `/subscription`
     | `/search`
+    | `/signup`
+    | `/subscription`
+    | `/termsandconidtions`
+    | `/login`
   type DynamicRoutes<T extends string = string> = 
     | `/api/users/${SafeSlug<T>}`
     | `/category/${SafeSlug<T>}`
-    | `/collection/${SafeSlug<T>}`
     | `/product/${SafeSlug<T>}`
+    | `/collection/${SafeSlug<T>}`
 
   type RouteImpl<T> = 
     | StaticRoutes

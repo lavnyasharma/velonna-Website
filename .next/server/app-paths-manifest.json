@@ -1,3 +1,10 @@
 {
+  "/login/page": "app/login/page.js",
+  "/forgot-pass/page": "app/forgot-pass/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/product/[hsn]/page": "app/product/[hsn]/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/cart/page": "app/cart/page.js",
+  "/collection/[id]/page": "app/collection/[id]/page.js",
   "/page": "app/page.js"
 }

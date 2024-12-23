@@ -161,7 +161,7 @@ const MainNav2 = ({ className = "" }) => {
             <MenuBar />
           </div>  */}
 
-          <div className="flex lg:flex-1 md:mb-[15px] md:items-center justify-center md:ml-[20px]">
+          <div className="flex lg:flex-1 md:mb-[15px] md:ml-[20px]">
             <div className="flex md:hidden">
               <MenuBar />
             </div>
