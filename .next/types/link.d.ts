@@ -29,33 +29,33 @@ declare namespace __next_route_internal_types__ {
     S extends `${string}${SearchOrHash}` ? never : S
 
   type StaticRoutes = 
-    | `/api/users`
-    | `/autosuggest`
-    | `/checkout`
-    | `/blog-single`
-    | `/blog`
-    | `/cart`
-    | `/forgot-pass`
-    | `/contact`
     | `/`
-    | `/refundpolicy`
-    | `/login`
-    | `/search`
-    | `/about`
-    | `/subscription`
-    | `/signup`
-    | `/termsandconidtions`
-    | `/privacypolicy`
-    | `/api/register`
-    | `/api/login`
-    | `/admin`
-    | `/admin/dashboard`
+    | `/account`
     | `/account-billing`
     | `/account-order`
     | `/account-password`
     | `/account-savelists`
-    | `/account`
+    | `/about`
+    | `/admin`
+    | `/admin/dashboard`
+    | `/autosuggest`
+    | `/blog`
+    | `/blog-single`
+    | `/cart`
+    | `/api/login`
+    | `/api/register`
+    | `/api/users`
+    | `/checkout`
+    | `/contact`
     | `/dashboard`
+    | `/forgot-pass`
+    | `/login`
+    | `/privacypolicy`
+    | `/refundpolicy`
+    | `/search`
+    | `/signup`
+    | `/termsandconidtions`
+    | `/subscription`
   type DynamicRoutes<T extends string = string> = 
     | `/api/users/${SafeSlug<T>}`
     | `/category/${SafeSlug<T>}`
