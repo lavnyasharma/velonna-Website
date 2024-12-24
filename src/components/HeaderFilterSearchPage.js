@@ -23,7 +23,7 @@ const HeaderFilterSearchPage = ({
           className="sm:space-x-2"
           containerClassName="relative flex w-full overflow-x-auto text-sm md:text-base hiddenScrollbar"
         >
-          {["All items", "Women", "Man", "Jewels", "Kids"].map(
+          {["All items",].map(
             (item, index) => (
               <NavItem
                 key={index}

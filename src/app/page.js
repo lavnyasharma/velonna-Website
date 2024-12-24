@@ -26,8 +26,11 @@ const PageHome = async () => {
            "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/1.png",
            
         ]} aspectRatio="20/9" showDots={true} />
-        <div className="relative">
-          <SectionSliderCategories heading="Collections"/>
+        <div className="relative bg-white">
+        <GenericBannerSlider banners={[
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/collections-ezgif.com-optimize.gif",
+        ]} aspectRatio="10/1.5" />
+          <SectionSliderCategories />
           <GenericBannerSlider banners={[
           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/kind%20to%20skin%20co.%20(1).png",
         ]} aspectRatio="10/1.5" />

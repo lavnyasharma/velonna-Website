@@ -9,8 +9,6 @@ import Image from "next/image";
 const socialsDemo = [
   { name: "Facebook", icon: facebook, href: "#" },
   { name: "Twitter", icon: twitter, href: "#" },
-  { name: "Youtube", icon: youtube, href: "#" },
-  { name: "Telegram", icon: telegram, href: "#" },
 ];
 
 const SocialsList = ({

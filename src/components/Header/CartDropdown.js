@@ -13,7 +13,7 @@ import { useAuth } from "@/context/authContext";
 
 export default function CartDropdown() {
   const { cart, itemCount, subtotal, totalDiscount, total, removeFromCart } = useCart();
-  const {is_auth} = useAuth()
+  const { is_auth } = useAuth()
   console.log(itemCount)
   const renderProduct = (item, index, close) => {
     const { title, price, images } = item;
@@ -72,53 +72,21 @@ export default function CartDropdown() {
     <button
       className="relative w-10 h-10 sm:w-12 sm:h-12 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
     >
-      {itemCount ? <div className="w-3.5 h-3.5 flex items-center justify-end bg-primary-500 absolute top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
+      {itemCount ? <div className="w-3.5 h-3.5 flex items-center justify-center bg-primary-500 absolute top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
 
-        <Link href={is_auth?"/cart":"/login"} className="mt-[1px]">
+        <Link href={is_auth ? "/cart" : "/login"} className="mt-[1px]">
           {itemCount}
         </Link>
 
       </div> : ""}
-      <svg
-        className="w-6 h-6"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M2 2H3.74001C4.82001 2 5.67 2.93 5.58 4L4.75 13.96C4.61 15.59 5.89999 16.99 7.53999 16.99H18.19C19.63 16.99 20.89 15.81 21 14.38L21.54 6.88C21.66 5.22 20.4 3.87 18.73 3.87H5.82001"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M16.25 22C16.9404 22 17.5 21.4404 17.5 20.75C17.5 20.0596 16.9404 19.5 16.25 19.5C15.5596 19.5 15 20.0596 15 20.75C15 21.4404 15.5596 22 16.25 22Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M8.25 22C8.94036 22 9.5 21.4404 9.5 20.75C9.5 20.0596 8.94036 19.5 8.25 19.5C7.55964 19.5 7 20.0596 7 20.75C7 21.4404 7.55964 22 8.25 22Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M9 8H21"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.5 7.67001V6.70001C7.5 4.45001 9.31 2.24001 11.56 2.03001C14.24 1.77001 16.5 3.88001 16.5 6.51001V7.89001" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M8.99995 22H14.9999C19.0199 22 19.7399 20.39 19.9499 18.43L20.6999 12.43C20.9699 9.99 20.2699 8 15.9999 8H7.99995C3.72995 8 3.02995 9.99 3.29995 12.43L4.04995 18.43C4.25995 20.39 4.97995 22 8.99995 22Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M15.4955 12H15.5045" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M8.49451 12H8.50349" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
-      <Link className="absolute inset-0" href={is_auth?"/cart":"/login"} />
+
+      <Link className="absolute inset-0" href={is_auth ? "/cart" : "/login"} />
     </button>
   );
 }

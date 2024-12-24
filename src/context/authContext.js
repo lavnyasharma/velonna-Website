@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('refreshToken', refresh);
         setIs_auth(true);
         toast.success("Login successful!");
-        router.push('/');
+        router.refresh();
       }
     } catch (error) {
       setIs_auth(false);
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('username');
     setIs_auth(false);
     setUser(null);
-    router.push('/login');
+    router.push();
     toast.success("Logged out successfully.");
   };
 

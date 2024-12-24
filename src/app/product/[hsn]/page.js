@@ -6,6 +6,10 @@ import {
   ClockIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
 import NcImage from "@/shared/NcImage/NcImage";
@@ -39,6 +43,7 @@ import Prices from "@/components/Prices";
 import { useCart } from "@/context/cartContext";
 import convertMarkdownToHtml from "@/utils/mdDecsConverter";
 import { useAuth } from "@/context/authContext";
+import GenericBannerSlider from "@/components/GenericBanner";
 
 
 
@@ -94,7 +99,7 @@ const ProductScreenSkeleton = () => (
 function ProductScreen() {
   const [recProducts, setRecProducts] = useState([]);
   const [hsnProduct, setHsnProduct] = useState(null);
-  const {is_auth} = useAuth()
+  const { is_auth } = useAuth()
   const router = useRouter();
   // const {hsn} = router.query
   // console.log(hsn)
@@ -193,7 +198,7 @@ function ProductScreen() {
   };
   const { fetchCart } = useCart()
   const handleAddToCart = () => {
-    if (!is_auth){
+    if (!is_auth) {
       router.push("/login")
     }
 
@@ -471,7 +476,7 @@ function ProductScreen() {
               <span className="ml-3">Add to cart</span>
             </ButtonPrimary> : <ButtonPrimary disabled
               className="flex-1 flex-shrink-0"
-              
+
             >
 
               <span className="ml-3">Out Of Stock</span>
@@ -547,7 +552,7 @@ function ProductScreen() {
         {/*  */}
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         {/*  */}
-     <AccordionInfo data={convertMarkdownToHtml(hsnProduct?.description)} panelClassName="p-4 pt-3.5 text-slate-600 text-base dark:text-slate-300 leading-7" />
+        <AccordionInfo data={convertMarkdownToHtml(hsnProduct?.description)} panelClassName="p-4 pt-3.5 text-slate-600 text-base dark:text-slate-300 leading-7" />
       </div>
     );
   };
@@ -654,15 +659,24 @@ function ProductScreen() {
       {hsnProduct ? (
         <div className={`ListingDetailPage nc-ProductDetailPage2`}>
           <>
-            <header className="custom-container mt-8 sm:mt-10">
-              <div className="relative ">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
+            <header className="">
+              <div className="relative">
+                {/* Mobile: Swiper Carousel */}
+                <div className="block md:hidden relative">
+                  <GenericBannerSlider aspectRatio="1/1"
+                    banners={[...hsnProduct.images.slice(0, 4).map((imagedata, index) => {
+                      return imagedata.image;
+                    })]}></GenericBannerSlider>
+                </div>
+
+                {/* Desktop: Grid Layout */}
+                <div className="hidden md:grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
                   <div
                     className="md:h-full col-span-2 md:col-span-1 row-span-2 relative rounded-md sm:rounded-xl cursor-pointer"
                     onClick={handleOpenModalImageGallery}
                   >
                     <NcImage
-                      alt="firt"
+                      alt="first"
                       containerClassName="aspect-w-3 aspect-h-4 relative md:aspect-none md:absolute md:inset-0"
                       className="object-cover rounded-md sm:rounded-xl"
                       src={hsnProduct?.images[0]?.image}
@@ -673,7 +687,6 @@ function ProductScreen() {
                     <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity rounded-md sm:rounded-xl"></div>
                   </div>
 
-                  {/*  */}
                   <div
                     className="col-span-1 row-span-2 relative rounded-md sm:rounded-xl overflow-hidden z-0 cursor-pointer"
                     onClick={handleOpenModalImageGallery}
@@ -689,32 +702,31 @@ function ProductScreen() {
                     <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity"></div>
                   </div>
 
-                  {/*  */}
-                  {[hsnProduct?.images[2]?.image ? hsnProduct?.images[2]?.image : "", hsnProduct?.images[3]?.image ? hsnProduct?.images[3]?.image : ""].map(
-                    (item, index) => (
+                  {[
+                    hsnProduct?.images[2]?.image || "",
+                    hsnProduct?.images[3]?.image || "",
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className={`relative rounded-md sm:rounded-xl overflow-hidden z-0`}
+                    >
+                      <NcImage
+                        alt=""
+                        fill
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                        containerClassName="aspect-w-6 aspect-h-5 lg:aspect-h-4"
+                        className="object-cover w-full h-full rounded-md sm:rounded-xl"
+                        src={item || ""}
+                      />
                       <div
-                        key={index}
-                        className={`relative rounded-md sm:rounded-xl overflow-hidden z-0 ${index >= 2 ? "block" : ""
-                          }`}
-                      >
-                        <NcImage
-                          alt=""
-                          fill
-                          sizes="(max-width: 640px) 100vw, 33vw"
-                          containerClassName="aspect-w-6 aspect-h-5 lg:aspect-h-4"
-                          className="object-cover w-full h-full rounded-md sm:rounded-xl "
-                          src={item || ""}
-                        />
-
-                        {/* OVERLAY */}
-                        <div
-                          className="absolute inset-0 bg-slate-900/20 opacity-0  transition-opacity cursor-pointer"
-                          onClick={handleOpenModalImageGallery}
-                        />
-                      </div>
-                    )
-                  )}
+                        className="absolute inset-0 bg-slate-900/20 opacity-0 transition-opacity cursor-pointer"
+                        onClick={handleOpenModalImageGallery}
+                      />
+                    </div>
+                  ))}
                 </div>
+
+                {/* Show all photos button */}
                 <div
                   className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-white text-slate-500 cursor-pointer hover:bg-slate-200 z-10"
                   onClick={handleOpenModalImageGallery}

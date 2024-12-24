@@ -24,12 +24,14 @@ const GenericBannerSlider = ({
     // Initialize Glide instance if not already done
     if (!glideRef.current) {
       const glideOptions = {
-        type: "slider",
+        
+        // animationDuration:1000,
+        swipeThreshold:10,
         perView: 1,
         gap: 0,
         rewind: true, // Ensure rewinding instead of duplication
-        autoplay: banners.length < 1 ? 4000 : false, // Optional auto-slide
-        animationDuration: banners.length < 1 ? 800 : false,
+        autoplay: banners.length < 1 ? 3000 : false, // Optional auto-slide
+        // animationDuration: banners.length < 1 ? 10000 : false,
       };
 
       glideRef.current = new Glide(sliderRef.current, glideOptions);

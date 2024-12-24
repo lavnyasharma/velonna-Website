@@ -57,14 +57,14 @@ const SectionSliderCategories = ({
 
   return (
     <div className={`nc-SectionSliderCategories ${className}`}>
-      <div ref={sliderRef} className={`flow-root ${isShow ? "" : "invisible"}`}>
+      <div ref={sliderRef} className={`flow-root  shadow-sm ${isShow ? "" : "invisible"}`}>
         {heading && <Heading desc={subHeading} >
           {heading}
         </Heading>}
         <div className="glide__track" data-glide-el="track">
-          <ul className="glide__slides">
+          <ul className="glide__slides  shadow-lg">
             {categoriesData.map((item, index) => (
-              <li key={index} className={`m-0 shadow-lg hover:shadow-lg overflow-hidden glide__slide ${itemClassName} `}>
+              <li key={index} className={`m-0 shadow-lg hover:shadow-lg  glide__slide ${itemClassName} `}>
                 <CardCategory2
                   featuredImage={item.icon}
                   name={item.name}

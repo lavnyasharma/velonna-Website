@@ -1,16 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import Link from "next/link";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { useAuth } from "@/context/authContext";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
+  const {is_auth} = useAuth()
+  useEffect(()=>{},[is_auth])
+  if(is_auth)
+  {
+    router.push('/')
 
+  }
   // Handle form submission
   const handleSubmit = async (values, { resetForm }) => {
     try {

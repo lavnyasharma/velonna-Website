@@ -34,6 +34,7 @@ const ProductCard = ({
     price,
     collection,
     category,
+    quantity,
     description,
     size,
     variants,

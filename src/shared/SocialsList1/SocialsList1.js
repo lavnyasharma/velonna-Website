@@ -10,8 +10,7 @@ import Image from "next/image";
 const socials = [
   { name: "Facebook", icon: facebook, href: "#" },
   { name: "Youtube", icon: youtube, href: "#" },
-  { name: "Telegram", icon: telegram, href: "#" },
-  { name: "Twitter", icon: twitter, href: "#" },
+
 ];
 
 const SocialsList1= ({ className = "space-y-3" }) => {

@@ -31,6 +31,7 @@ export default function RootLayout({ children, params }) {
   return (
     <html lang="en" dir="" >
       <head>
+      <link rel="manifest" href="/site.webmanifest" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1" />
       </head>
       <body className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">

@@ -12,7 +12,8 @@ import ProductCard from "@/components/ProductCard";
 import { PRODUCTS } from "@/data/data";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
-const PageSearch = ({}) => {
+import TabFilters from "@/components/TabFilters";
+const PageSearch = ({ }) => {
   const searchParams = useSearchParams();
   const [searchquery, setSearchquery] = useState("");
   const query = searchParams?.get("s");
@@ -21,8 +22,7 @@ const PageSearch = ({}) => {
   function getProduct() {
     const res = axios
       .get(
-        `https://api.velonna.co/ecom/product/list/?limit=12${
-          query && searchquery === "" ? "&search=" + query : ""
+        `https://api.velonna.co/ecom/product/list/?limit=12${query && searchquery === "" ? "&search=" + query : ""
         }${searchquery !== "" ? "&search=" + query : ""}`
       )
       .then((res) => {
@@ -31,10 +31,10 @@ const PageSearch = ({}) => {
   }
 
   useEffect(() => {
-    
-      getProduct();
-    
-  }, [searchquery,query]);
+
+    getProduct();
+
+  }, [searchquery, query]);
   return (
     <div className={`nc-PageSearch`} data-nc-id="PageSearch">
       {/* <div
@@ -96,16 +96,17 @@ const PageSearch = ({}) => {
         </header>
       </div> */}
 
-      <div className=" py-16 lg:pb-28 lg:pt-20 lg:space-y-28">
+      <div className="">
         <main>
           {/* FILTER */}
+          <div className="my-[20px] mx-[20px]"> <TabFilters /></div>
 
           {/* LOOP ITEMS */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4   lg:mt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  ">
             {productData.length !== 0
               ? productData.map((item, index) => (
-                  <ProductCard data={item} key={index} />
-                ))
+                <ProductCard data={item} key={index} />
+              ))
               : "Loading"}
           </div>
 

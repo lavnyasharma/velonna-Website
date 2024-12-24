@@ -932,12 +932,7 @@ const TabFilters = () => {
               </Transition.Child>
 
               {/* This element is to trick the browser into centering the modal contents. */}
-              <span
-                className="inline-block h-screen align-middle"
-                aria-hidden="true"
-              >
-                ₹
-              </span>
+              
               <Transition.Child
                 className="inline-block h-screen w-full max-w-4xl"
                 enter="ease-out duration-300"
@@ -1130,8 +1125,6 @@ const TabFilters = () => {
       <div className="hidden lg:flex flex-1 space-x-4">
         {renderTabsPriceRage()}
         {renderTabsCategories()}
-        {renderTabsColor()}
-        {renderTabsSize()}
         {renderTabIsOnsale()}
         <div className="!ml-auto">{renderTabsSortOrder()}</div>
       </div>
