@@ -34,29 +34,29 @@ const SectionSliderProductCard = ({
     const OPTIONS = {
       // direction: document.querySelector("html")?.getAttribute("dir") || "ltr",
       type:"slide",
-      perView: 4,
+      perView: 6,
       gap:0,
       dragThreshold: 20,
       bound: true,
       breakpoints: {
         1280: {
-          perView: 4 - 1,
+          perView: 6,
         },
         1024: {
          
-          perView: 4 - 1,
+          perView: 5 ,
         },
         768: {
          
-          perView: 4 - 2,
+          perView: 5 ,
         },
         640: {
          
-          perView: 2.3,
+          perView: 4,
         },
         500: {
           
-          perView: 2.3,
+          perView: 4,
         },
       },
     };

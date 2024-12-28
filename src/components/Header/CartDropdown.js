@@ -70,20 +70,17 @@ export default function CartDropdown() {
 
   return (
     <button
-      className="relative w-10 h-10 sm:w-12 sm:h-12 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+      className="relative w-10 h-10 sm:w-10 sm:h-10  rounded-full inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
     >
-      {itemCount ? <div className="w-3.5 h-3.5 flex items-center justify-center bg-primary-500 absolute top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
+      {itemCount ? <div className="w-3.5 h-3.5 flex items-center justify-center bg-custom-blue absolute top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
 
-        <Link href={is_auth ? "/cart" : "/login"} className="mt-[1px]">
+        <Link href={is_auth ? "/cart" : "/login"} className="">
           {itemCount}
         </Link>
 
       </div> : ""}
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.5 7.67001V6.70001C7.5 4.45001 9.31 2.24001 11.56 2.03001C14.24 1.77001 16.5 3.88001 16.5 6.51001V7.89001" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M8.99995 22H14.9999C19.0199 22 19.7399 20.39 19.9499 18.43L20.6999 12.43C20.9699 9.99 20.2699 8 15.9999 8H7.99995C3.72995 8 3.02995 9.99 3.29995 12.43L4.04995 18.43C4.25995 20.39 4.97995 22 8.99995 22Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M15.4955 12H15.5045" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M8.49451 12H8.50349" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <svg xmlns="http://www.w3.org/2000/svg" role="img" class="icon__bag" aria-label="icon bag" width="22" height="22" viewBox="0 0 16.2 19.8" fill="#27251F">
+        <path d="M5.4 5.4V3.6C5.4 2.2 6.6.9 8.1.9s2.7 1.3 2.7 2.7v1.8H5.4zM.9 18.9V6.3h3.6v2.2c0 .3.2.5.4.5.3 0 .4-.2.4-.4V6.3h5.4v2.2c.1.3.3.5.5.5.3 0 .4-.2.4-.4V6.3h3.6v12.6H.9zm-.9.4c0 .3.1.4.4.4h15.3c.3 0 .4-.1.4-.4V5.8c0-.3-.1-.4-.4-.4h-4V3.6c0-2-1.5-3.6-3.6-3.6S4.5 1.6 4.5 3.6v1.8h-4c-.4 0-.5.1-.5.4v13.5z" fill="#27251F" />
       </svg>
 
       <Link className="absolute inset-0" href={is_auth ? "/cart" : "/login"} />

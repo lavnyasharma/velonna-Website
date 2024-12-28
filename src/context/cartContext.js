@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (!setCart) { fetchCart(); }
+    if (!cart) { fetchCart(); }
   }, []);
 
   return (

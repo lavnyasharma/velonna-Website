@@ -81,7 +81,7 @@ const NavMobile = ({ onClickClose }) => {
               href={i.href || "/"}
               className={`flex text-sm rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 mt-0.5 pr-4 ${itemClass}`}
             >
-              <span className={`py-2.5 ${!i.children ? "block fancy-cut capitalize w-full" : ""}`} onClick={i.children ? ()=>{} : onClickClose}>
+              <span className={`py-2.5 ${!i.children ? "block   capitalize w-full" : ""}`} onClick={i.children ? ()=>{} : onClickClose}>
                 {i.name}
               </span>
               {i.children && (

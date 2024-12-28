@@ -122,7 +122,7 @@ const ProductCard = ({
           <div>
             <div className="flex justify-between ">
               <div>
-                <h3 className="text-base fancy-cut font-medium ">{title}</h3>
+                <h3 className="text-base   font-medium ">{title}</h3>
                 <p className="mt-1 text-sm text-black dark:text-slate-400">
                   <span>
                     {category}
@@ -270,7 +270,7 @@ const ProductCard = ({
   return (
     <>
       <div
-        className={`nc-ProductCard relative flex flex-col bg-transparent divide-x ${className}`}
+        className={`nc-ProductCard relative flex flex-col bg-transparent ${className}`}
       >
         <Link href={`/product/${hsn}`} className="absolute inset-0"></Link>
 
@@ -293,13 +293,13 @@ const ProductCard = ({
         {!hideDetails && <div className="space-y-0.5 px-2.5 pt-2 pb-2.5">
           {renderVariants()}
           <div>
-            <h2 className="nc-ProductCard__title  text-sm font-medium transition-colors truncate text-ellipsis">
-              {title.charAt(0).toUpperCase() + title.slice(1)}
+            <h2 className="nc-ProductCard__title text-custom-blue text-[12px] font-semibold capitalize transition-colors truncate text-ellipsis">
+              {title}
             </h2>
-            <p className={`text-xs text-black font-medium fancy-cut dark:text-slate-400 mt-1 `}>
-              {collection.toString().charAt(0).toUpperCase() + collection.toString().slice(1)}
+            <p className={`text-xs capitalize text-black font-medium dark:text-slate-400 mt-1 `}>
+              {collection}
             </p>
-            <span className={`text-xs font-medium fancy-cut text-black dark:text-slate-400 mt-1 bg-slate-100 py-0.5 px-2 rounded-xl`}>
+            <span className={`text-[10px] font-medium text-black dark:text-slate-400 mt-1 bg-slate-100 py-0.5 px-2 rounded-xl`}>
               {category.toString().charAt(0).toUpperCase() + category.toString().slice(1)}
             </span>
           </div>

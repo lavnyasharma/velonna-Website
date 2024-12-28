@@ -9,10 +9,12 @@ import SectionSliderLargeProduct from "@/components/SectionSliderLargeProduct";
 import SectionPromo3 from "@/components/SectionPromo3";
 import SectionSliderCategories from "@/components/SectionSliderCategories/SectionSliderCategories";
 import GenericBannerSlider from "@/components/GenericBanner";
+import ScrollAnimation from "@/components/ScrollAnimation";
+
 
 const PageHome = async () => {
   try {
-    const res = await axios.get("https://api.velonna.co/ecom/product/list/?limit=5");
+    const res = await axios.get("https://api.velonna.co/ecom/product/list/?limit=10&collection=7");
     const pdata = res.data.results;
     const resr = await axios.get("https://api.velonna.co/ecom/product/list/?collection=7");
     const rdata = resr.data.results;
@@ -20,42 +22,43 @@ const PageHome = async () => {
     const sdata = resrd.data.results;
 
     return (
-      <div className="nc-PageHome relative overflow-hidden">
+      <div className="nc-PageHome antialiased relative overflow-hidden">
         {/* <SectionHero /> */}
-         <GenericBannerSlider banners={[
-           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/1.png",
-           
-        ]} aspectRatio="20/9" showDots={true} />
-        <div className="relative bg-white">
         <GenericBannerSlider banners={[
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/collections-ezgif.com-optimize.gif",
-        ]} aspectRatio="10/1.5" />
-          <SectionSliderCategories />
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/1.png",
+          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/1.png",
+
+        ]} className="px-[15px] mb-[50px] md:mb-[100px]" aspectRatio="20/9" showDots={true} />
+        <div className="relative px-[15px] space-y-[100px] bg-white">
+          <SectionSliderCategories heading={""} />
           <GenericBannerSlider banners={[
-          "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/kind%20to%20skin%20co.%20(1).png",
-        ]} aspectRatio="10/1.5" />
-          <SectionSliderProductCard hideDetails={true} data={pdata} />
-          
+            "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/kind%20to%20skin%20co.%20(1).png",
+          ]} aspectRatio="10/1.5" />
+          <ScrollAnimation threshold={0.9} animationStyle="fade-in">
+            <SectionSliderProductCard data={pdata} />
+          </ScrollAnimation>
+
+
           {/* <div className="relative py-24 lg:py-32">
             <BackgroundSection />
             <SectionGridMoreExplore />
           </div> */}
-           <GenericBannerSlider banners={[
+          {/* <GenericBannerSlider banners={[
           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/kind%20to%20skin%20co.%20(2).png",
         ]} aspectRatio="10/1.5" />
           <SectionSliderProductCard
           
             data={rdata}
-          />
-         
-          <GenericBannerSlider banners={[
+          /> */}
+
+          {/* <GenericBannerSlider banners={[
           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/3.jpg",
-        ]} aspectRatio="20/9" showDots={true} />
+        ]} aspectRatio="20/9" showDots={true} /> */}
           {/* <SectionSliderLargeProduct data={pdata} cardStyle="style1" /> */}
 
 
           {/* <SectionPromo3 /> */}
-          <SectionGridFeatureItems data={sdata} />
+          {/* <SectionGridFeatureItems data={sdata} /> */}
 
         </div>
       </div>

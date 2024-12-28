@@ -663,7 +663,7 @@ function ProductScreen() {
               <div className="relative">
                 {/* Mobile: Swiper Carousel */}
                 <div className="block md:hidden relative">
-                  <GenericBannerSlider onClick={handleOpenModalImageGallery} aspectRatio="1/1"
+                  <GenericBannerSlider aspectRatio="1/1"
                     banners={[...hsnProduct.images.slice(0, 4).map((imagedata, index) => {
                       return imagedata.image;
                     })]}></GenericBannerSlider>

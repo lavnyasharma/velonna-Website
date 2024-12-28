@@ -19,20 +19,20 @@ const CardCategory2 = ({
       <div
         className={` 1 relative w-full h-0 overflow-hidden group ${ratioClass}`}
       >
-        <div className="">
+        <div className="rounded-sm overflow-hidden">
            <Image
             alt=""
             fill
             containerClassName="w-full h-full flex justify-center"
             src={featuredImage}
             className="object-cover"
-            sizes="100px"
+            sizes="1000px"
           />
         </div>
         <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity "></span>
       </div>
       <div className="mt-2 relative mb-2 flex-1 text-center">
-        <h2 className="text-sm sm:text-sm fancy-cut text-black dark:text-neutral-100 font-medium">
+        <h2 className="text-[11px] tracking-widest uppercase font-semibold text-custom-blue dark:text-neutral-100">
           {name.toString().charAt(0).toUpperCase() + name.toString().slice(1)}
         </h2>
       </div>

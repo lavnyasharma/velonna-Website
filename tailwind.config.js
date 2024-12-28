@@ -22,7 +22,7 @@ module.exports = {
       width: "100%",
       padding: {
         DEFAULT: '1rem',
-        xs:"10px",
+        xs: "10px",
         sm: '15px',
         lg: '20px',
         xl: '25px',
@@ -36,13 +36,17 @@ module.exports = {
         '2xl': '20px',
       },
       extend: {
-        
+
       },
     },
 
     extend: {
       colors: {
-        'custom-grey':"#F5F5F6",
+        'custom-grey': "#F5F5F6",
+        'custom-blue': "#27251f",
+        'placeholder': "#6c757d",
+        "inputborder": "#d0d1d2",
+        "custom-sub":"#71706c",
         primary: {
           50: customColors("--c-primary-50"),
           100: customColors("--c-primary-100"),

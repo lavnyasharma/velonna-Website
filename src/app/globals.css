@@ -5,29 +5,21 @@
 
 
 @font-face {
-    font-family: 'Brilliant Cut Pro Medium';
-    src: url('/fonts/Brilliant Cut Pro Medium.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'Raleway';
+    src: url('/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
     font-style: normal;
   }
 
-  @font-face {
-    font-family: 'Fancy Cut Pro';
-    src: url('/fonts/fancycut.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  
   
   body {
-    font-family: 'Brilliant Cut Pro Medium', sans-serif; /* Apply Poppins globally */
+    font-family: 'Raleway', sans-serif; /* Apply Poppins globally */
     -webkit-font-smoothing: antialiased; /* Safari/Chrome */
     -moz-osx-font-smoothing: grayscale;
   }
   
   /* Use custom font only in elements with 'custom-font' class */
-  .fancy-cut {
-    font-family: 'Fancy Cut Pro', sans-serif;
-  }
   
 
 
@@ -67,4 +59,40 @@
       transform: scale(0.95);
       opacity: 0;
     }
+  }
+
+
+  @keyframes fillTimer {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .animate-fill {
+    animation: fillTimer 2.5s linear forwards; /* Fills over 3 seconds */
+  }
+
+
+  .scroll-animation {
+    opacity: 0;
+    transform: translateY(50px); /* Default starting position for animations */
+    transition: all 0.8s ease-out;
+  }
+  
+  .scroll-animation.animate-from-left {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .scroll-animation.animate-from-bottom {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .scroll-animation.animate-fade-in {
+    opacity: 1;
+    transform: none;
   }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createRef, FC, useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "@/shared/Logo/Logo";
 import MenuBar from "@/shared/MenuBar/MenuBar";
 import LangDropdown from "./LangDropdown";
@@ -8,68 +8,75 @@ import AvatarDropdown from "./AvatarDropdown";
 import TemplatesDropdown from "./TemplatesDropdown";
 import DropdownCategories from "./DropdownCategories";
 import CartDropdown from "./CartDropdown";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/authContext";
-import SearchDropdown from "./SearchDropdown";
+import WishlistDropDown from "./WisthListDropdown";
+import StoreLocation from "./StoreLocation";
 import { axiosInstance } from "@/axios";
-
-
+import MegaMenu from "./MegaMenue";
 
 const MainNav2 = ({ className = "" }) => {
   const [showSearchForm, setShowSearchForm] = useState(false);
   const router = useRouter();
-  const { user } = useAuth()
-  const mobileInputRef = createRef();
-  const desktopinputref = createRef()
-  const [categoriesData, setCategoriesData] = useState([])
+  const { user } = useAuth();
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [collectionData, setCollectionData] = useState([]);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isSticky, setIsSticky] = useState(false);
+  const mobileInputRef = useRef()
+  const inputref = useRef()
+  let lastScrollY = 0;
 
+  // Fetch Categories Data
   useEffect(() => {
     const getCategories = async () => {
-      const res = await axiosInstance.get("live-categories/").then(res => {
-        setCategoriesData(res.data)
-      })
-    }
-    if (categoriesData.length === 0) { getCategories() }
-  }, [])
+      const res = await axiosInstance.get("live-categories/");
+      setCategoriesData(res.data);
+    };
 
-  const [collectionData, setCollectionData] = useState([])
+    if (categoriesData.length === 0) {
+      getCategories();
+    }
+  }, [categoriesData]);
+
+  // Fetch Collections Data
   useEffect(() => {
     const getCollections = async () => {
-      const res = await axiosInstance.get("live-collections/").then(res => {
-        setCollectionData(res.data)
-      })
-    }
-    if (collectionData.length === 0) { getCollections() }
-    
-  }, [])
+      const res = await axiosInstance.get("live-collections/");
+      setCollectionData(res.data);
+    };
 
-  const renderMagnifyingGlassIcon = () => {
-    return (
-      <svg
-        width={22}
-        height={22}
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M22 22L20 20"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  };
+    if (collectionData.length === 0) {
+      getCollections();
+    }
+  }, [collectionData]);
+
+  // Handle scroll behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 100) {
+        setIsSticky(true);
+
+        if (currentScrollY > lastScrollY) {
+          setIsVisible(false); // Scrolling down
+        } else {
+          setIsVisible(true); // Scrolling up
+        }
+      } else {
+        setIsSticky(false);
+        setIsVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
 
 
   const renderSearchFormMobile = () => {
@@ -99,126 +106,84 @@ const MainNav2 = ({ className = "" }) => {
     );
   };
 
-  const renderSearchForm = () => {
-    const router = useRouter();
-    const placeholderTexts = [
-      'Rings',
-      'Solitaire',
-      'Chains',
-    ];
-    const [placeholder, setPlaceholder] = useState('');
-    const [currentTextIndex, setCurrentTextIndex] = useState(0);
-    const [charIndex, setCharIndex] = useState(0);
 
-    useEffect(() => {
-      const interval = setInterval(() => {
-        const currentText = placeholderTexts[currentTextIndex];
-        if (charIndex < currentText.length) {
-          setPlaceholder((prev) => prev + currentText[charIndex]);
-          setCharIndex((prev) => prev + 1);
-        } else {
-          setTimeout(() => {
-            setPlaceholder('');
-            setCharIndex(0);
-            setCurrentTextIndex((prev) => (prev + 1) % placeholderTexts.length);
-          }, 1500); // Delay before switching to the next text
+  const renderMagnifyingGlassIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      className="icon__magnifying-glass"
+      aria-label="icon magnifying-glass"
+      width="25"
+      height="25"
+      viewBox="0 0 19.8 19.8"
+      fill="#27251F"
+    >
+      <path d="M13.4 12.8c1.2-1.4 1.9-3.1 1.9-5.1 0-4.2-3.4-7.7-7.7-7.7S0 3.4 0 7.7s3.4 7.7 7.7 7.7c2 0 3.7-.7 5.1-1.9l6.4 6.4.6-.6-6.4-6.5zm-5.7 1.7C4 14.5.9 11.5.9 7.7S3.9.9 7.7.9s6.8 3 6.8 6.8-3.1 6.8-6.8 6.8z" />
+    </svg>
+  );
+
+  const renderSearchForm = () => (
+    <form
+      className="h-3/4 w-[13rem] py-1 hidden md:block font-normal mx-4 dark:text-slate-100"
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (inputref.current) {
+          router.push(`/search?s=${inputref.current.value}`);
+          inputref.current.blur();
         }
-      }, 100);
+      }}
+    >
+      <div className="flex items-center border text-placeholder font-semibold focus-within:text-custom-blue border-solid border-inputborder focus-within:border-custom-blue duration-300 group space-x-1.5 px-3 h-full">
+        <input
+          ref={inputref}
+          type="text"
+          placeholder="Search"
+          className="border-none placeholder:text-placeholder duration-300 focus:placeholder:text-custom-blue bg-transparent outline-none focus:outline-none focus:ring-0 w-full text-sm text-black dark:text-slate-100"
+        />
+        {renderMagnifyingGlassIcon()}
+      </div>
+      <input type="submit" hidden value="" />
+    </form>
+  );
 
-      return () => clearInterval(interval);
-    }, [charIndex, currentTextIndex, placeholderTexts]);
-
-    return (
-      <form
-        className="h-3/4 w-[30rem] py-2 hidden md:block text-black font-bold mx-8 fancy-cut dark:text-slate-100"
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (desktopinputref.current) {
-            router.push(`/search?s=${desktopinputref.current.value}`);
-            desktopinputref.current.blur();
-          }
-        }}
-      >
-        <div className="bg-custom-grey flex items-center space-x-1.5 px-5 h-full rounded">
-          {renderMagnifyingGlassIcon()}
-          <input
-            type="text"
-            ref={desktopinputref}
-            placeholder={placeholder} // Dynamic placeholder
-            className="border-none bg-transparent focus:outline-none focus:ring-0 w-full text-sm text-black dark:text-slate-100"
-            autoFocus
-          />
-        </div>
-        <input type="submit" hidden value="" />
-      </form>
-    );
-  };
   return (
-    <div className="nc-MainNav2 relative shadow-md z-10 bg-white dark:bg-slate-900 ">
-      <div className="mx-[10px]">
-        <div className="h-[3rem] md:h-20 flex justify-between">
-          {/* <div className="flex items-center md:hidden flex-1">
+    <div
+      className={`nc-MainNav2 ${isSticky ? "sticky top-0" : ""
+        } w-full transition-transform duration-300 bg-white dark:bg-slate-900 shadow-md ${isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+    >
+      <div className="px-[15px] h-[3rem] md:h-[4.4rem] flex justify-between">
+        <div className="flex lg:flex-1 md:mb-[10px]">
+          <div className="flex md:hidden">
             <MenuBar />
-          </div>  */}
-
-          <div className="flex lg:flex-1 md:mb-[15px] md:ml-[20px]">
-            <div className="flex md:hidden">
-              <MenuBar />
-            </div>
-            <Logo />
-            {/* {!showSearchForm && (
-              <div className="hidden md:block h-10 border-l border-slate-200 dark:border-slate-700"></div>
-            )} */}
-            {/* {!showSearchForm && (
-              <div className="hidden md:block">
-                <DropdownCategories />
-              </div>
-            )} */}
           </div>
-
-
-          <div className="h-full items-center lg:flex md:flex hidden ">
-            <TemplatesDropdown data={collectionData} />
-            <TemplatesDropdown data={categoriesData} name={"categories"} />
-
-          </div>
-
-          <div className="flex-1 flex items-center justify-end ">
-            {/* {user ? "" : "Login"} */}
-
-            {/* {!showSearchForm && (
-              <button
-                className="hidden lg:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none items-center justify-center"
-                onClick={() => setShowSearchForm(!showSearchForm)}
-              >
-                {renderMagnifyingGlassIcon()}
-              </button>
-            )} */}{renderSearchForm()}
-            {user ? <AvatarDropdown /> : ""}
-            <CartDropdown />
-
-          </div>
-
-          {/* <div className="flex-1 flex items-center justify-end ">
-            {user ? "" : "Login"}
-            {!showSearchForm && <TemplatesDropdown />}
-            {!showSearchForm && <LangDropdown />}
-            {!showSearchForm && (
-              <button
-                className="hidden lg:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none items-center justify-center"
-                onClick={() => setShowSearchForm(!showSearchForm)}
-              >
-                {renderMagnifyingGlassIcon()}
-              </button>
-            )}
-           
-            <CartDropdown />
-          </div> */}
+          <Logo />
         </div>
-        <div className="h-12 flex md:hidden justify-center">
-          <div className="lg:hidden md:hidden flex w-full">
-            {renderSearchFormMobile()}
-          </div>
+
+        <div className="flex-1 flex items-center justify-end">
+          {renderSearchForm()}
+          <WishlistDropDown />
+          <StoreLocation />
+          <AvatarDropdown />
+          <CartDropdown />
+        </div>
+      </div>
+      <div className="w-full h-[5px] bg-custom-blue"></div>
+      <div className="h-12 flex md:hidden justify-center">
+        <div className="lg:hidden md:hidden flex w-full">
+          {renderSearchFormMobile()}
+        </div>
+      </div>
+      <div className="w-full px-[15px] h-12 border-b border-inputborder hidden md:flex justify-center">
+        <div className="lg:flex md:flex space-x-[30px] hidden w-full">
+          <MegaMenu heading="sale" />
+          <MegaMenu heading="rings" />
+          <MegaMenu heading="bracelet" />
+          <MegaMenu heading="Necklace" />
+          <MegaMenu heading="pendants" />
+          <MegaMenu heading="All collections" />
+          <MegaMenu heading="earrings" />
+          <MegaMenu heading="new in" />
         </div>
       </div>
     </div>

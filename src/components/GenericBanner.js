@@ -24,14 +24,14 @@ const GenericBannerSlider = ({
     // Initialize Glide instance if not already done
     if (!glideRef.current) {
       const glideOptions = {
-        
+      
         // animationDuration:1000,
         swipeThreshold:10,
         perView: 1,
         gap: 0,
         rewind: true, // Ensure rewinding instead of duplication
-        autoplay: banners.length < 1 ? 3000 : false, // Optional auto-slide
-        // animationDuration: banners.length < 1 ? 10000 : false,
+        autoplay: banners.length > 1 ? 3000 : false, // Optional auto-slide
+        animationDuration: banners.length > 1 ? 1000 : false,
       };
 
       glideRef.current = new Glide(sliderRef.current, glideOptions);
@@ -63,6 +63,7 @@ const GenericBannerSlider = ({
                 >
                   <Image
                     src={banner}
+                    sizes="1000px"
                     alt={`Banner ${index}`}
                     layout="fill" // Ensure full coverage
                     objectFit="cover" // Maintain image aspect
@@ -77,13 +78,13 @@ const GenericBannerSlider = ({
       {/* Optional Dots */}
       {showDots && banners.length > 1 && (
         <div
-          className="glide__bullets w-full justify-center flex space-x-1 pt-1 pb-1"
+          className=" absolute glide__bullets w-full justify-center flex space-x-1 pt-1 pb-1"
           data-glide-el="controls[nav]"
         >
           {banners.map((_, index) => (
             <button
               key={index}
-              className="glide__bullet w-[6px] h-[6px] rounded-full bg-gray-300 transition-colors duration-300"
+              className="glide__bullet w-[20px] h-[6px] rounded-full bg-white transition-colors duration-300"
               data-glide-dir={`=${index}`}
             ></button>
           ))}

@@ -19,7 +19,7 @@ const Logo = ({
     >
       {img ? (
         <Image
-          className={`h-10 hidden md:block  w-auto ${
+          className={`h-12 hidden md:block  w-auto ${
             imgLight ? "dark:hidden" : ""
           }`}
           src={img}

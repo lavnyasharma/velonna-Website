@@ -39,11 +39,11 @@ const SectionSliderCategories = ({
       rewind:true,
       autoplay:4000,
       breakpoints: {
-        1280: { gap:10, perView: 5 },
-        1024: {  gap:10,perView: 4.5 },
-        768: {  gap:10,perView: 3 },
-        640: {  gap:10,perView: 2.5 },
-        500: { gap:10, perView: 2.5 },
+        1280: { gap:10, perView: 6 },
+        1024: {  gap:10,perView: 6 },
+        768: {  gap:10,perView: 4 },
+        640: {  gap:10,perView: 4 },
+        500: { gap:10, perView: 3 },
       },
     };
   
@@ -57,14 +57,14 @@ const SectionSliderCategories = ({
 
   return (
     <div className={`nc-SectionSliderCategories ${className}`}>
-      <div ref={sliderRef} className={`flow-root  shadow-sm ${isShow ? "" : "invisible"}`}>
+      <div ref={sliderRef} className={`flow-root ${isShow ? "" : "invisible"}`}>
         {heading && <Heading desc={subHeading} >
           {heading}
         </Heading>}
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides  shadow-lg">
             {categoriesData.map((item, index) => (
-              <li key={index} className={`m-0 shadow-lg hover:shadow-lg  glide__slide ${itemClassName} `}>
+              <li key={index} className={`m-0 glide__slide ${itemClassName} `}>
                 <CardCategory2
                   featuredImage={item.icon}
                   name={item.name}
