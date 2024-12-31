@@ -17,7 +17,7 @@ const CardCategory2 = ({
       data-nc-id="CardCategory2"
     >
       <div
-        className={` 1 relative w-full h-0 overflow-hidden group ${ratioClass}`}
+        className={`relative w-full h-0 overflow-hidden group ${ratioClass}`}
       >
         <div className="rounded-sm overflow-hidden">
            <Image
@@ -25,11 +25,10 @@ const CardCategory2 = ({
             fill
             containerClassName="w-full h-full flex justify-center"
             src={featuredImage}
-            className="object-cover"
+            className="object-cover hover:scale-110 duration-300"
             sizes="1000px"
           />
         </div>
-        <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity "></span>
       </div>
       <div className="mt-2 relative mb-2 flex-1 text-center">
         <h2 className="text-[11px] tracking-widest uppercase font-semibold text-custom-blue dark:text-neutral-100">

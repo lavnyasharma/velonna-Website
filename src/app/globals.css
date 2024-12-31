@@ -26,14 +26,14 @@
 .custom-container{
     min-width: 100%;
     max-width: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
     margin: 0 auto;
 }
 
 
 .glide__bullet--active {
     position: relative;
-    background-color: black;
+    opacity:0.5;
   }
 
   .glide__bullet--active::after {
@@ -41,23 +41,22 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 0;
     height: 100%;
-    background-color: #000000;
-    border-radius: 9999px;
-    animation: sweep 0.5s ease forwards;
-    transform: scale(1.5);
+    background-color: white;
+  
+    animation: sweep 3s linear forwards;
     opacity: 0;
   }
 
   @keyframes sweep {
     0% {
-      transform: scale(1.2);
+      width:0;
       opacity: 1;
     }
     100% {
-      transform: scale(0.95);
-      opacity: 0;
+      width:100%;
+      opacity: 1;
     }
   }
 
@@ -76,23 +75,27 @@
   }
 
 
-  .scroll-animation {
-    opacity: 0;
-    transform: translateY(50px); /* Default starting position for animations */
-    transition: all 0.8s ease-out;
-  }
-  
-  .scroll-animation.animate-from-left {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  
-  .scroll-animation.animate-from-bottom {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
-  .scroll-animation.animate-fade-in {
-    opacity: 1;
-    transform: none;
-  }
+  /* Base style for the component */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(30%); /* Default transform */
+  transition: opacity ease-in, transform ease-in;
+}
+
+/* Animation for sliding in from the left */
+.scroll-animation.animate-from-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animation for sliding in from the bottom */
+.scroll-animation.animate-from-bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation for fading in */
+.scroll-animation.animate-fade-in {
+  opacity: 1;
+  transform: none;
+}

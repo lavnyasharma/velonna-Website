@@ -1,14 +1,14 @@
 "use client";
 
 import Glide from "@glidejs/glide/dist/glide.esm";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
+import ScrollAnimation from "./ScrollAnimation";
 
-const GenericBannerSlider = ({
+const GenericVideoBanner = ({
   banners = [
-    "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-
+    "https://path/to/video1.mp4",
+    "https://path/to/video2.mp4",
   ],
   type = "slider",
   gap = 0,
@@ -27,15 +27,12 @@ const GenericBannerSlider = ({
     // Initialize Glide instance if not already done
     if (!glideRef.current) {
       const glideOptions = {
-        hoverpause:false,
         type: type,
-        // animationDuration:1000,
         swipeThreshold: 10,
         perView: perView,
-        animationTimingFunc:"ease-out",
         gap: gap,
         rewind: true, // Ensure rewinding instead of duplication
-        autoplay: banners.length > 1 ? 4000 : false, // Optional auto-slide
+        autoplay: banners.length > 1 ? 3000 : false, // Optional auto-slide
         animationDuration: banners.length > 1 ? 1000 : false,
       };
 
@@ -51,13 +48,13 @@ const GenericBannerSlider = ({
   }, [glideRef]); // Watch for changes to `banners`
 
   return (
-
     <div className={`glide w-full relative ${className}`} ref={sliderRef}>
       {/* Track and Slides */}
-      <Link href={onClick} className="inset-0">
-        <div className="glide__track" data-glide-el="track">
-          <ul className="glide__slides">
-            {banners.map((banner, index) => (
+
+      <div className="glide__track" data-glide-el="track">
+
+        <ul className="glide__slides">
+          {banners.map((banner, index) => (
               <li key={index} className="glide__slide">
                 <div
                   style={{
@@ -66,30 +63,31 @@ const GenericBannerSlider = ({
                     aspectRatio, // Respect aspect ratio
                   }}
                 >
-                  <Image
+                  <video
                     src={banner}
-                    quality={100}
-                    alt={`Banner ${index}`}
-                    layout="fill" // Ensure full coverage
-                    objectFit="cover" // Maintain image aspect
-                    priority // Prioritize the first image
+                    loop
+                    muted
+                    autoPlay
+                    className="w-full h-full object-cover"
                   />
+
                 </div>
               </li>
-            ))}
-          </ul>
-        </div>
-      </Link>
+          ))}
+
+        </ul>
+
+      </div>
       {/* Optional Dots */}
       {showDots && banners.length > 1 && (
         <div
-          className={`absolute bottom-10 glide__bullets w-full justify-end px-20 flex space-x-1 pt-1 pb-1`}
+          className="absolute glide__bullets w-full justify-center flex space-x-1 pt-1 pb-1"
           data-glide-el="controls[nav]"
         >
           {banners.map((_, index) => (
             <button
               key={index}
-              className="glide__bullet shadow-md  w-[35px] h-[2px]  bg-[#848484] transition-colors duration-300"
+              className="glide__bullet w-[20px] h-[3px] rounded-full bg-inputborder transition-colors duration-300"
               data-glide-dir={`=${index}`}
             ></button>
           ))}
@@ -99,4 +97,4 @@ const GenericBannerSlider = ({
   );
 };
 
-export default GenericBannerSlider;
+export default GenericVideoBanner;

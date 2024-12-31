@@ -1,31 +1,7 @@
-import Logo from "@/shared/Logo/Logo";
-import SocialsList1 from "@/shared/SocialsList1/SocialsList1";
 import { CustomLink } from "@/data/types";
 import React from "react";
 
-
-
 const widgetMenus = [
-  // {
-  //   id: "5",
-  //   title: "Getting started",
-  //   menus: [
-  //     { href: "/", label: "Release Notes" },
-  //     { href: "/", label: "Upgrade Guide" },
-  //     { href: "/", label: "Browser Support" },
-  //     { href: "/", label: "Dark Mode" },
-  //   ],
-  // },
-  // {
-  //   id: "1",
-  //   title: "Explore",
-  //   menus: [
-  //     { href: "/", label: "Prototyping" },
-  //     { href: "/", label: "Design systems" },
-  //     { href: "/", label: "Pricing" },
-  //     { href: "/", label: "Security" },
-  //   ],
-  // },
   {
     id: "2",
     title: "Conditions",
@@ -33,7 +9,6 @@ const widgetMenus = [
       { href: "/termsandconidtions", label: "Terms & Conditions" },
       { href: "/refundpolicy", label: "Refund Policies" },
       { href: "/privacypolicy", label: "Privacy Policies" },
- 
     ],
   },
   {
@@ -46,12 +21,21 @@ const widgetMenus = [
       { href: "/", label: "API Reference" },
     ],
   },
+  {
+    id: "3",
+    title: "Company",
+    menus: [
+      { href: "/", label: "About Us" },
+      { href: "/", label: "Contact Us" },
+      { href: "/", label: "Live Chat" },
+    ],
+  },
 ];
 
-const Footer= () => {
+const Footer = () => {
   const renderWidgetMenuItem = (menu, index) => {
     return (
-      <div key={index} className="text-sm">
+      <div key={index} className="text-sm grid items-start justify-center">
         <h2 className="font-semibold text-neutral-700 dark:text-neutral-200">
           {menu.title}
         </h2>
@@ -59,8 +43,7 @@ const Footer= () => {
           {menu.menus.map((item, index) => (
             <li key={index}>
               <a
-                key={index}
-                className="text-neutral-6000 dark:text-neutral-300 hover:text-black dark:hover:text-white"
+                className="text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white"
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -75,17 +58,25 @@ const Footer= () => {
   };
 
   return (
-    <div className="nc-Footer relative py-20 lg:pt-28 lg:pb-24 border-t border-neutral-200 dark:border-neutral-700">
-      <div className="custom-container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-10 ">
-        <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
-          <div className="col-span-2 md:col-span-1">
-            <Logo />
+    <div className="nc-Footer relative p-6  lg:px-20 lg:pt-20 bg-[#f5f5f5] border-t border-neutral-200 dark:border-neutral-700">
+      {/* Widget Menus Section */}
+      <div className="custom-container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-3 lg:gap-x-10">
+        {widgetMenus.map(renderWidgetMenuItem)}
+      </div>
+
+      {/* Footer Bottom Container with Address, Design Info, and Copyright */}
+      <div className="mt-10 py-6 ">
+        <div className="custom-container font-bold uppercase text-black flex flex-col sm:flex-row justify-between items-center text-sm space-y-4 sm:space-y-0 sm:space-x-4 pt-4 sm:pt-0">
+          <div className="text-neutral-600 dark:text-neutral-300">
+            <p>made with love in India</p>
           </div>
-          <div className="col-span-2 flex items-center md:col-span-3">
-            <SocialsList1 className="flex items-center space-x-2 lg:space-x-0 lg:flex-col lg:space-y-3 lg:items-start" />
+          <div className="text-neutral-600 dark:text-neutral-300">
+            <p>&copy; 2024 VelonnaCo. All Rights Reserved.</p>
+          </div>
+          <div className="text-neutral-600 dark:text-neutral-300">
+            <p>Designed by Concric Pvt Ltd</p>
           </div>
         </div>
-        {widgetMenus.map(renderWidgetMenuItem)}
       </div>
     </div>
   );

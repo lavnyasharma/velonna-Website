@@ -19,7 +19,7 @@ import Link from "next/link";
 import NcImage from "@/shared/NcImage/NcImage";
 import { useCart } from "@/context/cartContext";
 import { addToCart } from "@/axios";
-import {imagethumbnail } from "../images/products/thumbnail_placeholder.webp";
+import { imagethumbnail } from "../images/products/thumbnail_placeholder.webp";
 import { useAuth } from "@/context/authContext";
 
 const ProductCard = ({
@@ -52,9 +52,9 @@ const ProductCard = ({
   const [qualitySelected, setQualitySelected] = useState(1);
   const router = useRouter();
   const { fetchCart } = useCart()
-  const {is_auth} = useAuth()
+  const { is_auth } = useAuth()
   const handleAddToCart = () => {
-    if (!is_auth){
+    if (!is_auth) {
       router.push("/login")
       return
     }
@@ -108,13 +108,13 @@ const ProductCard = ({
   const renderProductCartOnNotify = () => {
     return (
       <div className="flex ">
-        <div className="h-24 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
+        <div className="h-24 w-20 overflow-hidden flex-shrink-0 rounded-xl bg-slate-100">
           <Image
-            width={80}
-            height={96}
+            width={100}
+            height={100}
             src={thumbnail ? thumbnail : imagethumbnail}
             alt={title}
-            className="absolute object-cover object-center"
+            className="absolute object-fit object-center"
           />
         </div>
 
@@ -131,7 +131,7 @@ const ProductCard = ({
                   <span>{size}</span>
                 </p>
               </div>
-              <Prices price={Number(price)?.toLocaleString('en-IN')} className="mt-0.5" />
+              <Prices price={price} contentClass={"font-bold"} className="mt-0.5 " />
 
             </div>
           </div>
@@ -194,8 +194,8 @@ const ProductCard = ({
               key={index}
               onClick={() => setVariantActive(index)}
               className={`relative w-6 h-6 rounded-full overflow-hidden z-10 border cursor-pointer ${variantActive === index
-                  ? getBorderClass(variant.color)
-                  : "border-transparent"
+                ? getBorderClass(variant.color)
+                : "border-transparent"
                 }`}
               title={variant.name}
             >
@@ -215,8 +215,8 @@ const ProductCard = ({
             key={index}
             onClick={() => setVariantActive(index)}
             className={`relative w-11 h-6 rounded-full overflow-hidden z-10 border cursor-pointer ${variantActive === index
-                ? "border-black dark:border-slate-300"
-                : "border-transparent"
+              ? "border-black dark:border-slate-300"
+              : "border-transparent"
               }`}
             title={variant.name}
           >
@@ -274,12 +274,12 @@ const ProductCard = ({
       >
         <Link href={`/product/${hsn}`} className="absolute inset-0"></Link>
 
-        <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 overflow-hidden  group">
+        <div className="relative flex-shrink-0 rounded-sm bg-slate-50 dark:bg-slate-300 overflow-hidden  group">
           <Link href={`/product/${hsn}`} className="block">
             <NcImage
               containerClassName="flex aspect-w-11 aspect-h-12 w-full h-0"
               src={thumbnail ? thumbnail : imagethumbnail}
-              className="object-cover w-full h-full drop-shadow-xl"
+              className="object-cover hover:scale-110 duration-300 w-full h-full drop-shadow-xl"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 40vw"
               alt="product"
@@ -290,28 +290,25 @@ const ProductCard = ({
           {renderGroupButtons()}
         </div>
 
-        {!hideDetails && <div className="space-y-0.5 px-2.5 pt-2 pb-2.5">
+        {!hideDetails && <div className=" px-2.5 pt-2 pb-2.5">
           {renderVariants()}
           <div>
-            <h2 className="nc-ProductCard__title text-custom-blue text-[12px] font-semibold capitalize transition-colors truncate text-ellipsis">
+            <p className={`text-[10px] tracking-[.03125rem] uppercase text-[#71706c] font-semibold dark:text-slate-400  `}>
+              {collection} {category && `| ${category}`}
+            </p>
+            <h2 className="nc-ProductCard__title text-custom-blue text-[12px] tracking-wider font-bold capitalize transition-colors truncate text-ellipsis">
               {title}
             </h2>
-            <p className={`text-xs capitalize text-black font-medium dark:text-slate-400 mt-1 `}>
-              {collection}
-            </p>
-            <span className={`text-[10px] font-medium text-black dark:text-slate-400 mt-1 bg-slate-100 py-0.5 px-2 rounded-xl`}>
-              {category.toString().charAt(0).toUpperCase() + category.toString().slice(1)}
-            </span>
           </div>
 
           <div className="flex justify-between items-end ">
-            <Prices price={price} />
-            <div className="flex items-center mb-0.5">
+            <Prices contentClass={"font-semibold"} price={price} />
+            {/* <div className="flex items-center mb-0.5">
               <StarIcon className="w-5 h-5 pb-[1px] text-amber-400" />
               <span className="text-sm ms-1 text-black dark:text-slate-400">
                 {rating || ""} {numberOfReviews || 0}
               </span>
-            </div>
+            </div> */}
           </div>
         </div>}
       </div>

@@ -57,7 +57,7 @@ const MainNav2 = ({ className = "" }) => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > 100) {
-        setIsSticky(true);
+
 
         if (currentScrollY > lastScrollY) {
           setIsVisible(false); // Scrolling down
@@ -65,7 +65,6 @@ const MainNav2 = ({ className = "" }) => {
           setIsVisible(true); // Scrolling up
         }
       } else {
-        setIsSticky(false);
         setIsVisible(true);
       }
 
@@ -148,11 +147,10 @@ const MainNav2 = ({ className = "" }) => {
 
   return (
     <div
-      className={`nc-MainNav2 ${isSticky ? "sticky top-0" : ""
-        } w-full transition-transform duration-300 bg-white dark:bg-slate-900 shadow-md ${isVisible ? "translate-y-0" : "-translate-y-full"
+      className={`nc-MainNav2  z-40 sticky top-0 w-full transition-transform duration-300 bg-white dark:bg-slate-900 shadow-md ${isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
     >
-      <div className="px-[15px] h-[3rem] md:h-[4.4rem] flex justify-between">
+      <div className="px-[12px] h-[3rem] md:h-[4.4rem] flex justify-between">
         <div className="flex lg:flex-1 md:mb-[10px]">
           <div className="flex md:hidden">
             <MenuBar />
@@ -168,7 +166,7 @@ const MainNav2 = ({ className = "" }) => {
           <CartDropdown />
         </div>
       </div>
-      <div className="w-full h-[5px] bg-custom-blue"></div>
+      <div className="w-full h-[1px] bg-gradient-to-r from-white via-black to-white"></div>
       <div className="h-12 flex md:hidden justify-center">
         <div className="lg:hidden md:hidden flex w-full">
           {renderSearchFormMobile()}
@@ -176,6 +174,9 @@ const MainNav2 = ({ className = "" }) => {
       </div>
       <div className="w-full px-[15px] h-12 border-b border-inputborder hidden md:flex justify-center">
         <div className="lg:flex md:flex space-x-[30px] hidden w-full">
+          <MegaMenu disableDropdown={true} heading="shop all" onClick={()=>{
+            router.push('/search')
+          }} />
           <MegaMenu heading="sale" />
           <MegaMenu heading="rings" />
           <MegaMenu heading="bracelet" />

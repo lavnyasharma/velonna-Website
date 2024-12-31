@@ -1,17 +1,21 @@
 "use client";
 import React from "react";
 
-const MegaMenu = ({ heading = "rings" }) => {
+const MegaMenu = ({disableDropdown=false, heading = "rings" ,onClick}) => {
   return (
     <div className="relative group">
       {/* MegaMenu Trigger */}
       <div
         className="h-full flex items-center space-x-[5px] flex-row dark:bg-gray-800 text-[12px] font-semibold uppercase text-custom-blue dark:text-white cursor-pointer"
       >
-        <div className="border-b-0 group-hover:border-b-2 flex duration-300 ease-in items-center border-transparent group-hover:border-black dark:border-gray-700 h-full">
-          <span>{heading}</span>
+        <div className={`border-b-0 ${disableDropdown?"group-hover:underline":"group-hover:border-b-2"} flex duration-300 ease-in items-center border-transparent group-hover:border-black dark:border-gray-700 h-full`}>
+          <span onClick={()=>{
+            if (disableDropdown){
+              if (onClick) onClick()
+            }
+          }}>{heading}</span>
         </div>
-        <div className="group-hover:rotate-180">
+       {!disableDropdown && <div className="group-hover:rotate-180">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             role="img"
@@ -29,11 +33,11 @@ const MegaMenu = ({ heading = "rings" }) => {
               fill="#27251F"
             />
           </svg>
-        </div>
+        </div>}
       </div>
 
       {/* MegaMenu Content */}
-      <div
+     {!disableDropdown && <div
         className="fixed left-0 shadow-[0_-2px_6px_-2px_rgba(0,0,0,0.1),0_5px_6px_-5px_rgba(0,0,0,0.1)] w-full bg-white dark:bg-gray-900 opacity-0 h-0 pointer-events-none group-hover:h-max group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transform translate-y-4 transition-all duration-300"
       >
         <div className="grid h-full border-box grid-cols-4 gap-4 pt-[40px] p-6">
@@ -85,7 +89,7 @@ const MegaMenu = ({ heading = "rings" }) => {
             </ul>
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

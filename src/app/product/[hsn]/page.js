@@ -476,9 +476,7 @@ function ProductScreen() {
               <span className="ml-3">Add to cart</span>
             </ButtonPrimary> : <ButtonPrimary disabled
               className="flex-1 flex-shrink-0"
-
             >
-
               <span className="ml-3">Out Of Stock</span>
             </ButtonPrimary>}
           </div>
@@ -670,25 +668,25 @@ function ProductScreen() {
                 </div>
 
                 {/* Desktop: Grid Layout */}
-                <div className="hidden md:grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
+                <div className="hidden px-[15px] md:grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
                   <div
-                    className="md:h-full col-span-2 md:col-span-1 row-span-2 relative rounded-md sm:rounded-xl cursor-pointer"
+                    className="md:h-full col-span-2 md:col-span-1 row-span-2 relative cursor-pointer"
                     onClick={handleOpenModalImageGallery}
                   >
                     <NcImage
                       alt="first"
                       containerClassName="aspect-w-3 aspect-h-4 relative md:aspect-none md:absolute md:inset-0"
-                      className="object-cover rounded-md sm:rounded-xl"
+                      className="object-cover px-15px"
                       src={hsnProduct?.images[0]?.image}
                       fill
                       sizes="(max-width: 640px) 100vw, 50vw"
                       priority
                     />
-                    <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity rounded-md sm:rounded-xl"></div>
+                    <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity "></div>
                   </div>
 
                   <div
-                    className="col-span-1 row-span-2 relative rounded-md sm:rounded-xl overflow-hidden z-0 cursor-pointer"
+                    className="col-span-1 row-span-2 relative  overflow-hidden z-0 cursor-pointer"
                     onClick={handleOpenModalImageGallery}
                   >
                     <NcImage
@@ -696,7 +694,7 @@ function ProductScreen() {
                       fill
                       sizes="(max-width: 640px) 100vw, 50vw"
                       containerClassName="absolute inset-0"
-                      className="object-cover w-full h-full rounded-md sm:rounded-xl"
+                      className="object-cover w-full h-full "
                       src={hsnProduct?.images[1]?.image}
                     />
                     <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity"></div>
@@ -708,14 +706,14 @@ function ProductScreen() {
                   ].map((item, index) => (
                     <div
                       key={index}
-                      className={`relative rounded-md sm:rounded-xl overflow-hidden z-0`}
+                      className={`relative  overflow-hidden z-0`}
                     >
                       <NcImage
                         alt=""
                         fill
                         sizes="(max-width: 640px) 100vw, 33vw"
                         containerClassName="aspect-w-6 aspect-h-5 lg:aspect-h-4"
-                        className="object-cover w-full h-full rounded-md sm:rounded-xl"
+                        className="object-cover w-full h-full "
                         src={item || ""}
                       />
                       <div
@@ -756,14 +754,14 @@ function ProductScreen() {
           {/* MAIn */}
           <main className="custom-container relative z-10 mt-9 sm:mt-11 flex ">
             {/* CONTENT */}
-            <div className="w-full lg:w-3/5 xl:w-2/3 space-y-10 lg:pr-14 lg:space-y-14">
+            <div className="w-full pl-[15px] lg:w-3/5 xl:w-2/3 space-y-10 lg:pr-14 lg:space-y-14">
               {renderSection1()}
               {renderSection2()}
             </div>
 
             {/* SIDEBAR */}
             <div className="flex-grow">
-              <div className="hidden lg:block sticky top-28">
+              <div className="hidden pr-[15px] lg:block sticky top-28">
                 {renderSectionSidebar()}
               </div>
             </div>

@@ -4,6 +4,7 @@ import React, { FC, useEffect, useId, useRef, useState } from "react";
 import Heading from "@/components/Heading/Heading";
 import Glide from "@glidejs/glide/dist/glide.esm";
 import ProductCard from "./ProductCard";
+import ScrollAnimation from "./ScrollAnimation";
 
 
 
@@ -11,10 +12,10 @@ const SectionSliderProductCard = ({
   className = "",
   itemClassName = "",
   headingFontClassName,
-  hideDetails=false,
+  hideDetails = false,
   headingClassName,
   heading,
-  subHeading = "Products You May Like.",
+  subHeading,
   data
 }) => {
   console.log(data)
@@ -25,7 +26,7 @@ const SectionSliderProductCard = ({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if(data){
+    if (data) {
       setLoading(false)
     }
   }, []);
@@ -33,30 +34,30 @@ const SectionSliderProductCard = ({
   useEffect(() => {
     const OPTIONS = {
       // direction: document.querySelector("html")?.getAttribute("dir") || "ltr",
-      type:"slide",
-      perView: 6,
-      gap:0,
+      type: "slide",
+      perView: 4,
+      gap: 15,
       dragThreshold: 20,
       bound: true,
       breakpoints: {
         1280: {
-          perView: 6,
+          perView: 4,
         },
         1024: {
-         
-          perView: 5 ,
+
+          perView: 3,
         },
         768: {
-         
-          perView: 5 ,
+
+          perView: 3,
         },
         640: {
-         
-          perView: 4,
+
+          perView: 3,
         },
         500: {
-          
-          perView: 4,
+
+          perView: 3,
         },
       },
     };
@@ -93,7 +94,7 @@ const SectionSliderProductCard = ({
   return (
     <div className={`nc-SectionSliderProductCard ${className}`}>
       <div ref={sliderRef} className={`flow-root ${isShow ? "" : "invisible"}`}>
-       {heading && <Heading
+        {heading && <Heading
           className={headingClassName}
           fontClass={headingFontClassName}
           rightDescText={subHeading}
@@ -103,11 +104,13 @@ const SectionSliderProductCard = ({
 
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
-            {data?data.map((item, index) => (
-              <li key={index} className={`glide__slide ${itemClassName}`}>
-                {loading ? <Loading /> : <ProductCard hideDetails={hideDetails} data={item} />}
-              </li>
-            )):"Loading"}
+            {data ? data.map((item, index) => (
+              <ScrollAnimation animationStyle="from-left" duration={`${index * 100 + 200 > 900 ? 500 : index * 100 + 200}ms`}>
+                <li key={index} className={`glide__slide ${itemClassName}`}>
+                  {loading ? <Loading /> : <ProductCard hideDetails={hideDetails} data={item} />}
+                </li>
+              </ScrollAnimation>
+            )) : "Loading"}
           </ul>
         </div>
       </div>
