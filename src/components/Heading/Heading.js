@@ -20,10 +20,10 @@ const solutions = [
 const Heading = ({
   children,
   desc = "",
-  className = "text-neutral-900 dark:text-neutral-50 mb-[40px]",
+  className = "text-neutral-900  dark:text-neutral-50 mb-[15px] md:mb-[20px]",
   isCenter = false,
   hasNextPrev = false,
-  fontClass = "text-[18px]  uppercase md:text-[28px] font-extrabold",
+  fontClass = "text-[18px] PanD-Regular uppercase md:text-[28px] font-extrabold",
   rightDescText,
   rightPopoverOptions = solutions,
   ...args
@@ -41,16 +41,16 @@ const Heading = ({
           }
         >
           <h2
-            className={`${isCenter ? "justify-center " : ""} ${fontClass}`}
+            className={`${isCenter ? "justify-center " : "font-[700]"} ${fontClass}`}
             {...args}
           >
             {children || `Section Heading`}
             {rightDescText && (
               <>
-                <span className="">{`. `}</span>
-                <span className="text-neutral-500 dark:text-neutral-400">
+                <span className="">{` `}</span>
+                {/* <span className="text-neutral-500 dark:text-neutral-400">
                   {rightDescText}
-                </span>
+                </span> */}
               </>
             )}
           </h2>

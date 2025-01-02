@@ -35,7 +35,7 @@ const SectionSliderProductCard = ({
     const OPTIONS = {
       // direction: document.querySelector("html")?.getAttribute("dir") || "ltr",
       type: "slide",
-      perView: 4,
+      perView: 5,
       gap: 15,
       dragThreshold: 20,
       bound: true,
@@ -49,15 +49,15 @@ const SectionSliderProductCard = ({
         },
         768: {
 
-          perView: 3,
+          perView: 2.2,
         },
         640: {
 
-          perView: 3,
+          perView: 2.2,
         },
         500: {
 
-          perView: 3,
+          perView: 2.2,
         },
       },
     };
@@ -105,7 +105,7 @@ const SectionSliderProductCard = ({
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             {data ? data.map((item, index) => (
-              <ScrollAnimation animationStyle="from-left" duration={`${index * 100 + 200 > 900 ? 500 : index * 100 + 200}ms`}>
+              <ScrollAnimation threshold={0} animationStyle="from-left" duration={`${index * 100 + 200 > 900 ? 500 : index * 100 + 200}ms`}>
                 <li key={index} className={`glide__slide ${itemClassName}`}>
                   {loading ? <Loading /> : <ProductCard hideDetails={hideDetails} data={item} />}
                 </li>

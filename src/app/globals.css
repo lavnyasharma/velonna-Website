@@ -5,80 +5,125 @@
 
 
 @font-face {
-    font-family: 'Raleway';
-    src: url('/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal;
-  }
+  font-family: 'PanDisplay-Regular';
+  src: url('/fonts/PanDisplay-Regular.ttf') format('truetype');
+  font-style: normal;
+  
+}
 
-  
-  
-  body {
-    font-family: 'Raleway', sans-serif; /* Apply Poppins globally */
-    -webkit-font-smoothing: antialiased; /* Safari/Chrome */
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  /* Use custom font only in elements with 'custom-font' class */
+@font-face {
+  font-family: 'PanDisplay-Light';
+  src: url('/fonts/PanDisplay-Light.ttf') format('truetype');
+  font-style: normal;
   
 
+}
 
-.custom-container{
-    min-width: 100%;
-    max-width: 100%;
-    padding: 0 10px;
-    margin: 0 auto;
+
+@font-face {
+  font-family: 'PanText-Regular';
+  src: url('/fonts/PanText-Regular.ttf') format('truetype');
+  font-style: normal;
+  
+
+}
+
+@font-face {
+  font-family: 'PanText-Light';
+  src: url('/fonts/PanText-Light.ttf') format('truetype');
+  font-style: normal;
+  
+
+}
+
+.PanD-Light {
+  font-family: 'PanDisplay-Light';
+}
+
+.PanD-Regular {
+  font-family: 'PanDisplay-Regular';
+}
+
+.PanT-Light {
+  font-family: 'PanText-Light';
+}
+
+.PanT-Regular {
+  font-family: 'PanText-Regular';
+}
+
+body {
+  font-family: 'PanText-Regular', sans-serif;
+  /* Apply Poppins globally */
+  -webkit-font-smoothing: antialiased; /* For Webkit browsers */
+  -moz-osx-font-smoothing: grayscale; /* For macOS */
+  font-smooth: always; /* General hint */
+}
+
+/* Use custom font only in elements with 'custom-font' class */
+
+
+
+.custom-container {
+  min-width: 100%;
+  max-width: 100%;
+  padding: 0 10px;
+  margin: 0 auto;
 }
 
 
 .glide__bullet--active {
-    position: relative;
-    opacity:0.5;
-  }
+  position: relative;
+  opacity: 0.5;
+}
 
-  .glide__bullet--active::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+.glide__bullet--active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: white;
+
+  animation: sweep 3s linear forwards;
+  opacity: 0;
+}
+
+@keyframes sweep {
+  0% {
     width: 0;
-    height: 100%;
-    background-color: white;
-  
-    animation: sweep 3s linear forwards;
-    opacity: 0;
+    opacity: 1;
   }
 
-  @keyframes sweep {
-    0% {
-      width:0;
-      opacity: 1;
-    }
-    100% {
-      width:100%;
-      opacity: 1;
-    }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+
+@keyframes fillTimer {
+  from {
+    width: 0%;
   }
 
-
-  @keyframes fillTimer {
-    from {
-      width: 0%;
-    }
-    to {
-      width: 100%;
-    }
+  to {
+    width: 100%;
   }
-  
-  .animate-fill {
-    animation: fillTimer 2.5s linear forwards; /* Fills over 3 seconds */
-  }
+}
+
+.animate-fill {
+  animation: fillTimer 2.5s linear forwards;
+  /* Fills over 3 seconds */
+}
 
 
-  /* Base style for the component */
+/* Base style for the component */
 .scroll-animation {
   opacity: 0;
-  transform: translateY(30%); /* Default transform */
+  transform: translateY(30%);
+  /* Default transform */
   transition: opacity ease-in, transform ease-in;
 }
 

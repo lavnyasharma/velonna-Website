@@ -34,7 +34,7 @@ const SectionSliderCategories = ({
 
     const OPTIONS = {
       type: "carousel",
-      perView: 5,
+      perView: 8,
       gap: 10,
       dragThreshold: 20,
       rewind: true,

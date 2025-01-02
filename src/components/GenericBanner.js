@@ -10,6 +10,8 @@ const GenericBannerSlider = ({
     "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
 
   ],
+  displayheading = false,
+  headingText = "",
   type = "slider",
   gap = 0,
   showDots = true, // Option to show/hide dots
@@ -17,6 +19,7 @@ const GenericBannerSlider = ({
   perView = 1,
   aspectRatio = "16/9", // Aspect ratio of banners
   className = "", // Additional class names for styling
+  breakpoints = {}
 }) => {
   const sliderRef = useRef(null);
   const glideRef = useRef(null); // Store Glide instance
@@ -27,18 +30,18 @@ const GenericBannerSlider = ({
     // Initialize Glide instance if not already done
     if (!glideRef.current) {
       const glideOptions = {
-        hoverpause:false,
+        hoverpause: false,
         type: type,
         // animationDuration:1000,
-        swipeThreshold: 10,
+        swipeThreshold: 8,
         perView: perView,
-        animationTimingFunc:"ease-out",
+        animationTimingFunc: "ease-out",
         gap: gap,
         rewind: true, // Ensure rewinding instead of duplication
         autoplay: banners.length > 1 ? 4000 : false, // Optional auto-slide
         animationDuration: banners.length > 1 ? 1000 : false,
-      };
-
+        breakpoints: breakpoints
+      }
       glideRef.current = new Glide(sliderRef.current, glideOptions);
       glideRef.current.mount();
     }
@@ -53,6 +56,11 @@ const GenericBannerSlider = ({
   return (
 
     <div className={`glide w-full relative ${className}`} ref={sliderRef}>
+      {displayheading && <div className="space-y-[-30px] md:px-20 mb-[20px]">
+        <h1 className="uppercase pl-[5px] text-[45px] font-bold font-customblue">Discover</h1>
+        <h1 className="uppercase text-[60px] font-bold font-customblue">Mens Collections</h1>
+
+      </div>}
       {/* Track and Slides */}
       <Link href={onClick} className="inset-0">
         <div className="glide__track" data-glide-el="track">

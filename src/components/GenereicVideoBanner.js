@@ -4,6 +4,9 @@ import Glide from "@glidejs/glide/dist/glide.esm";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 import ScrollAnimation from "./ScrollAnimation";
+import Logo from "@/shared/Logo/Logo";
+import logoImg from "@/images/logo.svg";
+import Image from "next/image";
 
 const GenericVideoBanner = ({
   banners = [
@@ -34,6 +37,27 @@ const GenericVideoBanner = ({
         rewind: true, // Ensure rewinding instead of duplication
         autoplay: banners.length > 1 ? 3000 : false, // Optional auto-slide
         animationDuration: banners.length > 1 ? 1000 : false,
+        breakpoints: {
+          1280: {
+            perView: 4,
+          },
+          1024: {
+
+            perView: 3,
+          },
+          768: {
+
+            perView: 3,
+          },
+          640: {
+
+            perView: 3,
+          },
+          500: {
+
+            perView: 3,
+          },
+        },
       };
 
       glideRef.current = new Glide(sliderRef.current, glideOptions);
@@ -49,6 +73,20 @@ const GenericVideoBanner = ({
 
   return (
     <div className={`glide w-full relative ${className}`} ref={sliderRef}>
+      <div className="space-y-[-50px] md:px-20 mb-[20px]">
+        <span className="uppercase pl-[5px] text-[45px] font-bold font-customblue">Discover</span>
+        <ScrollAnimation>
+          <Image
+            className={`h-36 hidden md:block  w-auto `}
+            src={logoImg}
+            alt="Logo"
+            style={{ maxWidth: "inherit" }}
+            priority
+          />
+        </ScrollAnimation>
+
+
+      </div>
       {/* Track and Slides */}
 
       <div className="glide__track" data-glide-el="track">
@@ -66,6 +104,7 @@ const GenericVideoBanner = ({
                   <video
                     src={banner}
                     loop
+                    playsInline
                     muted
                     autoPlay
                     className="w-full h-full object-cover"

@@ -90,7 +90,7 @@ const ProductCard = ({
           leaveFrom="opacity-100 translate-x-0"
           leaveTo="opacity-0 translate-x-20"
         >
-          <p className="block text-base font-semibold leading-none">
+          <p className="block text-base font-medium leading-none">
             Added to cart!
           </p>
           <div className="border-t border-slate-200 dark:border-slate-700 my-4" />
@@ -287,22 +287,21 @@ const ProductCard = ({
           </Link>
           {/* <ProductStatus status={status} /> */}
           <LikeButton liked={isLiked} className="absolute top-3 end-3 z-10" />
-          {renderGroupButtons()}
         </div>
 
         {!hideDetails && <div className=" px-2.5 pt-2 pb-2.5">
           {renderVariants()}
           <div>
-            <p className={`text-[10px] tracking-[.03125rem] uppercase text-[#71706c] font-semibold dark:text-slate-400  `}>
+            <p className={`text-[10px] tracking-[.03125rem] uppercase text-[#71706c] font-normal dark:text-slate-400  `}>
               {collection} {category && `| ${category}`}
             </p>
-            <h2 className="nc-ProductCard__title text-custom-blue text-[12px] tracking-wider font-bold capitalize transition-colors truncate text-ellipsis">
+            <h2 className="nc-ProductCard__title text-[#27251f] text-[.75rem] font-medium capitalize transition-colors truncate text-ellipsis">
               {title}
             </h2>
           </div>
 
-          <div className="flex justify-between items-end ">
-            <Prices contentClass={"font-semibold"} price={price} />
+          <div className="flex justify-between mt-[10px] items-end ">
+            <Prices contentClass={"font-normal"} price={price} />
             {/* <div className="flex items-center mb-0.5">
               <StarIcon className="w-5 h-5 pb-[1px] text-amber-400" />
               <span className="text-sm ms-1 text-black dark:text-slate-400">

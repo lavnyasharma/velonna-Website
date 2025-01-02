@@ -6,7 +6,7 @@ const MegaMenu = ({disableDropdown=false, heading = "rings" ,onClick}) => {
     <div className="relative group">
       {/* MegaMenu Trigger */}
       <div
-        className="h-full flex items-center space-x-[5px] flex-row dark:bg-gray-800 text-[12px] font-semibold uppercase text-custom-blue dark:text-white cursor-pointer"
+        className="h-full flex items-center space-x-[5px] flex-row dark:bg-gray-800 text-[12px] font-normal uppercase text-custom-blue dark:text-white cursor-pointer"
       >
         <div className={`border-b-0 ${disableDropdown?"group-hover:underline":"group-hover:border-b-2"} flex duration-300 ease-in items-center border-transparent group-hover:border-black dark:border-gray-700 h-full`}>
           <span onClick={()=>{
@@ -43,10 +43,10 @@ const MegaMenu = ({disableDropdown=false, heading = "rings" ,onClick}) => {
         <div className="grid h-full border-box grid-cols-4 gap-4 pt-[40px] p-6">
           {/* Example Mega Menu Sections */}
           <div className="w-[80px] border-box">
-            <h3 className="text-[1rem] uppercase font-semibold cursor-pointer hover:underline mb-4">
+            <h3 className="text-[1rem] uppercase font-medium cursor-pointer hover:underline mb-4">
               Shop By Category
             </h3>
-            <ul className="space-y-3 text-[.75rem] capitalize font-semibold text-custom-sub">
+            <ul className="space-y-3 text-[.75rem] capitalize font-light text-custom-sub">
               <li>
                 <a href="#" className="hover:underline hover:text-custom-blue">
                   charms

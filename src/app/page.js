@@ -14,6 +14,8 @@ import VideoBanners from "@/components/videoBanners/videoBanners";
 import Snowfall from "@/components/SnowfallEffect"; // Import the Snowfall component
 import GenericVideoBanner from "@/components/GenereicVideoBanner";
 import Slider from "@/components/GsapSlider";
+import MegaSpotterModule from "@/components/MegaSpotter";
+import MegaSpotterKanban from "@/components/MegaSpotter";
 
 const PageHome = async () => {
   try {
@@ -33,35 +35,58 @@ const PageHome = async () => {
           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banner/sc.jpg",
           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banner/Gold%20............%20(3).jpg",
           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banner/gifs/Gold%20............%20(1).gif",
-         
-        ]}type={"carousel"} className="px-[15px] mb-[50px] md:mb-[100px]" aspectRatio="20/9" showDots={true} />
-      
+
+        ]} type={"carousel"} className="px-[15px] mb-[50px] md:mb-[100px]" aspectRatio="20/9" showDots={true} />
+
         <div className="relative px-[15px] space-y-[50px] md:space-y-[100px] bg-white">
-         
-            <SectionSliderCategories heading={"explore collections"} />
-          
-            <VideoBanners />
+
+          <SectionSliderCategories heading={"explore collections"} />
+
+          <VideoBanners />
 
           <SectionSliderProductCard heading={"Trending products"} className="md:mx-20" data={pdata} />
-          
-          <GenericBannerSlider banners={[
+
+          <GenericBannerSlider displayheading={true} banners={[
             "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banner/mens/Gold%20............%20(2).jpg",
             "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banner/mens/Gold%20............%20(3).jpg",
             "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banner/mens/Gold%20............%20(4).jpg",
 
-          ]} className="px-[15px] mb-[50px] md:mb-[100px]" aspectRatio="20/9" showDots={false} />
+          ]} className="mb-[50px] md:mb-[100px]" aspectRatio="20/9" showDots={false} />
           <SectionSliderProductCard subHeading={"explore our best products"} heading={"Explore"} className="md:mx-20" data={sdata} />
-          <GenericVideoBanner className="px-20 pb-10" banners={[
-            "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v1.mp4",
-            "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v2.mp4",
-            "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v3.mp4",
-            "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v4.mp4",
-            "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v5.mp4",
-            "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v6.mp4",
-            "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v7.mp4",
-          ]} perView={"5"} type="carousel" gap={10} showDots={false} aspectRatio="9/16" />
+        </div>
 
-          <GenericBannerSlider className="px-20 pb-10" banners={[
+        <GenericVideoBanner className="px-[0px] mt-[50px] md:mt-[100px] mb-[50px] md:mb-[100px] md:px-0 md:pb-10 pb-0" banners={[
+          "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v1.mp4",
+          "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v2.mp4",
+          "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v3.mp4",
+          "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v4.mp4",
+          "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v5.mp4",
+          "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v6.mp4",
+          "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v7.mp4",
+        ]} perView={"5"} type="carousel" gap={10} showDots={false} aspectRatio="9/16" />
+        <div className="relative px-[15px] space-y-[50px] md:space-y-[100px] bg-white">
+          <GenericBannerSlider breakpoints={{
+            1280: {
+              perView: 4,
+            },
+            1024: {
+
+              perView: 3,
+            },
+            768: {
+
+              perView: 3,
+            },
+            640: {
+
+              perView: 3,
+            },
+            500: {
+
+              perView: 3,
+            },
+          }
+          } className="px-[0px] md:px-20 md:pb-10 pb-0" banners={[
             "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/Screenshot%202024-12-29%20at%203.26.04%20AM.png",
             "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/Screenshot%202024-12-29%20at%203.26.36%20AM.png",
             "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/Screenshot%202024-12-29%20at%203.26.45%20AM.png",
