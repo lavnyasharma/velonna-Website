@@ -35,13 +35,14 @@ declare namespace __next_route_internal_types__ {
     | `/account-order`
     | `/account-password`
     | `/account-savelists`
+    | `/about`
     | `/admin`
     | `/admin/dashboard`
-    | `/api/login`
     | `/api/register`
+    | `/api/login`
     | `/api/users`
-    | `/blog`
     | `/autosuggest`
+    | `/blog`
     | `/blog-single`
     | `/cart`
     | `/checkout`
@@ -49,7 +50,6 @@ declare namespace __next_route_internal_types__ {
     | `/dashboard`
     | `/forgot-pass`
     | `/login`
-    | `/about`
     | `/privacypolicy`
     | `/refundpolicy`
     | `/search`

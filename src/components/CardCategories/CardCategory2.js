@@ -30,7 +30,7 @@ const CardCategory2 = ({
           />
         </div>
       </div>
-      <div className="mt-2 relative mb-2 flex-1 text-center">
+      <div className="mt-2 relative flex-1 text-center">
         <h2 className="text-[11px] tracking-widest uppercase font-medium text-custom-blue dark:text-neutral-100">
           {name.toString().charAt(0).toUpperCase() + name.toString().slice(1)}
         </h2>

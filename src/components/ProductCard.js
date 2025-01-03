@@ -289,7 +289,7 @@ const ProductCard = ({
           <LikeButton liked={isLiked} className="absolute top-3 end-3 z-10" />
         </div>
 
-        {!hideDetails && <div className=" px-2.5 pt-2 pb-2.5">
+        {!hideDetails && <div className=" px-2.5 pt-2 ">
           {renderVariants()}
           <div>
             <p className={`text-[10px] tracking-[.03125rem] uppercase text-[#71706c] font-normal dark:text-slate-400  `}>

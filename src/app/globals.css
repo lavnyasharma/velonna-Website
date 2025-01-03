@@ -74,7 +74,6 @@ body {
 
 .glide__bullet--active {
   position: relative;
-  opacity: 0.5;
 }
 
 .glide__bullet--active::after {
@@ -85,9 +84,7 @@ body {
   width: 0;
   height: 100%;
   background-color: white;
-
-  animation: sweep 3s linear forwards;
-  opacity: 0;
+  animation: sweep 2s linear forwards;
 }
 
 @keyframes sweep {

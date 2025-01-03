@@ -6,7 +6,7 @@ const MegaMenu = ({disableDropdown=false, heading = "rings" ,onClick}) => {
     <div className="relative group">
       {/* MegaMenu Trigger */}
       <div
-        className="h-full flex items-center space-x-[5px] flex-row dark:bg-gray-800 text-[12px] font-normal uppercase text-custom-blue dark:text-white cursor-pointer"
+        className="h-full flex items-center space-x-[5px] flex-row dark:bg-gray-800 text-[12px] font-semibold uppercase text-custom-blue dark:text-white cursor-pointer"
       >
         <div className={`border-b-0 ${disableDropdown?"group-hover:underline":"group-hover:border-b-2"} flex duration-300 ease-in items-center border-transparent group-hover:border-black dark:border-gray-700 h-full`}>
           <span onClick={()=>{

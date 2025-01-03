@@ -63,12 +63,12 @@ const PageSearch = () => {
   return (
     <div className="nc-PageSearch flex">
       {/* Sidebar Section */}
-      <div className="sticky top-0 h-screen hiddenScrollbar overflow-auto w-1/4 bg-white ">
+      <div className="sticky top-0 hidden md:block h-screen hiddenScrollbar overflow-auto w-1/4 bg-white ">
         <FiltersSidebar />
       </div>
 
       {/* Product Section */}
-      <div className="flex-1 p-6">
+      <div className="flex-1 p-2 md:p-6">
         <main>
           {/* Infinite Scroll Wrapper */}
           <InfiniteScroll
@@ -81,7 +81,7 @@ const PageSearch = () => {
             } // Message when all items are loaded
           >
             {/* Product Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 lg:grid-cols-4 xl:grid-cols-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-6 lg:grid-cols-4 xl:grid-cols-5">
               {productData.length > 0
                 ? productData.map((item) => <ProductCard data={item} key={item.id} />)
                 : "No products found"}

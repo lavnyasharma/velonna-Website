@@ -4,19 +4,11 @@ const nextConfig = {
     typedRoutes: true,
   },
   images: {
-    domains: ["pldwzgpchvgtdycyfaky.supabase.co"],
+    domains: ["**"],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.pexels.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
+        hostname: "**",
       },
     ],
   },

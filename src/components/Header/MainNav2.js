@@ -14,6 +14,7 @@ import WishlistDropDown from "./WisthListDropdown";
 import StoreLocation from "./StoreLocation";
 import { axiosInstance } from "@/axios";
 import MegaMenu from "./MegaMenue";
+import SearchDropdown from "./SearchDropdown";
 
 const MainNav2 = ({ className = "" }) => {
   const [showSearchForm, setShowSearchForm] = useState(false);
@@ -90,13 +91,13 @@ const MainNav2 = ({ className = "" }) => {
           }
         }}
       >
-        <div className="drop-shadow-sm border border-black dark:bg-slate-800 flex items-center px-2 w-full h-full rounded-full">
+        <div className="drop-shadow-sm border uppercase border-inputborder dark:bg-slate-800 flex items-center px-2 w-full h-full rounded-sm">
           {renderMagnifyingGlassIcon()}
           <input
             type="text"
             ref={mobileInputRef}
             placeholder="Type and press enter"
-            className="border-none bg-transparent focus:outline-none focus:ring-0 w-full text-xs"
+            className="border-none bg-transparent uppercase focus:outline-none focus:ring-0 w-full text-xs"
             autoFocus
           />
         </div>
@@ -160,21 +161,22 @@ const MainNav2 = ({ className = "" }) => {
 
         <div className="flex-1 flex items-center justify-end">
           {renderSearchForm()}
+          <div className="block md:hidden"> <SearchDropdown></SearchDropdown></div>
           <WishlistDropDown />
-          <StoreLocation />
+          {/* <StoreLocation /> */}
           <AvatarDropdown />
           <CartDropdown />
         </div>
       </div>
       <div className="w-full h-[1px] bg-gradient-to-r from-white via-black to-white"></div>
-      <div className="h-12 flex md:hidden justify-center">
+      {/* <div className="h-12 flex md:hidden justify-center">
         <div className="lg:hidden md:hidden flex w-full">
           {renderSearchFormMobile()}
         </div>
-      </div>
+      </div> */}
       <div className="w-full px-[15px] h-12 border-b border-inputborder hidden md:flex justify-center">
         <div className="lg:flex md:flex space-x-[30px] hidden w-full">
-          <MegaMenu disableDropdown={true} heading="shop all" onClick={()=>{
+          <MegaMenu disableDropdown={true} heading="shop all" onClick={() => {
             router.push('/search')
           }} />
           <MegaMenu heading="sale" />
