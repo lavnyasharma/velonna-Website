@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function LineBreak({
-  lineBreakStyle,
+  lineBreakStyle="",
   color = "#000",
   thickness = 1,
   marginHorizontal = 0,

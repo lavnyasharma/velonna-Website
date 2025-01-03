@@ -27,11 +27,10 @@ const PageHome = async () => {
   const sdata = resrd.data.results;
 
   return (
-    <div className="nc-PageHome antialiased pb-[100px] relative overflow-hidden">
+    <div className="nc-PageHome antialiased pb-[60px] relative overflow-hidden">
       {/* <Snowfall></Snowfall> */}
 
       <GenericBannerSlider banners={[
-        "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannerdesktop/7.jpg",
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannerdesktop/6.jpg",
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannerdesktop/8.jpg",
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannerdesktop/5.jpg",
@@ -45,15 +44,15 @@ const PageHome = async () => {
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannersmobile/V2/3.jpg",
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannersmobile/V2/2.jpg",
 
-      ]} mobileAspectRatio={"3/5"} type={"carousel"} className="px-[15px] mb-[30px] md:mb-[100px]" aspectRatio="20/9" showDots={true} />
+      ]} mobileAspectRatio={"3/5"} type={"carousel"} className="px-[15px] mb-[60px] md:mb-[100px]" aspectRatio="20/9" showDots={true} />
 
-      <div className="relative px-[15px] space-y-[30px] md:space-y-[100px] bg-white">
+      <div className="relative px-[15px] space-y-[60px] md:space-y-[100px] bg-white">
 
         <SectionSliderCategories heading={"explore collections"} />
 
         <VideoBanners />
 
-        <SectionSliderProductCard heading={"Trending products"} className="md:mx-20" data={pdata} />
+        <SectionSliderProductCard subHeading={"explore our best products"} heading={"Explore"} className="md:mx-20" data={sdata} />
 
         <GenericBannerSlider displayheading={true} banners={[
           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banner/mens/Gold%20............%20(2).jpg",
@@ -66,11 +65,12 @@ const PageHome = async () => {
           "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannersmobile/9.jpg",
           "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannersmobile/8.jpg",
 
-        ]} className="mb-[30px] md:mb-[100px]" aspectRatio="20/9" mobileAspectRatio={"1/1"} showDots={false} />
-        <SectionSliderProductCard subHeading={"explore our best products"} heading={"Explore"} className="md:mx-20" data={sdata} />
+        ]} className="mb-[60px] md:mb-[100px]" aspectRatio="20/9" mobileAspectRatio={"1/1"} showDots={false} />
+        <SectionSliderProductCard heading={"Trending products"} className="md:mx-20" data={pdata} />
+
       </div>
 
-      <GenericVideoBanner className="px-[0px] mt-[30px] md:mt-[100px] mb-[30px] md:mb-[100px] md:px-0 md:pb-10 pb-0" banners={[
+      <GenericVideoBanner className="px-[0px] mt-[60px] md:mt-[100px] mb-[60px] md:mb-[100px] md:px-0 md:pb-10 pb-0" banners={[
         "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v1.mp4",
         "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v2.mp4",
         "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v3.mp4",
@@ -79,7 +79,7 @@ const PageHome = async () => {
         "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v6.mp4",
         "https://qjhgdjqnjdrsmzbvezrt.supabase.co/storage/v1/object/public/velonnamedia/v7.mp4",
       ]} perView={"5"} type="carousel" gap={10} showDots={false} aspectRatio="9/16" mobileAspectRatio="1/1" />
-      <div className="relative px-[15px] space-y-[30px] md:space-y-[100px] bg-white">
+      <div className="relative px-[15px] space-y-[60px] md:space-y-[100px] bg-white">
         <GenericBannerSlider breakpoints={{
           1280: {
             perView: 4,
@@ -90,15 +90,15 @@ const PageHome = async () => {
           },
           768: {
 
-            perView: 3,
+            perView: 2,
           },
           640: {
 
-            perView: 3,
+            perView: 2,
           },
           500: {
 
-            perView: 3,
+            perView: 2,
           },
         }
         } className="px-[0px] md:px-20 md:pb-10 pb-0" banners={[

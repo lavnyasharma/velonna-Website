@@ -1,7 +1,8 @@
 {
   "/page": "app/page.js",
+  "/category/[id]/page": "app/category/[id]/page.js",
+  "/collection/[id]/page": "app/collection/[id]/page.js",
   "/search/page": "app/search/page.js",
   "/login/page": "app/login/page.js",
-  "/collection/[id]/page": "app/collection/[id]/page.js",
-  "/not-found": "app/not-found.js"
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js"
 }

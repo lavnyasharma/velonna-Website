@@ -847,11 +847,12 @@ const TabFilters = () => {
   // FOR RESPONSIVE MOBILE
   const renderTabMobileFilter = () => {
     return (
-      <div className="flex-shrink-0">
+      <div className="w-full">
         <div
-          className={`flex flex-shrink-0 items-center justify-center px-4 py-2 text-sm rounded-full border border-primary-500 bg-primary-50 text-primary-900 focus:outline-none cursor-pointer select-none`}
+          className={`flex w-full items-center justify-between px-4 py-2 text-sm rounded-sm border border-primary-500 text-primary-900 focus:outline-none cursor-pointer select-none`}
           onClick={openModalMoreFilter}
         >
+          <div className="flex items-center">
           <svg
             className="w-4 h-4"
             viewBox="0 0 24 24"
@@ -909,6 +910,7 @@ const TabFilters = () => {
           </svg>
 
           <span className="ml-2">Products filters (3)</span>
+          </div>
           {renderXClear()}
         </div>
 
@@ -1130,7 +1132,7 @@ const TabFilters = () => {
       </div>
 
       {/* FOR RESPONSIVE MOBILE */}
-      <div className="flex overflow-x-auto lg:hidden space-x-4">
+      <div className="flex overflow-x-auto w-full lg:hidden space-x-4">
         {renderTabMobileFilter()}
       </div>
     </div>

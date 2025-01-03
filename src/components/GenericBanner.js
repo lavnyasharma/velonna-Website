@@ -89,9 +89,9 @@ const GenericBannerSlider = ({
   return (
     <>
       <div className={`glide w-full block md:hidden relative ${className}`} ref={sliderRef2}>
-        {displayheading && <div className="space-y-[-10px] md:space-y-[-50px] md:px-20 mb-[20px]">
-          <h1 className="uppercase pl-[5px] text-[18px] md:text-[45px] font-bold font-customblue">Discover</h1>
-          <ScrollAnimation><h1 className="uppercase pl-[5px] text-[30px] md:text-[60px] font-bold font-customblue">Mens Collections</h1></ScrollAnimation>
+        {displayheading && <div className="space-y-[-15px] md:space-y-[-50px] md:px-20 mb-[20px]">
+          <h1 className="uppercase pl-[2px] text-17px] md:text-[45px] font-bold font-customblue">Discover</h1>
+          <ScrollAnimation><h1 className="uppercase text-[30px] md:text-[60px] font-bold font-customblue">Mens Collections</h1></ScrollAnimation>
 
 
         </div>}
@@ -129,10 +129,10 @@ const GenericBannerSlider = ({
             className={`glide__bullets w-full md:hidden justify-center flex space-x-1 pt-1 pb-1`}
             data-glide-el="controls[nav]"
           >
-            {banners.map((_, index) => (
+            {mobilebanners.map((_, index) => (
               <button
                 key={index}
-                className="glide__bullet w-[20px] shadow-md h-[3px] rounded-full bg-inputborder transition-colors duration-300"
+                className="glide__bullet w-[20px] shadow-sm h-[3px] bg-inputborder transition-colors duration-300"
                 data-glide-dir={`=${index}`}
               ></button>
             ))}
@@ -140,12 +140,10 @@ const GenericBannerSlider = ({
         )}
 
       </div>
-      <div className={`glide w-full relative ${className}`} ref={sliderRef}>
-        {displayheading && <div className="space-y-[-10px] md:space-y-[-50px] md:px-20 mb-[20px]">
+      <div className={`glide w-full hidden md:block relative ${className}`} ref={sliderRef}>
+        {displayheading && <div className="space-y-[-10px] md:space-y-[-40px] md:px-20 mb-[20px]">
           <h1 className="uppercase pl-[5px] text-[18px] md:text-[45px] font-bold font-customblue">Discover</h1>
-          <ScrollAnimation><h1 className="uppercase pl-[5px] text-[30px] md:text-[60px] font-bold font-customblue">Mens Collections</h1></ScrollAnimation>
-
-
+          <ScrollAnimation><h1 className="uppercase text-[30px] md:text-[60px] font-bold font-customblue">Mens Collections</h1></ScrollAnimation>
         </div>}
         {/* Track and Slides */}
 
@@ -185,7 +183,7 @@ const GenericBannerSlider = ({
             {banners.map((_, index) => (
               <button
                 key={index}
-                className="glide__bullet shadow-md  w-[35px] h-[2px]  bg-[#ffffff4c] transition-colors duration-300"
+                className="glide__bullet w-[35px] h-[2px]  bg-[#ffffff4c] transition-colors duration-300"
                 data-glide-dir={`=${index}`}
               ></button>
             ))}

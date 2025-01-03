@@ -74,7 +74,7 @@ const GenericVideoBanner = ({
   return (
     <div className={`glide w-full relative ${className}`} ref={sliderRef}>
       <div className="space-y-[-30px] md:space-y-[-50px] px-[20px] md:px-20 mb-[20px]">
-        <span className="uppercase pl-[5px] text-[18px] md:text-[45px] font-bold font-customblue">Discover</span>
+        <span className="uppercase pl-[2px] text-[15px] md:text-[45px] font-bold font-customblue">Discover</span>
         <ScrollAnimation>
           <Image
             className={`h-16 md:h-36 w-auto `}
