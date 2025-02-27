@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
     try {
     const username = localStorage.getItem('username');
       const response = await axiosInstance.get(`/user/${username}/`);
-      console.log(response.data)
+     
             setUser(response.data);
             setIs_auth(true);
       return response.data;

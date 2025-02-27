@@ -102,7 +102,7 @@ function ProductScreen() {
   const { is_auth } = useAuth()
   const router = useRouter();
   // const {hsn} = router.query
-  // console.log(hsn)
+ 
   const [productData, setProductData] = useState({});
 
   const { sizes, variants, status, allOfSizes, image } = PRODUCTS[0];
@@ -204,7 +204,7 @@ function ProductScreen() {
 
     addToCart(hsnProduct.hsn, qualitySelected)
       .then((res) => {
-        console.log(res.data);
+     
         const data = res.data;
         notifyAddTocart(data);
         fetchCart()
@@ -357,7 +357,7 @@ function ProductScreen() {
 
 
   const renderProductCartOnNotify = (data) => {
-    console.log(data)
+   
     return (
       <div className="flex ">
         <div className="h-24 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">

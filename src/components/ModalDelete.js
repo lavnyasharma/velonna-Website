@@ -7,7 +7,7 @@ import NcModal from "@/shared/NcModal/NcModal";
 
 const ModalDelete = ({ show, onCloseModalDelete }) => {
   const handleClickSubmitForm = () => {
-    console.log({ 1: "1" });
+  
   };
 
   const renderContent = () => {

@@ -13,7 +13,7 @@ const CartPage = () => {
   const { cart, removeFromCart } = useCart()
   useEffect(() => {
     if (cart) {
-      console.log(cart)
+     
     }
   }, [cart]);
   const formatPrice = (price) => {

@@ -145,12 +145,9 @@ export const getCart = async () => {
 export const deleteFromCart = async (cartItemId) => {
   try {
     const response = await axiosInstance.delete(`cart-item/${cartItemId}/`);
-    console.log(response)
-    console.log(response.status)
+   
     if (!response || response.status === 204) {
-      console.log(response)
-      console.log(response.status)
-      console.log('Item successfully deleted');
+    
       return {}; // Return an empty object or handle it in the caller
     }
     return response.data;

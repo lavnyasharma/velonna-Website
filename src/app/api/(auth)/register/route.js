@@ -34,6 +34,5 @@ export const POST = async (NextRequest) => {
 
     return new Response("Signup successful! Welcome flaakko!", { status: 200 });
   } catch (error) {
-    console.log(error);
   }
 };

@@ -14,7 +14,7 @@ import { useAuth } from "@/context/authContext";
 export default function CartDropdown() {
   const { cart, itemCount, subtotal, totalDiscount, total, removeFromCart } = useCart();
   const { is_auth } = useAuth()
-  console.log(itemCount)
+
   const renderProduct = (item, index, close) => {
     const { title, price, images } = item;
     return (

@@ -18,7 +18,7 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
     const fetchAddresses = async () => {
       try {
         const data = await getaddress();
-        console.log(data);
+       
         setAddresses(data.results);
       } catch (error) {
         console.error("Error fetching addresses:", error);
@@ -29,7 +29,7 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
     } else {
       addresses.map((add) => {
         if (add.primary === true) {
-          console.log(add.id);
+          
           handleAddressSelect(add.id);
         }
       });
@@ -40,7 +40,7 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
   // Default state to hold the current address data
 
   const handleAddressSelect = (value) => {
-    console.log(value);
+   
     const selectedAddress = addresses.find((addr) => addr.id === value);
 
     setAddress({

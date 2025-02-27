@@ -24,7 +24,7 @@ const PageCollection = () => {
 
     const fetchProducts = async () => {
       setLoading(true);
-      console.log(id,modal)
+   
       try {
         // Fetch filters and query params from the URL
         const category = searchParams?.get("category") || "Electronics";

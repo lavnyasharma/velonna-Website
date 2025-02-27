@@ -10,9 +10,9 @@ const connectDB = async () => {
     };
     mongoose.set("strictQuery", false);
     await mongoose.connect(DATABASE_URL, DB_OPTIONS);
-    console.log("Database Connected Successfully..");
+  
   } catch (err) {
-    console.log(err);
+  
   }
 };
 

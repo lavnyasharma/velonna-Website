@@ -18,7 +18,7 @@ const SectionSliderProductCard = ({
   subHeading,
   data
 }) => {
-  console.log(data)
+ 
   const sliderRef = useRef(null);
 
   //

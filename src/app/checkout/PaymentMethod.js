@@ -305,7 +305,7 @@ const PaymentMethod = ({
   const [selectedUpiAPP, setSelectedUpiApp] = useState(-1)
   useEffect(() => {
     if (appUpiIdVpa === "other") {
-      console.log("this")
+     
       upiInputRef.current.focus()
       setAppUpiId("")
       setAppUpiIdVpa("")

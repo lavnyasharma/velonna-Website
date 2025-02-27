@@ -17,7 +17,7 @@ export default function AvatarDropdown() {
 
   useEffect(() => {
     if (user) {
-      console.log(user)
+   
     }
   }, [user]);
 

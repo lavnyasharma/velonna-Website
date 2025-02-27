@@ -60,7 +60,7 @@ const ProductCard = ({
     }
     addToCart(hsn, qualitySelected)
       .then((res) => {
-        console.log(res.data);
+      
         const data = res.data;
         notifyAddTocart(data);
         fetchCart()
@@ -73,7 +73,7 @@ const ProductCard = ({
   };
 
   const notifyAddTocart = () => {
-    console.log(size)
+ 
 
     alert(size)
 

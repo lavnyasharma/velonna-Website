@@ -23,7 +23,7 @@ const PageLogin = () => {
       }
     } catch (error) {
       toast.success(error);
-      console.log(error);
+    
     }
 
     resetForm();

@@ -16,7 +16,7 @@ export const CartProvider = ({ children }) => {
   const fetchCart = async () => {
     try {
       const cartData = await getCart();
-      console.log(cartData)
+    
       setCart(cartData);
       setItemCount(cartData.cart_item.length);
       setSubtotal(cartData.subtotal);
