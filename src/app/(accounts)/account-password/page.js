@@ -1,3 +1,4 @@
+"use client"
 import Label from "@/components/Label/Label";
 import React from "react";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";

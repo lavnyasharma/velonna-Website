@@ -3,99 +3,78 @@
 import Glide from "@glidejs/glide/dist/glide.esm";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ScrollAnimation from "./ScrollAnimation";
 
 const GenericBannerSlider = ({
   banners = [
     "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banners/ar100-1/b1.png",
-
   ],
-  aspectRatio = "16/9", // Aspect ratio of banners
+  aspectRatio = "16/9",
   mobilebanners = banners,
   mobileAspectRatio = aspectRatio,
   displayheading = false,
   headingText = "",
   type = "slider",
   gap = 0,
-  showDots = true, // Option to show/hide dots
+  showBannerText = false,
+  showDots = true,
   onClick = "/",
   perView = 1,
-  className = "", // Additional class names for styling
-  breakpoints = {}
+  className = "",
+  breakpoints = {},
 }) => {
   const sliderRef = useRef(null);
-  const glideRef = useRef(null); // Store Glide instance
+  const glideRef = useRef(null);
   const sliderRef2 = useRef(null);
-  const glideRef2 = useRef(null); // Store Glide instance
+  const glideRef2 = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const initGlide = (ref, glideRef, banners) => {
+    if (!ref.current || banners.length === 0) return;
+
+    const glideOptions = {
+      hoverpause: false,
+      type: type,
+      swipeThreshold: 8,
+      perView: perView,
+      gap: gap,
+      rewind: true,
+      autoplay: 4000,
+      animationDuration: 1500,
+      breakpoints: breakpoints,
+      animationTimingFunc: "cubic-bezier(0.25, 0.1, 0.25, 1)",
+    };
+
+    glideRef.current = new Glide(ref.current, glideOptions);
+    glideRef.current.mount();
+  };
 
   useEffect(() => {
-    if (!sliderRef.current || banners.length === 0) return;
-
-    // Initialize Glide instance if not already done
-    if (!glideRef.current) {
-      const glideOptions = {
-        hoverpause: false,
-        type: type,
-        // animationDuration:1000,
-        swipeThreshold: 8,
-        perView: perView,
-        animationTimingFunc: "ease-in",
-        gap: gap,
-        rewind: true, // Ensure rewinding instead of duplication
-        autoplay: banners.length > 1 ? 3000 : false, // Optional auto-slide
-        animationDuration: banners.length > 1 ? 1000 : false,
-        breakpoints: breakpoints
-      }
-      glideRef.current = new Glide(sliderRef.current, glideOptions);
-      glideRef.current.mount();
-    }
+    initGlide(sliderRef, glideRef, banners);
 
     return () => {
-      // Destroy Glide instance on component unmount
       glideRef.current?.destroy();
       glideRef.current = null;
     };
-  }, [glideRef]); // Watch for changes to `banners`
-  useEffect(() => {
-    if (!sliderRef2.current || banners.length === 0) return;
+  }, [banners]);
 
-    // Initialize Glide instance if not already done
-    if (!glideRef2.current) {
-      const glideOptions = {
-        hoverpause: false,
-        type: type,
-        // animationDuration:1000,
-        swipeThreshold: 8,
-        perView: perView,
-        animationTimingFunc: "ease-in",
-        gap: gap,
-        rewind: true, // Ensure rewinding instead of duplication
-        autoplay: banners.length > 1 ? 3000 : false, // Optional auto-slide
-        animationDuration: banners.length > 1 ? 1000 : false,
-        breakpoints: breakpoints
-      }
-      glideRef2.current = new Glide(sliderRef2.current, glideOptions);
-      glideRef2.current.mount();
-    }
+  useEffect(() => {
+    initGlide(sliderRef2, glideRef2, mobilebanners);
 
     return () => {
-      // Destroy Glide instance on component unmount
       glideRef2.current?.destroy();
       glideRef2.current = null;
     };
-  }, [glideRef2]); // Watch for changes to `banners`
+  }, [mobilebanners]);
 
+  const getTextAnimationClass = (index) => {
+    index === activeIndex ? "scroll-animation.animate-from-left" : "banner-text-animation";
+  }
   return (
     <>
+      {/* Mobile Slider */}
       <div className={`glide w-full block md:hidden relative ${className}`} ref={sliderRef2}>
-        {displayheading && <div className="space-y-[-15px] md:space-y-[-50px] md:px-20 mb-[20px]">
-          <h1 className="uppercase pl-[2px] text-17px] md:text-[45px] font-bold font-customblue">Discover</h1>
-          <ScrollAnimation><h1 className="uppercase text-[30px] md:text-[60px] font-bold font-customblue">Mens Collections</h1></ScrollAnimation>
-
-
-        </div>}
-        {/* Track and Slides */}
         <Link href={onClick} className="inset-0 block md:hidden">
           <div className="glide__track" data-glide-el="track">
             <ul className="glide__slides">
@@ -105,48 +84,35 @@ const GenericBannerSlider = ({
                     style={{
                       position: "relative",
                       width: "100%",
-                      aspectRatio: mobileAspectRatio, // Respect aspect ratio
+                      aspectRatio: mobileAspectRatio,
                     }}
                   >
                     <Image
                       src={banner}
                       quality={100}
                       alt={`Banner ${index}`}
-                      layout="fill" // Ensure full coverage
-                      objectFit="cover" // Maintain image aspect
-                      priority // Prioritize the first image
+                      layout="fill"
+                      objectFit="cover"
+                      priority
                     />
+                   {showBannerText && <div className="absolute pb-[15px] pl-[15px] top-0 left-0 h-full w-full inset-0 bg-gradient-to-t from-black to-transparent flex justify-start items-end ">
+                      <div
+                        className={`absolute overflow-hidden flex justify-center items-center text-white text-2xl md:text-4xl font-bold font-customblue transition-opacity duration-500 `}
+
+                      >
+                        <h1 className={`uppercase banner-text-animation`}>hello</h1>
+                      </div>
+                    </div>}
                   </div>
                 </li>
               ))}
             </ul>
           </div>
         </Link>
-
-        {/* Optional Dots */}
-        {showDots && mobilebanners.length > 1 && (
-          <div
-            className={`glide__bullets w-full md:hidden justify-center flex space-x-1 pt-1 pb-1`}
-            data-glide-el="controls[nav]"
-          >
-            {mobilebanners.map((_, index) => (
-              <button
-                key={index}
-                className="glide__bullet w-[20px] shadow-sm h-[3px] bg-inputborder transition-colors duration-300"
-                data-glide-dir={`=${index}`}
-              ></button>
-            ))}
-          </div>
-        )}
-
       </div>
-      <div className={`glide w-full hidden md:block relative ${className}`} ref={sliderRef}>
-        {displayheading && <div className="space-y-[-10px] md:space-y-[-40px] md:px-20 mb-[20px]">
-          <h1 className="uppercase pl-[5px] text-[18px] md:text-[45px] font-bold font-customblue">Discover</h1>
-          <ScrollAnimation><h1 className="uppercase text-[30px] md:text-[60px] font-bold font-customblue">Mens Collections</h1></ScrollAnimation>
-        </div>}
-        {/* Track and Slides */}
 
+      {/* Desktop Slider */}
+      <div className={`glide w-full hidden md:block relative ${className}`} ref={sliderRef}>
         <Link href={onClick} className="inset-0 hidden md:block">
           <div className="glide__track" data-glide-el="track">
             <ul className="glide__slides">
@@ -156,25 +122,36 @@ const GenericBannerSlider = ({
                     style={{
                       position: "relative",
                       width: "100%",
-                      aspectRatio, // Respect aspect ratio
+                      aspectRatio,
                     }}
                   >
                     <Image
                       src={banner}
                       quality={100}
                       alt={`Banner ${index}`}
-                      layout="fill" // Ensure full coverage
-                      objectFit="cover" // Maintain image aspect
-                      priority // Prioritize the first image
+                      layout="fill"
+                      objectFit="cover"
+                      priority
                     />
+                    {showBannerText && <div className="absolute pb-[70px] pl-[70px] bottom-0 left-0 w-min h-min flex justify-end items-start flex-col">
+                      <div
+                        className={` glide__slides  absolute text-white text-2xl md:text-4xl font-bold font-customblue transition-opacity duration-500 ${getTextAnimationClass(
+                          index
+                        )}`}
+                      >
+                        <h1 className="uppercase leading-none PanDisplay-Regular text-[58px] banner-text-animation">Uniquely yours, 
+                          <br/>forever.</h1>
+                        
+
+                      </div>
+                     
+                    </div>}
                   </div>
                 </li>
               ))}
             </ul>
           </div>
         </Link>
-        {/* Optional Dots */}
-
         {showDots && banners.length > 1 && (
           <div
             className={`absolute bottom-10 hidden glide__bullets w-full justify-end px-20 md:flex space-x-1 pt-1 pb-1`}

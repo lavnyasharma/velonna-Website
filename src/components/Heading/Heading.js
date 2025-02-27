@@ -23,7 +23,7 @@ const Heading = ({
   className = "text-neutral-900  dark:text-neutral-50 mb-[15px] md:mb-[20px]",
   isCenter = false,
   hasNextPrev = false,
-  fontClass = "text-[18px] PanD-Regular uppercase md:text-[28px] font-extrabold",
+  fontClass = "text-[18px] PanD-Regular uppercase md:text-[28px] font-bold",
   rightDescText,
   rightPopoverOptions = solutions,
   ...args
@@ -41,7 +41,7 @@ const Heading = ({
           }
         >
           <h2
-            className={`${isCenter ? "justify-center " : "font-[700]"} ${fontClass}`}
+            className={`${isCenter ? "justify-center " : ""} ${fontClass}`}
             {...args}
           >
             {children || `Section Heading`}

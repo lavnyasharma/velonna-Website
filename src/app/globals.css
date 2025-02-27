@@ -3,61 +3,76 @@
 @tailwind utilities;
 
 
-
 @font-face {
-  font-family: 'PanDisplay-Regular';
-  src: url('/fonts/PanDisplay-Regular.ttf') format('truetype');
-  font-style: normal;
-  
-}
-
-@font-face {
-  font-family: 'PanDisplay-Light';
-  src: url('/fonts/PanDisplay-Light.ttf') format('truetype');
-  font-style: normal;
-  
-
+  font-family: 'PanDisplay';
+  src: url('/fonts/PanDisplay-Regular.woff2') format('truetype');
+  font-weight: 400;
 }
 
 
 @font-face {
-  font-family: 'PanText-Regular';
-  src: url('/fonts/PanText-Regular.ttf') format('truetype');
-  font-style: normal;
-  
+  font-family: 'PanDisplay';
+  src: url('/fonts/PanDisplay-Light.woff2') format('truetype');
+  font-weight: 100;
+
 
 }
 
 @font-face {
-  font-family: 'PanText-Light';
-  src: url('/fonts/PanText-Light.ttf') format('truetype');
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
-  
+
+
+}
+
+@font-face {
+  font-family: 'PanText';
+  src: url('/fonts/PanText-Regular.woff2') format('truetype');
+  font-weight: 400;
+
+
+}
+
+@font-face {
+  font-family: 'PanText';
+  src: url('/fonts/PanText-Light.woff2') format('truetype');
+  font-weight: 100;
+
 
 }
 
 .PanD-Light {
-  font-family: 'PanDisplay-Light';
+  font-family: 'PanDisplay';
+  font-weight: 100;
 }
 
 .PanD-Regular {
-  font-family: 'PanDisplay-Regular';
+  font-family: 'PanDisplay';
+  font-weight: 400;
 }
 
 .PanT-Light {
-  font-family: 'PanText-Light';
+  font-family: 'PanText';
+  font-weight: 100;
 }
 
 .PanT-Regular {
-  font-family: 'PanText-Regular';
+  font-family: 'PanText';
+  font-weight: 400;
 }
 
 body {
-  font-family: 'PanText-Regular', sans-serif;
+  font-family: 'PanText', Arial, Helvetica, sans-serif;
   /* Apply Poppins globally */
-  -webkit-font-smoothing: antialiased; /* For Webkit browsers */
-  -moz-osx-font-smoothing: grayscale; /* For macOS */
-  font-smooth: always; /* General hint */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  font-style: normal;
+  font-weight: 400;
+  /* For Webkit browsers */
+  /* For macOS */
+  font-smooth: always;
+  /* General hint */
 }
 
 /* Use custom font only in elements with 'custom-font' class */
@@ -67,10 +82,30 @@ body {
 .custom-container {
   min-width: 100%;
   max-width: 100%;
-  padding: 0 10px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 
+.glide__slide--active .banner-text-animation {
+  transform: translateY(0);
+  animation: up;
+  animation-fill-mode: backwards;
+  animation-delay: 0.3s;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 0.4s;
+
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
 
 .glide__bullet--active {
   position: relative;
@@ -118,9 +153,7 @@ body {
 
 /* Base style for the component */
 .scroll-animation {
-  opacity: 0;
   transform: translateY(30%);
-  /* Default transform */
   transition: opacity ease-in, transform ease-in;
 }
 
@@ -141,3 +174,73 @@ body {
   opacity: 1;
   transform: none;
 }
+
+
+
+.banner-text-animation {
+  transform: translateY(100%);
+  animation-fill-mode: backwards;
+  animation-delay: 2s;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.heading-after::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  display: block;
+  width: 0px;
+  height: 2px;
+  background-color: #000;
+  margin-top: 10px;
+}
+
+.heading-after:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
+
+.ticketborder:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  height: 6px;
+  width: 100%;
+}
+
+.ticketborder:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 6px;
+  width: 100%;
+}
+
+.ticketborder:before {
+  background: radial-gradient(circle, transparent, transparent 50%, #F5F5F6 50%, #F5F5F6 100%) -7px -8px / 16px 16px repeat-x;
+}
+
+.ticketborder:after {
+  background: radial-gradient(circle, transparent, transparent 50%, #F5F5F6 50%, #F5F5F6 100%) -7px -2px / 16px 16px repeat-x;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+select {
+  padding: 0 0 0 0;
+}
+
+
+.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#C8CBD1;} .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#AEB0B5;}

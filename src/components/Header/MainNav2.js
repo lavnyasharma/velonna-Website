@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import Logo from "@/shared/Logo/Logo";
 import MenuBar from "@/shared/MenuBar/MenuBar";
@@ -15,6 +14,45 @@ import StoreLocation from "./StoreLocation";
 import { axiosInstance } from "@/axios";
 import MegaMenu from "./MegaMenue";
 import SearchDropdown from "./SearchDropdown";
+
+
+const MenuBody = () => {
+  const [collectionData, setCollectionData] = useState([]);
+  const router = useRouter();
+  useEffect(() => {
+    const getCollections = async () => {
+      const res = await axiosInstance.get("live-collections/");
+      setCollectionData(res.data);
+    };
+
+    if (collectionData.length === 0) {
+      getCollections();
+    }
+  }, [collectionData]);
+
+  return (
+    <div className="grid h-full border-box grid-cols-4 gap-4 pt-[40px] p-[15px]">
+      <div className="w-[130px] bg-blue border-box">
+        <h3 className="text-[1rem] uppercase mb-[10px] font-medium cursor-pointer">
+          Shop By Collection
+        </h3>
+        {/* Adjust the layout to two columns if there are too many collections */}
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3 text-[11px] w-max uppercase font-normal text-custom-sub">
+          {collectionData.map((data, index) => (
+            <li key={index}>
+              <h2 onClick={()=>{
+                router.push(`/collection/${data.id}`)
+              }} className="hover:underline cursor-pointer hover:text-custom-blue">
+                {data.name}
+              </h2>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
 
 const MainNav2 = ({ className = "" }) => {
   const [showSearchForm, setShowSearchForm] = useState(false);
@@ -133,7 +171,7 @@ const MainNav2 = ({ className = "" }) => {
         }
       }}
     >
-      <div className="flex items-center border text-placeholder font-semibold focus-within:text-custom-blue border-solid border-inputborder focus-within:border-custom-blue duration-300 group space-x-1.5 px-3 h-full">
+      <div className="flex items-center border text-placeholder font-normal focus-within:text-custom-blue border-solid border-inputborder focus-within:border-custom-blue duration-300 group space-x-1.5 px-3 h-full">
         <input
           ref={inputref}
           type="text"
@@ -147,49 +185,73 @@ const MainNav2 = ({ className = "" }) => {
   );
 
   return (
-    <div
-      className={`nc-MainNav2  z-40 sticky top-0 w-full transition-transform duration-300 bg-white dark:bg-slate-900 shadow-md ${isVisible ? "translate-y-0" : "-translate-y-full"
-        }`}
-    >
-      <div className="px-[12px] h-[3rem] md:h-[4.4rem] flex justify-between">
-        <div className="flex lg:flex-1 md:mb-[10px]">
-          <div className="flex md:hidden">
-            <MenuBar />
-          </div>
-          <Logo />
-        </div>
-
-        <div className="flex-1 flex items-center justify-end">
-          {renderSearchForm()}
-          <div className="block md:hidden"> <SearchDropdown></SearchDropdown></div>
-          <WishlistDropDown />
-          {/* <StoreLocation /> */}
-          <AvatarDropdown />
-          <CartDropdown />
-        </div>
+    <>
+      <div className="w-full px-[15px] h-[30px] bg-black hidden md:flex justify-center items-center">
+        <h2 className=" text-[11px] text-white cursor-pointer font-normal hover:underline ">
+          Launch Discount <span className="font-bold">20%</span> off
+        </h2>
       </div>
-      <div className="w-full h-[1px] bg-gradient-to-r from-white via-black to-white"></div>
-      {/* <div className="h-12 flex md:hidden justify-center">
+      <div
+        className={`nc-MainNav2  z-40 sticky top-0 w-full transition-transform duration-300 bg-white dark:bg-slate-900 ${isVisible ? "translate-y-0" : "-translate-y-full"
+          }`}
+      >
+
+        <div className="px-[15px] h-[3rem] md:h-[4.4rem] flex justify-between">
+          <div className="flex lg:flex-1 md:mb-[10px]">
+            <div className="flex md:hidden">
+              <MenuBar />
+            </div>
+            <Logo />
+          </div>
+
+          <div className="flex-1 flex items-center justify-end">
+            {renderSearchForm()}
+            <div className="block md:hidden"> <SearchDropdown></SearchDropdown></div>
+            <WishlistDropDown />
+            {/* <StoreLocation /> */}
+            <AvatarDropdown />
+            <CartDropdown />
+          </div>
+        </div>
+        <div className="w-full h-[5px]  bg-black from-white via-black to-white"></div>
+        {/* <div className="h-12 flex md:hidden justify-center">
         <div className="lg:hidden md:hidden flex w-full">
           {renderSearchFormMobile()}
         </div>
       </div> */}
-      <div className="w-full px-[15px] h-12 border-b border-inputborder hidden md:flex justify-center">
-        <div className="lg:flex md:flex space-x-[30px] hidden w-full">
-          <MegaMenu disableDropdown={true} heading="shop all" onClick={() => {
-            router.push('/search')
-          }} />
-          <MegaMenu heading="sale" />
-          <MegaMenu heading="rings" />
-          <MegaMenu heading="bracelet" />
-          <MegaMenu heading="Necklace" />
-          <MegaMenu heading="pendants" />
-          <MegaMenu heading="All collections" />
-          <MegaMenu heading="earrings" />
-          <MegaMenu heading="new in" />
+        <div className="w-full px-[15px] h-12 border-b border-inputborder hidden md:flex justify-center">
+          <div className="lg:flex md:flex space-x-[20px] hidden w-full">
+            <MegaMenu disableDropdown={true} heading="shop all" onClick={() => {
+              router.push('/search')
+            }} />
+            <MegaMenu heading="sale" >
+              <MenuBody />
+            </MegaMenu>
+            <MegaMenu heading="rings" >
+              <MenuBody />
+            </MegaMenu>
+            <MegaMenu heading="bracelet" >
+              <MenuBody />
+            </MegaMenu>
+            <MegaMenu heading="Necklace" >
+              <MenuBody />
+            </MegaMenu>
+            <MegaMenu heading="pendants" >
+              <MenuBody />
+            </MegaMenu>
+            <MegaMenu heading="All collections" >
+              <MenuBody />
+            </MegaMenu>
+            <MegaMenu heading="earrings" >
+              <MenuBody />
+            </MegaMenu>
+            <MegaMenu heading="new in" >
+              <MenuBody />
+            </MegaMenu>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

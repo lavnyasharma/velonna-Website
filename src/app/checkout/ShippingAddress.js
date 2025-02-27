@@ -13,6 +13,7 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
   const [addresses, setAddresses] = useState([]);
   const [address, setAddress] = useState({});
 
+
   useEffect(() => {
     const fetchAddresses = async () => {
       try {
@@ -35,13 +36,15 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
     }
   }, [addresses]);
 
+  useEffect(() => { }, [address])
   // Default state to hold the current address data
 
   const handleAddressSelect = (value) => {
     console.log(value);
     const selectedAddress = addresses.find((addr) => addr.id === value);
+
     setAddress({
-      id:selectedAddress.id,
+      id: selectedAddress.id,
       firstName: selectedAddress.first_name,
       lastName: selectedAddress.last_name,
       addressLine: selectedAddress.street_address,
@@ -50,7 +53,7 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
       country: selectedAddress.country,
       postalCode: selectedAddress.postal_code,
       state: selectedAddress.district,
-      addressType: selectedAddress.primary ? "Home" : "Other",
+      addressType: selectedAddress.primary ? "Home" : "",
     });
   };
 
@@ -64,9 +67,10 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
 
   const renderShippingAddress = () => {
     return (
-      <div className="border border-slate-200 dark:border-slate-700 rounded-xl">
-        <div className="p-6 flex flex-col sm:flex-row items-start">
-          <span className="hidden sm:block">
+      <div className="border-[0px] border-custom-blue dark:border-slate-700 ">
+        <div className="text-[32px] mb-4 pb-4 border-b-[0.5px] border-custom-blue font-bold uppercase">shipping details</div>
+        <div className="p-6 flex flex-col sm:flex-row bg-custom-grey">
+          {/* <span className="hidden sm:block">
             <svg
               className="w-6 h-6 text-slate-700 dark:text-slate-400 mt-0.5"
               viewBox="0 0 24 24"
@@ -109,40 +113,28 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
                 strokeLinejoin="round"
               />
             </svg>
-          </span>
+          </span> */}
 
-          <div className="sm:ml-8">
+          <div className="">
             <h3 className="text-slate-700 dark:text-slate-300 flex">
-              <span className="uppercase">SHIPPING ADDRESS</span>
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2.5"
-                stroke="currentColor"
-                className="w-5 h-5 ml-3 text-slate-900 dark:text-slate-100"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
-              </svg>
+              <span className="uppercase text-[16px]">SHIPPING ADDRESS</span>
             </h3>
-            <div className="font-semibold mt-1 text-sm">
-              <span>{`${address.addressLine}, ${address.city}, ${address.state}, ${address.postalCode}, ${address.country}`}</span>
+            <div className="font-semibold mt-1 text-[12px] text-sm flex flex-col">
+              <span>{Object.keys(address).length !== 0 && `${address.addressLine}, ${address.city}, ${address.state}, ${address.postalCode}, ${address.country}`}</span>
+              <span>Contact: {Object.keys(address).length !== 0 && `${address.phone_number}`}</span>
             </div>
           </div>
           <button
             className="py-2 px-4 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 mt-5 sm:mt-0 sm:ml-auto text-sm font-medium rounded-lg"
             onClick={handleSelectAddress}
           >
-            Change
+            Edit
           </button>
         </div>
 
         {/* Address Radio Buttons */}
-        <div className="p-6">
-          <Label className="text-sm">Select Address</Label>
+        <div className="p-6 bg-custom-grey">
+          <Label className="text-sm">Saved Address</Label>
           <div className="space-y-2">
             {addresses.map((addressOption) => (
               <div
@@ -152,49 +144,51 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
                 <Radio
                   name="address"
                   value={addressOption.id}
-                  checked={address.id === addressOption.id}
+                  defaultChecked={address?.id && String(address.id) === String(addressOption.id)}
                   onChange={() => {
                     handleAddressSelect(addressOption.id);
                   }}
                 />
                 <span className="text-sm">
-                  {addressOption.street_address}, {addressOption.city}
+                  {addressOption.street_address}, {addressOption.city},{address.id},{addressOption.id}
                 </span>
               </div>
             ))}
+            <ButtonPrimary onClick={handleSelectAddress} className="text-sm w-full">Add New</ButtonPrimary>
           </div>
         </div>
 
         {/* Form for editing address (visible when isActive is true) */}
         {isActive && (
-          <div className="border-t border-slate-200 dark:border-slate-700 px-6 py-7 space-y-4 sm:space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-3">
-              <div>
-                <Label className="text-sm">First name</Label>
-                <Input
-                  className="mt-1.5"
-                  value={address.firstName}
-                  onChange={(e) =>
-                    setAddress({ ...address, firstName: e.target.value })
-                  }
-                />
-              </div>
-              <div>
-                <Label className="text-sm">Last name</Label>
-                <Input
-                  className="mt-1.5"
-                  value={address.lastName}
-                  onChange={(e) =>
-                    setAddress({ ...address, lastName: e.target.value })
-                  }
-                />
-              </div>
-            </div>
+          <div className="border-t border-slate-200 dark:border-slate-700 py-7 space-y-4 sm:space-y-6">
 
-            <div className="mt-4">
-              <Label className="text-sm">Address Line</Label>
+            <div>
+
               <Input
                 className="mt-1.5"
+                label="First name"
+                value={address.firstName}
+                onChange={(e) =>
+                  setAddress({ ...address, firstName: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <Input
+                className="mt-1.5"
+                label="Last name"
+                value={address.lastName}
+                onChange={(e) =>
+                  setAddress({ ...address, lastName: e.target.value })
+                }
+              />
+            </div>
+
+
+            <div className="mt-4">
+              <Input
+                className="mt-1.5"
+                label="Address Line"
                 value={address.addressLine}
                 onChange={(e) =>
                   setAddress({ ...address, addressLine: e.target.value })
@@ -203,9 +197,9 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
             </div>
 
             <div className="mt-4">
-              <Label className="text-sm">Phone Number</Label>
               <Input
                 className="mt-1.5"
+                label="Phone Number"
                 value={address.phone_number}
                 onChange={(e) =>
                   setAddress({ ...address, phone_number: e.target.value })
@@ -213,72 +207,74 @@ const ShippingAddress = ({ isActive, onCloseActive, onOpenActive }) => {
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-3 mt-4">
-              <div>
-                <Label className="text-sm">City</Label>
-                <Input
-                  className="mt-1.5"
-                  value={address.city}
-                  onChange={(e) =>
-                    setAddress({ ...address, city: e.target.value })
-                  }
-                />
-              </div>
-              <div>
-                <Label className="text-sm">State</Label>
-                <Input
-                  className="mt-1.5"
-                  value={address.state}
-                  onChange={(e) =>
-                    setAddress({ ...address, state: e.target.value })
-                  }
-                />
-              </div>
+
+            <div>
+              <Input
+                className="mt-1.5"
+                label="City"
+                value={address.city}
+                onChange={(e) =>
+                  setAddress({ ...address, city: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <Input
+                label="State"
+                className="mt-1.5"
+                value={address.state}
+                onChange={(e) =>
+                  setAddress({ ...address, state: e.target.value })
+                }
+              />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-3 mt-4">
-              <div>
-                <Label className="text-sm">Postal Code</Label>
-                <Input
-                  className="mt-1.5"
-                  value={address.postalCode}
-                  onChange={(e) =>
-                    setAddress({ ...address, postalCode: e.target.value })
-                  }
-                />
-              </div>
-              <div>
-                <Label className="text-sm">Country</Label>
-                <Input
-                  className="mt-1.5"
-                  value={address.country}
-                  onChange={(e) =>
-                    setAddress({ ...address, country: e.target.value })
-                  }
-                />
-              </div>
+
+
+            <div>
+              <Input
+                className="mt-1.5"
+                label="Postal Code"
+                value={address.postalCode}
+                onChange={(e) =>
+                  setAddress({ ...address, postalCode: e.target.value })
+                }
+              />
             </div>
+            <div>
+              <Input
+                className="mt-1.5"
+                label="Country"
+                value={address.country}
+                onChange={(e) =>
+                  setAddress({ ...address, country: e.target.value })
+                }
+              />
+            </div>
+
 
             <div className="mt-4">
-              <Label className="text-sm">Address Type</Label>
+
               <Select
                 className="mt-1.5"
+                label="Address Type"
                 value={address.addressType}
                 onChange={(e) =>
                   setAddress({ ...address, addressType: e.target.value })
                 }
               >
+                <option value="" disabled selected>Select your option</option>
                 <option value="Home">Home</option>
                 <option value="Office">Office</option>
                 <option value="Other">Other</option>
               </Select>
             </div>
 
-            <div className="mt-6 flex space-x-4">
-              <ButtonPrimary className="text-sm" onClick={handleSaveAddress}>
+            <div className="mt-6 space-y-2">
+              <ButtonPrimary className="text-sm w-full" onClick={handleSaveAddress}>
                 Save Address
               </ButtonPrimary>
-              <ButtonSecondary className="text-sm" onClick={onCloseActive}>
+              <ButtonSecondary className="text-sm w-full" onClick={onCloseActive}>
                 Cancel
               </ButtonSecondary>
             </div>

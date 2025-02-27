@@ -22,9 +22,9 @@ const info = [
   },
 ];
 
-const PageContact = ({}) => {
+const PageContact = ({ }) => {
   return (
-    <div className={`nc-PageContact overflow-hidden`} style={{marginBottom:"20px"}}>
+    <div className={`nc-PageContact overflow-hidden`} style={{ marginBottom: "20px" }}>
       <div className="">
         <h2 className="my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
           Contact
@@ -52,18 +52,20 @@ const PageContact = ({}) => {
             <div>
               <form className="grid grid-cols-1 gap-6" action="#" method="post">
                 <label className="block">
-                  <Label>Full name</Label>
+
 
                   <Input
+                    label={"name"}
                     placeholder="Example Doe"
                     type="text"
                     className="mt-1"
                   />
                 </label>
                 <label className="block">
-                  <Label>Email address</Label>
+
 
                   <Input
+                    label="Email"
                     type="email"
                     placeholder="example@example.com"
                     className="mt-1"
@@ -83,7 +85,7 @@ const PageContact = ({}) => {
         </div>
       </div>
 
-   
+
     </div>
   );
 };

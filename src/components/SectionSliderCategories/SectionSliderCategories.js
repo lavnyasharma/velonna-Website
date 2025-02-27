@@ -34,7 +34,7 @@ const SectionSliderCategories = ({
 
     const OPTIONS = {
       type: "carousel",
-      perView: 8,
+      perView: 5,
       gap: 10,
       dragThreshold: 20,
       rewind: true,
@@ -65,7 +65,7 @@ const SectionSliderCategories = ({
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides  shadow-lg">
             {categoriesData.map((item, index) => (
-              <ScrollAnimation animationStyle="from-left" duration={`${index * 100 + 200 > 900 ? 500 : index * 100 + 200}ms`}>
+              <ScrollAnimation animationStyle="from-left" duration={`${index * 100 + 200 > 500 ? 200 : index * 100 + 200}ms`}>
                 <li key={index} className={`m-0 glide__slide ${itemClassName} `}>
                   <CardCategory2
                     featuredImage={item.icon}

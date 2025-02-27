@@ -28,9 +28,9 @@ const widgetMenus = [
     id: "3",
     title: "Company",
     menus: [
-      { href: "/", label: "About Us" },
-      { href: "/", label: "Contact Us" },
-      { href: "/", label: "Live Chat" },
+      { href: "/about", label: "About Us" },
+      { href: "/contact", label: "Contact Us" },
+     
     ],
   },
 ];
@@ -112,11 +112,8 @@ const Footer = () => {
 
       <div className="">
         <div className="font-normal md:justify-between uppercase text-black flex-row justify-start items-start text-[12px] space-y-2 md:space-y-4 sm:space-y-0 pt-4 sm:pt-0">
-          <div className="text-custom-blue text-[15px] font-semibold">
-            <p>&copy; 2025 VelonnaCo All Rights Reserved.</p>
-          </div>
-          <div className="text-custom-blue text-[15px] font-semibold">
-            <p>made with ❤️ in India</p>
+          <div className="text-custom-blue items-center flex text-[15px] font-semibold">
+            <p>&copy; 2025 Velonna Jewels Private Limited All Rights Reserved.</p>
           </div>
           <div className="text-custom-blue text-[10px]">
             <p>Designed by <span className="text-[#4691f6] font-bold">Concric</span></p>

@@ -2,7 +2,7 @@
 
 import Glide from "@glidejs/glide/dist/glide.esm";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ScrollAnimation from "./ScrollAnimation";
 import Logo from "@/shared/Logo/Logo";
 import logoImg from "@/images/logo.svg";
@@ -23,6 +23,7 @@ const GenericVideoBanner = ({
 }) => {
   const sliderRef = useRef(null);
   const glideRef = useRef(null); // Store Glide instance
+  const [loadedVideos, setLoadedVideos] = useState(new Set()); // Track loaded videos
 
   useEffect(() => {
     if (!sliderRef.current || banners.length === 0) return;
@@ -42,19 +43,15 @@ const GenericVideoBanner = ({
             perView: 4,
           },
           1024: {
-
             perView: 3,
           },
           768: {
-
             perView: 3,
           },
           640: {
-
             perView: 3,
           },
           500: {
-
             perView: 3,
           },
         },
@@ -71,6 +68,27 @@ const GenericVideoBanner = ({
     };
   }, [glideRef]); // Watch for changes to `banners`
 
+  useEffect(() => {
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setLoadedVideos((prev) => new Set(prev).add(entry.target.dataset.index));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.01, // Load video when 50% of it is visible
+    });
+
+    const videoElements = document.querySelectorAll(".lazy-video");
+    videoElements.forEach((video) => observer.observe(video));
+
+    return () => {
+      videoElements.forEach((video) => observer.unobserve(video));
+    };
+  }, []);
+
   return (
     <div className={`glide w-full relative ${className}`} ref={sliderRef}>
       <div className="space-y-[-30px] md:space-y-[-50px] px-[20px] md:px-20 mb-[20px]">
@@ -79,43 +97,46 @@ const GenericVideoBanner = ({
           <Image
             className={`h-16 md:h-36 w-auto `}
             src={logoImg}
+            loading="lazy"
             alt="Logo"
             style={{ maxWidth: "inherit" }}
-            priority
+            
           />
         </ScrollAnimation>
-
-
       </div>
       {/* Track and Slides */}
 
       <div className="glide__track" data-glide-el="track">
-
         <ul className="glide__slides">
           {banners.map((banner, index) => (
-              <li key={index} className="glide__slide">
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    aspectRatio, // Respect aspect ratio
-                  }}
-                >
+            <li key={index} className="glide__slide">
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  aspectRatio, // Respect aspect ratio
+                }}
+              >
+                {loadedVideos.has(String(index)) ? (
                   <video
                     src={banner}
                     loop
+                    loading="lazy"
                     playsInline
                     muted
                     autoPlay
                     className="w-full h-full object-cover"
                   />
-
-                </div>
-              </li>
+                ) : (
+                  <div
+                    className="lazy-video bg-gray-200 w-full h-full"
+                    data-index={index}
+                  ></div>
+                )}
+              </div>
+            </li>
           ))}
-
         </ul>
-
       </div>
       {/* Optional Dots */}
       {showDots && banners.length > 1 && (

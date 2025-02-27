@@ -6,7 +6,7 @@ import React, { FC } from "react";
 const Prices = ({
   className = "",
   price = 33,
-  contentClass = "py-1 text-sm font-medium",
+  contentClass = "py-1 text-sm font-normal",
 }) => {
   return (
     <div className={`${className}`}>

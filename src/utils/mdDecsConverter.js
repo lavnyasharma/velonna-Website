@@ -35,7 +35,6 @@ const convertMarkdownToHtml = (markdown) => {
       } else {
         htmlContent = `<p>${htmlContent}</p>`; // Wrap in <p> tags if no lists
       }
-      console.log(marked(content))
       return {
         name: sectionTitle,
         content: `${marked(content)}` // Only the content, not the redundant title again

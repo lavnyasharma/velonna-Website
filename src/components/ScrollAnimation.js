@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const ScrollAnimation = ({ children, animationStyle, className, threshold = 0.2, duration = "500ms" }) => {
+const ScrollAnimation = ({ children, animationStyle, className, threshold = 0.01, duration = "100ms" }) => {
   const elementRef = useRef(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
@@ -18,6 +18,7 @@ const ScrollAnimation = ({ children, animationStyle, className, threshold = 0.2,
         }
       },
       {
+        rootMargin:"10px",
         threshold,
       }
     );

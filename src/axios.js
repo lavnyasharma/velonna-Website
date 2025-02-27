@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // Configurations
 const BASE_URL = "https://api.velonna.co/";
+const TEST_URL = "http://127.0.0.1:8000/";
 
 let shouldRefreshToken = false; // Flag to enable/disable token refreshing
 

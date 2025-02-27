@@ -652,12 +652,31 @@ function ProductScreen() {
   //   );
   // };
 
+
+  const CollapsableBar = ({ children, state = false, title }) => {
+    const [isOpen, setIsOpen] = useState(state);
+    return (
+      <div className="py-[30px] overflow-hidden border-b border-custom-blue ">
+        <div onClick={() => {
+          setIsOpen(!isOpen)
+        }} className="flex group justify-between items-center cursor-pointer">
+          <div className="text-[18px] select-none uppercase text-custom-blue font-normal">{title}</div>
+          <div className="text-[40px] select-none font-light text-custom-blue">{isOpen ? "-" : "+"}</div>
+        </div>
+        <div className={`${isOpen ? "h-max mt-[20px]" : "h-0"}  overflow-hidden px-[5px]`}>
+          {children}
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       {hsnProduct ? (
-        <div className={`ListingDetailPage nc-ProductDetailPage2`}>
-          <>
-            <header className="">
+        <div className={`ListingDetailPage nc-ProductDetailPage2 `}>
+
+
+          <div className="md:flex pt-4 md:flex-row pb-[100px]">
+            <div className="">
               <div className="relative">
                 {/* Mobile: Swiper Carousel */}
                 <div className="block md:hidden relative">
@@ -668,105 +687,200 @@ function ProductScreen() {
                 </div>
 
                 {/* Desktop: Grid Layout */}
-                <div className="hidden px-[15px] md:grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
+
+              </div>
+            </div>
+
+            {/* Desktop: Grid Layout */}
+            <div className="hidden w-[70%] md:block">
+              <div className="hidden sticky top-5 pr-[15px] pl-[80px] gap-[30px] md:grid grid-cols-2">
+                {/* <div
+                className="md:h-full col-span-2 md:col-span-1 row-span-2 relative cursor-pointer"
+                onClick={handleOpenModalImageGallery}
+              >
+                <NcImage
+                  alt="first"
+                  containerClassName="aspect-w-3 aspect-h-4 relative md:aspect-none md:absolute md:inset-0"
+                  className="object-cover px-15px"
+                  src={hsnProduct?.images[0]?.image}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity "></div>
+              </div>
+
+              <div
+                className="col-span-1 row-span-2 relative  overflow-hidden z-0 cursor-pointer"
+                onClick={handleOpenModalImageGallery}
+              >
+                <NcImage
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  containerClassName="absolute inset-0"
+                  className="object-cover w-full h-full "
+                  src={hsnProduct?.images[1]?.image}
+                />
+                <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity"></div>
+              </div>
+
+              {[
+                hsnProduct?.images[2]?.image || "",
+                hsnProduct?.images[3]?.image || "",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className={`relative  overflow-hidden z-0`}
+                >
+                  <NcImage
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    containerClassName="aspect-w-6 aspect-h-5 lg:aspect-h-4"
+                    className="object-cover w-full h-full "
+                    src={item || ""}
+                  />
                   <div
-                    className="md:h-full col-span-2 md:col-span-1 row-span-2 relative cursor-pointer"
+                    className="absolute inset-0 bg-slate-900/20 opacity-0 transition-opacity cursor-pointer"
+                    onClick={handleOpenModalImageGallery}
+                  />
+                </div>
+              ))} */}
+
+                {hsnProduct?.images.map((image, index) => {
+                  return <div
+                    className="relative  aspect-1 cursor-pointer"
                     onClick={handleOpenModalImageGallery}
                   >
                     <NcImage
                       alt="first"
-                      containerClassName="aspect-w-3 aspect-h-4 relative md:aspect-none md:absolute md:inset-0"
-                      className="object-cover px-15px"
-                      src={hsnProduct?.images[0]?.image}
+                      containerClassName="aspect-1"
+                      className="object-fit px-15px"
+                      src={image?.image}
                       fill
                       sizes="(max-width: 640px) 100vw, 50vw"
                       priority
                     />
                     <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity "></div>
                   </div>
+                })}
+              </div>
+            </div>
 
-                  <div
-                    className="col-span-1 row-span-2 relative  overflow-hidden z-0 cursor-pointer"
-                    onClick={handleOpenModalImageGallery}
-                  >
-                    <NcImage
-                      alt=""
-                      fill
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      containerClassName="absolute inset-0"
-                      className="object-cover w-full h-full "
-                      src={hsnProduct?.images[1]?.image}
-                    />
-                    <div className="absolute inset-0 bg-neutral-900/20 opacity-0 hover:opacity-40 transition-opacity"></div>
-                  </div>
 
-                  {[
-                    hsnProduct?.images[2]?.image || "",
-                    hsnProduct?.images[3]?.image || "",
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className={`relative  overflow-hidden z-0`}
-                    >
-                      <NcImage
-                        alt=""
-                        fill
-                        sizes="(max-width: 640px) 100vw, 33vw"
-                        containerClassName="aspect-w-6 aspect-h-5 lg:aspect-h-4"
-                        className="object-cover w-full h-full "
-                        src={item || ""}
-                      />
-                      <div
-                        className="absolute inset-0 bg-slate-900/20 opacity-0 transition-opacity cursor-pointer"
-                        onClick={handleOpenModalImageGallery}
-                      />
-                    </div>
-                  ))}
+
+
+            {/* MAIn */}
+            <div className="w-[100%] relative px-[15px] md:w-[30%] md:pl-[15px] md:pr-[80px] leading-7">
+              <div className="sticky top-5">
+                <h2 className="font-bold uppercase text-[#71706c] text-[12px]">{hsnProduct?.category?.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')}
+                </h2>
+                <h2 className="font-bold text-[28px]">{hsnProduct?.title?.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')}
+                </h2>
+                <h2 className="font-normal py-[10px] text-[20px]">
+                  ₹{hsnProduct?.price?.toLocaleString('en-IN')}
+                </h2>
+
+
+                <div className="leading-4">
+                  <h2 className="underline uppercase select-none font-normal text-[10px]">silver</h2>
+                  <h2 className=" uppercase select-none font-normal text-[10px]">product code: {hsnProduct.hsn}</h2>
+                  <h2 className=" pb-0 uppercase select-none font-bold text-[10px]">exclusive of all taxes</h2>
+
                 </div>
 
-                {/* Show all photos button */}
-                <div
-                  className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-white text-slate-500 cursor-pointer hover:bg-slate-200 z-10"
-                  onClick={handleOpenModalImageGallery}
+                {hsnProduct.quantity > 0 ? <ButtonPrimary
+                  fontSize="text-[16px]"
+                  sizeClass="py-2"
+                  className="flex-1 flex-shrink-0 w-full mb-[10px]"
+                  onClick={handleAddToCart}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                    />
-                  </svg>
-                  <span className="ml-2 text-neutral-800 text-sm font-medium">
-                    Show all photos
-                  </span>
+                  <span className=" uppercase tracking-wide ">Add to bag</span>
+                </ButtonPrimary> : <ButtonPrimary disabled
+                  className="flex-1 flex-shrink-0 w-full"
+                >
+                  <span className="uppercase tracking-wide">Out Of Stock</span>
+                </ButtonPrimary>}
+                <ButtonPrimary
+                  fontSize="text-[16px]"
+                  sizeClass="py-2"
+                  className="flex-1 flex-shrink-0 w-full border border-custom-blue hover:bg-white bg-transparent group hover:text-white"
+                  onClick={handleAddToCart}
+                >
+
+                  <span className=" uppercase tracking-wide text-custom-blue ">Add to wishlist</span>
+                </ButtonPrimary>
+                <CollapsableBar title={"product details"} state={true}>
+                  <h2 className="text-[12px] underline uppercase">About This Product</h2>
+                  <p className="text-[10px]">
+                    Crafted with premium quality 925 sterling silver, this piece offers a timeless elegance that complements any style. Its sophisticated design ensures durability and versatility, making it perfect for both casual and formal occasions.
+                  </p>
+                  <h3 className="text-[12px] underline uppercase">Material & Quality</h3>
+                  <ul className="text-[10px] list-disc px-[10px]">
+                    <li>Made from 92.5% pure silver, known for its strength and shine.</li>
+                    <li>Nickel-free and hypoallergenic, ensuring it's safe for sensitive skin.</li>
+                    <li>Designed to resist tarnishing and maintain its luster with proper care.</li>
+                  </ul>
+                  <h3 className="text-[12px] underline uppercase">Care Tips</h3>
+                  <ul className="text-[10px] list-disc">
+                    <li>Avoid direct exposure to chemicals like perfumes, hairsprays, and household cleaners.</li>
+                    <li>Store in a cool, dry place, ideally in an airtight pouch or box.</li>
+                    <li>Clean gently with a soft, lint-free cloth to restore its shine.</li>
+                    <li>Avoid wearing during activities like swimming, gym, or heavy-duty tasks.</li>
+                  </ul>
+                  <h3 className="text-[12px] underline uppercase">Why Choose 925 Sterling Silver?</h3>
+                  <ul className="text-[10px] list-disc">
+                    <li>Durable and designed to last for years with proper care.</li>
+                    <li>Perfect for gifting, offering a blend of quality and elegance.</li>
+                    <li>A sustainable and timeless choice for jewelry enthusiasts.</li>
+                  </ul>
+                  <p className="text-[10px]">
+                    Add this exquisite 925 sterling silver piece to your collection and let its charm and quality elevate your style.
+                  </p>
+                </CollapsableBar>
+                <CollapsableBar title="shipping and return ">
+
+                  <div className="">
+
+                    <div className="">
+                      <h3 className="text-[12px] font-normal underline uppercase">Standard Shipping</h3>
+                      <ul className="list-disc pl-5">
+                        <li className="font-normal text-[10px]">Arrives in 2-4 business days.</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="text-[12px] font-normal underline uppercase">Returns</h3>
+                      <ul className="list-disc text-[10px] pl-5">
+                        <li><span className=" text-[10px] font-bold">Free and easy</span> returns.</li>
+                        <li className="font-normal text-[10px]">Prepaid return label included.</li>
+                      </ul>
+                      <h3 className="text-[12px] font-normal underline uppercase">cancellation</h3>
+                      <ul className="list-disc text-[10px] pl-5">
+                        <li><span className=" text-[10px] font-bold">Free and easy</span> cancellation.</li>
+                        <li className="font-normal text-[10px]">Prepaid return label included.</li>
+                      </ul>
+                    </div>
+
+                  </div></CollapsableBar>
+              </div>
+              {/* CONTENT */}
+              {/* <div className="w-full md:pl-[15px] lg:w-3/5 xl:w-2/3 space-y-10 lg:pr-14 lg:space-y-14">
+                {renderSection1()}
+                {renderSection2()}
+              </div> */}
+
+              {/* SIDEBAR */}
+              {/* <div className="flex-grow">
+                <div className="hidden pr-[15px] lg:block sticky top-28">
+                  {renderSectionSidebar()}
                 </div>
-              </div>
-            </header>
-          </>
+              </div> */}
 
-          {/* MAIn */}
-          <main className="custom-container relative z-10 mt-9 sm:mt-11 flex ">
-            {/* CONTENT */}
-            <div className="w-full pl-[15px] lg:w-3/5 xl:w-2/3 space-y-10 lg:pr-14 lg:space-y-14">
-              {renderSection1()}
-              {renderSection2()}
+
+
             </div>
-
-            {/* SIDEBAR */}
-            <div className="flex-grow">
-              <div className="hidden pr-[15px] lg:block sticky top-28">
-                {renderSectionSidebar()}
-              </div>
-            </div>
-          </main>
-
+          </div>
           {/* OTHER SECTION */}
           {/* <div className="custom-container pb-24 lg:pb-28 pt-14 space-y-14">
             {renderReviews()}
@@ -778,7 +892,22 @@ function ProductScreen() {
               data={recProducts ? recProducts : []}
             />
           </div> */}
-
+          <div className="px-[15px] pb-[50px] space-y-9">
+            <SectionSliderProductCard
+              heading="Customers also purchased"
+              subHeading="Products you might like"
+              headingFontClassName="text-[30px] uppercase font-normal"
+              headingClassName="mb-10 text-neutral-900 dark:text-neutral-50"
+              data={recProducts ? recProducts : []}
+            />
+             <SectionSliderProductCard
+              heading="similar products"
+              subHeading="Products you might like"
+              headingFontClassName="text-[30px] uppercase font-normal"
+              headingClassName="mb-10 text-neutral-900 dark:text-neutral-50"
+              data={recProducts ? recProducts : []}
+            />
+          </div>
           {/* MODAL VIEW ALL REVIEW */}
           <ModalViewAllReviews
             show={isOpenModalViewAllReviews}

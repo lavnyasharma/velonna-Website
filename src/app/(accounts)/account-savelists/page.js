@@ -1,3 +1,4 @@
+"use client"
 import ProductCard from "@/components/ProductCard";
 import { PRODUCTS } from "@/data/data";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";

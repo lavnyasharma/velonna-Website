@@ -25,11 +25,10 @@ const PageHome = async () => {
   const rdata = resr.data.results;
   const resrd = await axios.get("https://api.velonna.co/ecom/product/list/?category=9");
   const sdata = resrd.data.results;
-
+  
   return (
     <div className="nc-PageHome antialiased pb-[60px] relative overflow-hidden">
       {/* <Snowfall></Snowfall> */}
-
       <GenericBannerSlider banners={[
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannerdesktop/6.jpg",
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannerdesktop/8.jpg",
@@ -44,15 +43,17 @@ const PageHome = async () => {
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannersmobile/V2/3.jpg",
         "https://nfynnzntkgzwbdpaztbq.supabase.co/storage/v1/object/public/velonnamedia/bannersmobile/V2/2.jpg",
 
-      ]} mobileAspectRatio={"3/5"} type={"carousel"} className="px-[15px] mb-[60px] md:mb-[100px]" aspectRatio="20/9" showDots={true} />
+      ]}
+        showBannerText={true}
+        mobileAspectRatio={"3/5"} type={"carousel"} className="px-[15px] mb-[60px] md:mb-[100px]" aspectRatio="20/9" showDots={true} />
 
-      <div className="relative px-[15px] space-y-[60px] md:space-y-[100px] bg-white">
+      <div className="relative px-[15px] space-y-[50px] md:space-y-[80px] bg-white">
 
         <SectionSliderCategories heading={"explore collections"} />
 
         <VideoBanners />
 
-        <SectionSliderProductCard subHeading={"explore our best products"} heading={"Explore"} className="md:mx-20" data={sdata} />
+        <SectionSliderProductCard headingFontClassName={"text-[40px] PanD-Regular uppercase md:text-[28px] font-thin"} subHeading={"explore our best products"} heading={"Explore"} className="md:mx-20" data={sdata} />
 
         <GenericBannerSlider displayheading={true} banners={[
           "https://pldwzgpchvgtdycyfaky.supabase.co/storage/v1/object/public/velonnabucket/banner/mens/Gold%20............%20(2).jpg",
