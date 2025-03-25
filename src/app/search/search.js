@@ -63,9 +63,9 @@ const Search = () => {
   return (
       <div className="nc-PageSearch flex">
         {/* Sidebar Section */}
-        <div className="sticky top-0 hidden md:block h-screen hiddenScrollbar overflow-auto w-1/4 bg-white ">
+        {/* <div className="sticky top-0 hidden md:block h-screen hiddenScrollbar overflow-auto w-1/4 bg-white ">
           <FiltersSidebar />
-        </div>
+        </div> */}
 
         {/* Product Section */}
         <div className="flex-1 p-2 md:p-6">

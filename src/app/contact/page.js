@@ -10,7 +10,7 @@ import BackgroundSection from "@/components/BackgroundSection/BackgroundSection"
 const info = [
   {
     title: "🗺 ADDRESS",
-    desc: "HN 41 A/D GANDHI NAGAR, JAMMU, JAMMMU & KASHMIR, 180004",
+    desc: "VELONNA JEWELS PRIVATE LIMITED HN 41 A/D GANDHI NAGAR, JAMMU, JAMMMU & KASHMIR, 180004",
   },
   {
     title: "💌 EMAIL",

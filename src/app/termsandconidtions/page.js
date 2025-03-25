@@ -129,14 +129,21 @@ const AboutUs11_Kfxl1SBn = () => {
       </p>
 
       <h2>Section 20 - Contact Information</h2>
+      <p>Our Address</p>
+      <p>
+        <b>VELONNA JEWELS PRIVATE LIMITED</b><br />
+        HN 41 A/D GANDHI NAGAR,
+        <br /> JAMMU, <br />JAMMMU & KASHMIR,
+        <br /> 180004
+      </p>
+
       <p>
         If you have any questions about these Terms of Service, please contact us at:
         <br />
-        Email: [Your Email]
+        Email: info@velonna.co
         <br />
-        Phone: [Your Phone Number]
-        <br />
-        Mailing Address: [Your Address]
+        Phone: +91 97965-13766
+
       </p>
     </Container>
   );
